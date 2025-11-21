@@ -40,6 +40,9 @@ sudo nvram StartupMute=%01
 # Menu bar: show battery percentage
 defaults write com.apple.menuextra.battery ShowPercent YES
 
+# Menu bar: format date/time display (01 Jan 12:34:56 )
+defaults write com.apple.menuextra.clock "DateFormat" -string "\"dd MMM HH:mm:ss\""
+
 # Disable opening and closing window animations
 defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
 
@@ -48,6 +51,18 @@ defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
 # Disable the “Are you sure you want to open this application?” dialog
 defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+# group windows by application
+defaults write com.apple.dock "expose-group-apps" -bool "true"
+
+# do not autogather large files when submitting a report
+defaults write com.apple.appleseed.FeedbackAssistant "Autogather" -bool "false"
+
+# disable rich text
+defaults write com.apple.TextEdit "RichText" -bool "false"
+
+# disable Apple Intelligence
+defaults write com.apple.CloudSubscriptionFeatures.optIn "545129924" -bool "false"
 
 ###############################################################################
 # Keyboard & Input                                                            #
@@ -151,6 +166,12 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
+# set icon view
+defaults write com.apple.finder "FXPreferredViewStyle" -string "icnv"
+
+# remove trash after 30 days
+defaults write com.apple.finder "FXRemoveOldTrashItems" -bool "true"
+
 ###############################################################################
 # Dock                                                                        #
 ###############################################################################
@@ -207,9 +228,15 @@ defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -bool true
 defaults write com.apple.commerce AutoUpdate -bool true
 
 ###############################################################################
+# Safari                                                  #
+###############################################################################
+
+defaults write com.apple.Safari "ShowFullURLInSmartSearchField" -bool "true"
+
+###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
 
-for app in "Address Book" "Calendar" "Contacts" "Dock" "Finder" "Mail" "Safari" "SystemUIServer" "iCal"; do
+for app in "Address Book" "Calendar" "Contacts" "Dock" "Finder" "Mail" "Safari" "SystemUIServer" "iCal" "TextEdit"; do
   killall "${app}" &>/dev/null
 done
