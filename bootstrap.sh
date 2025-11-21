@@ -9,9 +9,10 @@ OS="$(uname)"
 rsync -av --exclude='*/' "$DOTFILES_DIR/bash/" "$HOME/"
 
 if [[ "$OS" == "Darwin" ]]; then
-  # run homebrew install.sh, add homebrew to path, set system preferences
+  # run homebrew install.sh, add homebrew to path, set dock, set system preferences
   source "$DOTFILES_DIR/homebrew/install.sh"
   source "$DOTFILES_DIR/homebrew/path.sh"
+  bash "$DOTFILES_DIR/macos/dock.sh"
   source "$DOTFILES_DIR/macos/defaults.sh"
 
 # elif [[ "$OS" == "Linux" ]]; then
