@@ -1,0 +1,4 @@
+brew "dockutil"
+brew "fastfetch"
+brew "git"
+brew "node"
