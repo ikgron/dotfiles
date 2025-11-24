@@ -1,4 +1,4 @@
-# casks
+cask "battery"
 cask "bitwarden"
 cask "cryptomator"
 cask "iterm2"

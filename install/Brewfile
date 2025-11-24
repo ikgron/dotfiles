@@ -1,3 +1,4 @@
+brew "bash-completion@2"
 brew "dockutil"
 brew "fastfetch"
 brew "git"

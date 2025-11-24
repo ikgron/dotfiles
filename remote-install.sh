@@ -3,7 +3,7 @@
 SOURCE="https://codeberg.org/parser/dotfiles"
 TARBALL="$SOURCE/archive/refs/heads/main.tar.gz"
 TARGET="$HOME/Projects/dotfiles"
-TAR_CMD="tar -xzv -C "$TARGET" --strip-components=1 --exclude='{.gitignore}'"
+TAR_CMD="tar -xzv -C "$TARGET" --strip-components=1 --exclude='{.gitignore}' --exclude='assets/*'"
 
 is_executable() {
   type "$1" >/dev/null 2>&1

@@ -47,7 +47,7 @@ brew bundle --file="$DOTFILES_DIR/install/Caskfile" --cask
 # install extensions from Codefile
 while IFS= read -r extension; do
   if [[ ! -z "$extension" ]]; then
-    codium --install-extension "$extension"
+    codium --install-extension "$extension" --force
   fi
 done <"$DOTFILES_DIR/install/Codefile"
 
