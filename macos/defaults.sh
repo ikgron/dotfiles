@@ -17,7 +17,7 @@ done 2>/dev/null &
 # Computer & Host name                                                        #
 ###############################################################################
 
-# Set computer name (as done via System Preferences → Sharing)
+# Set computer name
 sudo scutil --set ComputerName "$COMPUTER_NAME"
 sudo scutil --set HostName "$COMPUTER_NAME"
 sudo scutil --set LocalHostName "$COMPUTER_NAME"
@@ -191,6 +191,6 @@ defaults write com.apple.commerce AutoUpdate -bool true
 # Kill affected applications                                                  #
 ###############################################################################
 
-for app in "Address Book" "Calendar" "Contacts" "Dock" "Finder" "Mail" "Safari" "SystemUIServer" "iCal" "TextEdit"; do
+for app in "Calendar" "Contacts" "Dock" "Finder" "Mail" "Safari" "SystemUIServer" "TextEdit"; do
   killall "${app}" &>/dev/null
 done

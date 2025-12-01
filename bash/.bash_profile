@@ -1,6 +1,6 @@
 # add `~/bin` to `$PATH`
 if [ -d "$HOME/bin" ]; then
-	export PATH="$HOME/bin:$PATH"
+  export PATH="$HOME/bin:$PATH"
 fi
 
 # load dotfiles
@@ -24,4 +24,4 @@ shopt -s cdspell
 __git_complete g __git_main
 
 # add `killall` tab completion for common apps
-complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari SystemUIServer Terminal" killall;
+complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari SystemUIServer Terminal" killall
