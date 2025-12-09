@@ -39,17 +39,10 @@ fi
 brew update
 
 # install brews from Brewfile
-brew bundle --file="$DOTFILES_DIR/install/Brewfile"
+brew bundle --file="$DOTFILES_DIR/homebrew/Brewfile"
 
 # install casks from Caskfile
-brew bundle --file="$DOTFILES_DIR/install/Caskfile" --cask
-
-# install extensions from Codefile
-while IFS= read -r extension; do
-  if [[ ! -z "$extension" ]]; then
-    codium --install-extension "$extension" --force
-  fi
-done <"$DOTFILES_DIR/install/Codefile"
+brew bundle --file="$DOTFILES_DIR/homebrew/Caskfile" --cask
 
 brew upgrade
 brew cleanup

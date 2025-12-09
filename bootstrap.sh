@@ -23,6 +23,13 @@ else
   exit 1
 fi
 
+# install extensions from Codefile
+while IFS= read -r extension; do
+  if [[ ! -z "$extension" ]]; then
+    codium --install-extension "$extension" --force
+  fi
+done <"$DOTFILES_DIR/vscodium/Codefile"
+
 # source .bash_profile which sources everything else
 source "$HOME/.bash_profile"
 
