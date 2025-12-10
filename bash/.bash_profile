@@ -4,7 +4,7 @@ if [ -d "$HOME/bin" ]; then
 fi
 
 # load dotfiles
-for file in ~/.{path,bash_prompt,exports,aliases,functions}; do
+for file in ~/.{path,bash_prompt,exports,aliases}; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
