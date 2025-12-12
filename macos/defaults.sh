@@ -1,3 +1,8 @@
+# a lot of stuff was taken from
+# https://github.com/mathiasbynens/dotfiles/blob/master/.macos
+# and
+# https://github.com/paulmillr/dotfiles/blob/master/etc/macos-settings.sh
+
 COMPUTER_NAME="ThinkPad"
 SCREENSHOTS_FOLDER="${HOME}/Screenshots"
 
@@ -48,13 +53,36 @@ defaults write com.apple.appleseed.FeedbackAssistant "Autogather" -bool "false"
 # disable rich text
 defaults write com.apple.TextEdit "RichText" -bool "false"
 
+# Deactivate Apple Intelligence
+defaults write com.apple.CloudSubscriptionFeatures.optIn "545129924" -bool "false"
+
+# Enforce system hibernation and evict FileVault keys from memory
+# instead of traditional sleep to memory.
+# Hibernation mode
+# 0: Disable hibernation (speeds up entering sleep mode)
+# 3: Copy RAM to disk so the system state can still be restored in case of a
+#    power failure.
+# 25: Force copying RAM to disk always
+sudo pmset -a destroyfvkeyonstandby 1
+sudo pmset -a hibernatemode 25
+
+# Also modify your standby and power nap settings.
+# Otherwise, your machine may wake while in standby mode and then
+# power off due to the absence of the FileVault key
+sudo pmset -a powernap 0
+sudo pmset -a standby 0
+sudo pmset -a standbydelay 0
+sudo pmset -a autopoweroff 0
+
 ###############################################################################
 # Keyboard & Input                                                            #
 ###############################################################################
 
-# Disable smart quotes and dashes as they’re annoying when typing code
+# Disable smart quotes, dashes, automatic capitalization, and automatic period substitution as they’re annoying when typing code
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
 
 # Enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs)
