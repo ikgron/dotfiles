@@ -98,6 +98,9 @@ defaults write NSGlobalDomain AppleMetricUnits -bool false
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
+# enable reduce transparency
+defaults write com.apple.universalaccess reduceTransparency -bool false
+
 # save screenshots to the ~/Screenshots folder
 mkdir -p "${SCREENSHOTS_FOLDER}"
 defaults write com.apple.screencapture location -string "${SCREENSHOTS_FOLDER}"
