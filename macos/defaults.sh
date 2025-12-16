@@ -8,10 +8,10 @@ SCREENSHOTS_FOLDER="${HOME}/Screenshots"
 
 osascript -e 'tell application "System Settings" to quit'
 
-# Ask for the administrator password upfront
+# ask for administrator password upfront
 sudo -v
 
-# Keep-alive: update existing `sudo` time stamp until this script has finished
+# keep-alive: update existing `sudo` time stamp until this script has finished
 while true; do
   sudo -n true
   sleep 60
@@ -22,7 +22,7 @@ done 2>/dev/null &
 # Computer & Host name                                                        #
 ###############################################################################
 
-# Set computer name
+# set computer name
 sudo scutil --set ComputerName "$COMPUTER_NAME"
 sudo scutil --set HostName "$COMPUTER_NAME"
 sudo scutil --set LocalHostName "$COMPUTER_NAME"
@@ -32,74 +32,59 @@ sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.serve
 # System                                                                      #
 ###############################################################################
 
-# Menu bar: show battery percentage
+# menu bar: show battery percentage
 defaults write com.apple.menuextra.battery ShowPercent YES
 
-# Disable opening and closing window animations
+# disable opening and closing window animations
 defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
 
-# Save to disk (not to iCloud) by default
+# save to disk (not to iCloud) by default
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
-# Disable the “Are you sure you want to open this application?” dialog
+# disable the “Are you sure you want to open this application?” dialog
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 # group windows by application
 defaults write com.apple.dock "expose-group-apps" -bool "true"
 
-# do not autogather large files when submitting a report
-defaults write com.apple.appleseed.FeedbackAssistant "Autogather" -bool "false"
-
 # disable rich text
 defaults write com.apple.TextEdit "RichText" -bool "false"
 
-# Deactivate Apple Intelligence
+# deactivate Apple Intelligence
 defaults write com.apple.CloudSubscriptionFeatures.optIn "545129924" -bool "false"
-
-# Enforce system hibernation and evict FileVault keys from memory
-# instead of traditional sleep to memory.
-# Hibernation mode
-# 0: Disable hibernation (speeds up entering sleep mode)
-# 3: Copy RAM to disk so the system state can still be restored in case of a
-#    power failure.
-# 25: Force copying RAM to disk always
-sudo pmset -a destroyfvkeyonstandby 1
-sudo pmset -a hibernatemode 25
-
-# Also modify your standby and power nap settings.
-# Otherwise, your machine may wake while in standby mode and then
-# power off due to the absence of the FileVault key
-sudo pmset -a powernap 0
-sudo pmset -a standby 0
-sudo pmset -a standbydelay 0
-sudo pmset -a autopoweroff 0
 
 ###############################################################################
 # Keyboard & Input                                                            #
 ###############################################################################
 
-# Disable smart quotes, dashes, automatic capitalization, and automatic period substitution as they’re annoying when typing code
-defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
-defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+# disable typing automatic capitalization.
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
-defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
 
-# Enable full keyboard access for all controls
+# disable typing automatic period substition a.k.a. "smart stops".
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -int 0
+
+# disable typing automatic dash substitution e.g. "smart dashes".
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+# disable typing automatic quote substitution a.k.a. "smart quotes".
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+
+# disable typing automatic spelling correction a.k.a. "auto-correct".
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+# enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
-
-# Disable auto-correct
-defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 ###############################################################################
 # Trackpad, mouse, Bluetooth accessories                                      #
 ###############################################################################
 
-# Tap to click for this user
+# tap to click for this user
 defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
-# Set language and text formats
+# set language and text formats
 defaults write NSGlobalDomain AppleLanguages -array "en" "nl"
 defaults write NSGlobalDomain AppleLocale -string "en_US@currency=USD"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Inches"
