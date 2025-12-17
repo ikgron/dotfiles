@@ -10,6 +10,7 @@ alias -- -="cd -"
 
 # shortcuts
 alias dl="cd ~/Downloads"
+alias dm="cd ~/Documents"
 alias dt="cd ~/Desktop"
 alias p="cd ~/Projects"
 alias g="git"
@@ -55,10 +56,6 @@ command -v sha1sum >/dev/null || alias sha1sum="shasum"
 
 # recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
-
-# show/hide hidden files in Finder
-alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
-alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 
 # reload the shell (i.e. invoke as a login shell)
 alias reload="exec ${SHELL} -l"
