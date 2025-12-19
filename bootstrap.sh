@@ -32,5 +32,3 @@ done <"$DOTFILES_DIR/vscodium/Codefile"
 
 # source .bash_profile which sources everything else
 source "$HOME/.bash_profile"
-
-echo "Bootstrapping done!"
