@@ -9,11 +9,12 @@ is_executable() {
   type "$1" >/dev/null 2>&1
 }
 
-if is_executable "git"; then
-  CMD="git clone $SOURCE $TARGET"
-
-elif is_executable "curl"; then
+# try curl first to skip xcode popup when running on a fresh macOS device
+if is_executable "curl"; then
   CMD="curl -#L $TARBALL | $TAR_CMD"
+
+elif is_executable "git"; then
+  CMD="git clone $SOURCE $TARGET"
 
 elif is_executable "wget"; then
   CMD="wget --no-check-certificate -O - $TARBALL | $TAR_CMD"

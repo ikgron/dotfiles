@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+HOMEBREW_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 # abort on error
 set -e
 
@@ -39,7 +41,7 @@ fi
 brew update
 
 # install everything from Brewfile
-brew bundle --file="$DOTFILES_DIR/homebrew/Brewfile"
+brew bundle --file="$HOMEBREW_DIR/Brewfile"
 
 brew upgrade
 brew cleanup
