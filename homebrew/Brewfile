@@ -1,5 +1,20 @@
+# brews
 brew "bash-completion@2"
 brew "dockutil"
 brew "fastfetch"
 brew "git"
 brew "node"
+
+# casks
+cask "bitwarden"
+cask "cryptomator"
+cask "iterm2"
+cask "librewolf", args: { "no-quarantine" => true }
+cask "lulu"
+cask "mullvad-browser"
+cask "protonvpn"
+cask "rectangle"
+cask "vscodium"
+
+# fonts
+cask "font-fira-code-nerd-font"

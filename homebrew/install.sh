@@ -38,11 +38,8 @@ fi
 
 brew update
 
-# install brews from Brewfile
+# install everything from Brewfile
 brew bundle --file="$DOTFILES_DIR/homebrew/Brewfile"
-
-# install casks from Caskfile
-brew bundle --file="$DOTFILES_DIR/homebrew/Caskfile" --cask
 
 brew upgrade
 brew cleanup
