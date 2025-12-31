@@ -10,7 +10,6 @@ cask "bitwarden"
 cask "cryptomator"
 cask "iterm2"
 cask "librewolf", args: { "no-quarantine" => true }
-cask "lulu"
 cask "mullvad-browser"
 cask "protonvpn"
 cask "rectangle"
