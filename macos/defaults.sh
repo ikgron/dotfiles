@@ -41,9 +41,6 @@ defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
 # save to disk (not to iCloud) by default
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
-# disable the “Are you sure you want to open this application?” dialog
-defaults write com.apple.LaunchServices LSQuarantine -bool false
-
 # group windows by application
 defaults write com.apple.dock "expose-group-apps" -bool "true"
 
@@ -171,8 +168,6 @@ defaults write com.apple.dock show-recents -bool false
 # Activity Monitor                                                            #
 ###############################################################################
 
-# show the main window when launching Activity Monitor
-defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
 
 # visualize CPU usage in the Activity Monitor Dock icon
 defaults write com.apple.ActivityMonitor IconType -int 5
