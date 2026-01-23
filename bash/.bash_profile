@@ -18,11 +18,23 @@ shopt -s histappend
 # autocorrect typos in path names when using `cd`
 shopt -s cdspell
 
-# load bash completion from homebrew
-[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+if which brew >/dev/null; then
 
-# enable tab completion for `g` by marking it as an alias for `git`
-__git_complete g __git_main
+  # bash completion.
+  if [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
+    source "$(brew --prefix)/share/bash-completion/bash_completion"
+  elif [ -f /etc/bash_completion ]; then
+    source /etc/bash_completion
+  fi
+
+  # homebrew completion
+  source "$(brew --prefix)/etc/bash_completion.d/brew"
+fi
+
+# Enable tab completion for `g` by marking it as an alias for `git`
+if type __git_complete &>/dev/null; then
+  __git_complete g __git_main
+fi
 
 # add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari SystemUIServer Terminal" killall
