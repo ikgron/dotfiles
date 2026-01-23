@@ -1,8 +1,3 @@
-# a lot of stuff was taken from
-# https://github.com/mathiasbynens/dotfiles/blob/master/.macos
-# and
-# https://github.com/paulmillr/dotfiles/blob/master/etc/macos-settings.sh
-
 COMPUTER_NAME="ThinkPad"
 SCREENSHOTS_FOLDER="${HOME}/Screenshots"
 

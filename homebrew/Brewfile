@@ -1,6 +1,7 @@
 # brews
 brew "bash-completion@2"
 brew "dockutil"
+brew "eza"
 brew "fastfetch"
 brew "git"
 brew "node"
