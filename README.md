@@ -21,8 +21,12 @@ Contains setup for Bash, Homebrew, macOS defaults, iTerm2, VSCodium, and more.
 
 A lot of stuff was taken from
 <br>
-https://github.com/mathiasbynens/dotfiles/blob/master/.macos
+https://github.com/mathiasbynens/dotfiles/
 <br>
 and
 <br>
-https://github.com/paulmillr/dotfiles/blob/master/etc/macos-settings.sh
+https://github.com/paulirish/dotfiles/
+<br>
+and
+<br>
+https://github.com/paulmillr/dotfiles/
