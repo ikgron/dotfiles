@@ -5,8 +5,13 @@ DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 OS="$(uname)"
 
-# copy /bash/ files into ~
-rsync -av --exclude='*/' "$DOTFILES_DIR/bash/" "$HOME/"
+# symlink files in bash/ to ~
+for file in "$DOTFILES_DIR/bash/".*; do
+  if [[ -f "$file" ]]; then
+    ln -sf "$file" "$HOME/$(basename "$file")"
+    echo " symlinked $(basename "$file")"
+  fi
+done
 
 if [[ "$OS" == "Darwin" ]]; then
   # run homebrew install.sh, add homebrew to path, set dock, set system preferences
