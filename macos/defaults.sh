@@ -163,7 +163,6 @@ defaults write com.apple.dock show-recents -bool false
 # Activity Monitor                                                            #
 ###############################################################################
 
-
 # visualize CPU usage in the Activity Monitor Dock icon
 defaults write com.apple.ActivityMonitor IconType -int 5
 

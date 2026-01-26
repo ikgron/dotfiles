@@ -14,7 +14,6 @@ alias dm="cd ~/Documents"
 alias dt="cd ~/Desktop"
 alias p="cd ~/Projects"
 
-
 # git
 alias g="git"
 alias gst="git status"

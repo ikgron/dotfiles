@@ -18,17 +18,16 @@ shopt -s histappend
 # autocorrect typos in path names when using `cd`
 shopt -s cdspell
 
-if which brew >/dev/null; then
+# setup for homebrew bashcompletion@2
+if [[ $(uname) == "darwin" ]] && command -v brew >/dev/null; then
+  BREW_PREFIX=$(brew --prefix)
 
-  # bash completion.
-  if [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
-    source "$(brew --prefix)/share/bash-completion/bash_completion"
-  elif [ -f /etc/bash_completion ]; then
-    source /etc/bash_completion
+  if [ -f "$BREW_PREFIX/share/bash-completion/bash_completion" ]; then
+    source "$BREW_PREFIX/share/bash-completion/bash_completion"
   fi
 
   # homebrew completion
-  source "$(brew --prefix)/etc/bash_completion.d/brew"
+  [ -f "$BREW_PREFIX/etc/bash_completion.d/brew" ] && source "$BREW_PREFIX/etc/bash_completion.d/brew"
 fi
 
 # Enable tab completion for `g` by marking it as an alias for `git`
