@@ -22,6 +22,7 @@ if [[ "$OS" == "Darwin" ]]; then
   source "$HOME/.bash_profile"
   source "$DOTFILES_DIR/macos/defaults.sh" # source this last since it ends the script
 
+# TODO: linux setup
 # elif [[ "$OS" == "Linux" ]]; then
 # 	source "$DOTFILES_DIR/linux/install.sh"
 

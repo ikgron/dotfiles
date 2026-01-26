@@ -18,12 +18,12 @@ shopt -s histappend
 # autocorrect typos in path names when using `cd`
 shopt -s cdspell
 
-# setup for homebrew bashcompletion@2
+# setup for homebrew bash-completion@2
 if [[ $(uname) == "darwin" ]] && command -v brew >/dev/null; then
   BREW_PREFIX=$(brew --prefix)
 
-  if [ -f "$BREW_PREFIX/share/bash-completion/bash_completion" ]; then
-    source "$BREW_PREFIX/share/bash-completion/bash_completion"
+  if [[ -s $BREW_PREFIX/etc/profile.d/bash_completion.sh ]]; then
+    . "$BREW_PREFIX/etc/profile.d/bash_completion.sh"
   fi
 
   # homebrew completion
