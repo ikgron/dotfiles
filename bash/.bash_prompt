@@ -6,73 +6,40 @@ elif infocmp xterm-256color >/dev/null 2>&1; then
   export TERM='xterm-256color'
 fi
 
-prompt_git() {
-  local s=''
-  local branchName=''
+function prompt_git() {
+    # check if we're in a git repo. (fast)
+    git rev-parse --is-inside-work-tree &>/dev/null || return
 
-  # check if the current directory is in a Git repository.
-  git rev-parse --is-inside-work-tree >/dev/null 2>&1 || return
+    # check for what branch we're on. (fast)
+    #   if… HEAD isn’t a symbolic ref (typical branch),
+    #   then… get a tracking remote branch or tag
+    #   otherwise… get the short SHA for the latest commit
+    #   lastly just give up.
+    branchName="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || \
+        git describe --all --exact-match HEAD 2> /dev/null || \
+        git rev-parse --short HEAD 2> /dev/null || \
+        echo '(unknown)')";
 
-  # check for what branch we’re on.
-  # get the short symbolic ref. If HEAD isn’t a symbolic ref, get a
-  # tracking remote branch or tag. Otherwise, get the
-  # short SHA for the latest commit, or give up.
-  branchName=$(
-    git symbolic-ref --quiet --short HEAD 2>/dev/null ||
-      git describe --all --exact-match HEAD 2>/dev/null ||
-      git rev-parse --short HEAD 2>/dev/null ||
-      echo '(unknown)'
-  )
+      dirty=$(git diff --no-ext-diff --quiet --ignore-submodules --exit-code || echo -e "*")
 
-  # check for uncommitted changes in the index.
-  if ! git diff --quiet --ignore-submodules --cached; then
-    s+='+'
-  fi
+    [ -n "${s}" ] && s=" [${s}]";
+    echo -e "${1}${branchName}${2}$dirty";
 
-  # check for unstaged changes.
-  if ! git diff-files --quiet --ignore-submodules --; then
-    s+='!'
-  fi
-
-  # check for untracked files.
-  if [ -n "$(git ls-files --others --exclude-standard)" ]; then
-    s+='?'
-  fi
-
-  # check for stashed files.
-  if git rev-parse --verify refs/stash >/dev/null 2>&1; then
-    s+='$'
-  fi
-
-  [ -n "$s" ] && s=" [$s]"
-
-  echo -e "${1}${branchName}${2}${s}"
+    return
 }
 
-if tput setaf 1 &>/dev/null; then
-  tput sgr0 # reset colors
-  bold=$(tput bold)
-  reset=$(tput sgr0)
-  black=$(tput setaf 0)
-  red=$(tput setaf 1)
-  green=$(tput setaf 2)
-  yellow=$(tput setaf 3)
-  blue=$(tput setaf 4)
-  magenta=$(tput setaf 5)
-  cyan=$(tput setaf 6)
-  white=$(tput setaf 7)
-else
-  bold=''
-  reset="\e[0m"
-  black="\e[0;30m"
-  red="\e[0;31m"
-  green="\e[0;32m"
-  yellow="\e[0;33m"
-  blue="\e[0;34m"
-  magenta="\e[0;35m"
-  cyan="\e[0;36m"
-  white="\e[0;37m"
-fi
+tput sgr0 # reset colors
+bold=$(tput bold)
+reset=$(tput sgr0)
+
+black=$(tput setaf 0)
+red=$(tput setaf 1)
+green=$(tput setaf 2)
+yellow=$(tput setaf 3)
+blue=$(tput setaf 4)
+magenta=$(tput setaf 5)
+cyan=$(tput setaf 6)
+white=$(tput setaf 7)
 
 # highlight the hostname when connected via SSH.
 if [[ "${SSH_TTY}" ]]; then
