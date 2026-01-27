@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# set default editor and visual editor
+export EDITOR=nano
+export VISUAL=codium
+
 # increase Bash history size. Allow 32³ entries; default is 500.
 export HISTSIZE='32768'
 export HISTFILESIZE="${HISTSIZE}"

@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-HOMEBREW_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-# abort on error
-set -e
-
 # check if homebrew is installed
 if ! command -v brew &>/dev/null; then
   echo "Installing Homebrew..."
@@ -13,35 +8,4 @@ else
   echo "Homebrew is already installed..."
 fi
 
-# check for intel or silicon
-if [[ "$(uname -m)" == "arm64" ]]; then
-  # silicon
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-elif [[ "$(uname -m)" == "x86_64" ]]; then
-  # intel
-  eval "$(/usr/local/bin/brew shellenv)"
-else
-  echo "$(uname -m) is invalid"
-fi
 
-# save homebrew’s installed location
-BREW_PREFIX=$(brew --prefix)
-
-brew install bash
-# switch to using homebrew's bash as default
-if ! grep -Fxq "${BREW_PREFIX}/bin/bash" /etc/shells; then
-  echo "${BREW_PREFIX}/bin/bash" | sudo tee -a /etc/shells >/dev/null
-fi
-
-if [[ "$SHELL" != "${BREW_PREFIX}/bin/bash" ]]; then
-  chsh -s "${BREW_PREFIX}/bin/bash"
-  exec "${BREW_PREFIX}/bin/bash" -l
-fi
-
-brew update
-
-# install everything from Brewfile
-brew bundle --file="$HOMEBREW_DIR/Brewfile"
-
-brew upgrade
-brew cleanup
