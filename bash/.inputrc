@@ -42,6 +42,6 @@ set convert-meta off
 # flip through autocompletion matches with Shift-Tab.
 "\e[Z": menu-complete
 
-# macOS: Option + Left/Right arrow keys to move the cursor wordwise
+# macOS: Option + Left/Right arrow keys to move the cursor wordwise (make sure to set left and right Option key to Esc+ in Settings > Profiles > Keys)
 "\e\e[C": forward-word
 "\e\e[D": backward-word
