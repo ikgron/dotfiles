@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+chsh -s /bin/bash
+
 # check if homebrew is installed
 if ! command -v brew &>/dev/null; then
   echo "Installing Homebrew..."
