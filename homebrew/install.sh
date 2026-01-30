@@ -9,3 +9,5 @@ if ! command -v brew &>/dev/null; then
 else
   echo "Homebrew is already installed..."
 fi
+
+echo "Make sure to run 'exec bash --login' after adding 'brew' to PATH"
