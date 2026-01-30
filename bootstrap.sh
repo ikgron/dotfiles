@@ -19,16 +19,12 @@ if [[ "$OS" == "Darwin" ]]; then
   bash "$DOTFILES_DIR/vscodium/install.sh"
   bash "$DOTFILES_DIR/macos/dock.sh"
   source "$HOME/.bash_profile"
-  source "$DOTFILES_DIR/macos/defaults.sh" # source this last since it ends the script
+  bash "$DOTFILES_DIR/macos/defaults.sh" # run this last since it ends the script
 
-# TODO: linux setup
-# elif [[ "$OS" == "Linux" ]]; then
-# 	source "$DOTFILES_DIR/linux/install.sh"
+elif [[ "$OS" == "Linux" ]]; then
+  source "$DOTFILES_DIR/debian/install.sh"
 
 else
   echo "$OS is invalid."
   exit 1
 fi
-
-# source .bash_profile which sources everything else
-source "$HOME/.bash_profile"
