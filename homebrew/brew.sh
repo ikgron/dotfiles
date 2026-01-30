@@ -6,15 +6,12 @@ HOMEBREW_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BREW_PREFIX=$(brew --prefix)
 
 brew install bash
-# switch to using homebrew's bash as default
-if ! grep -Fxq "${BREW_PREFIX}/bin/bash" /etc/shells; then
-  echo "${BREW_PREFIX}/bin/bash" | sudo tee -a /etc/shells >/dev/null
-fi
 
-if [[ "$SHELL" != "${BREW_PREFIX}/bin/bash" ]]; then
-  chsh -s "${BREW_PREFIX}/bin/bash"
-  exec "${BREW_PREFIX}/bin/bash" -l
-fi
+# switch to using brew-installed bash as default shell
+if ! fgrep -q "${BREW_PREFIX}/bin/bash" /etc/shells; then
+  echo "${BREW_PREFIX}/bin/bash" | sudo tee -a /etc/shells;
+  chsh -s "${BREW_PREFIX}/bin/bash";
+fi;
 
 brew update
 
