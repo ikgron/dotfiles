@@ -41,7 +41,7 @@ alias cls="clear && printf '\e[3J'"
 alias ls='eza --color=auto --icons=always --group-directories-first --classify=auto --sort=extension -A'
 
 # ls -la with eza (color auto, list folders first, permissions in octal format, supress permissions field)
-alias la='eza --color=auto --icons=always --group-directories-first --classify=auto --sort=extension -a -l --octal-permissions --no-filesize'
+alias la='eza --color=auto --icons=always --group-directories-first --classify=auto --sort=extension -a -l --octal-permissions --no-permissions --no-user --header'
 
 # enable aliases to be sudo’ed
 alias sudo='sudo '

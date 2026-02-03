@@ -13,6 +13,7 @@ ln -sf "$DOTFILES_DIR/config/starship/starship.toml" "$HOME/.config/starship/sta
 # symlink alacritty config to ~/.config/alacritty/alacritty.toml
 mkdir -p "$HOME/.config/alacritty"
 ln -sf "$DOTFILES_DIR/config/alacritty/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
+ln -sf "$DOTFILES_DIR/config/alacritty/one_dark.toml" "$HOME/.config/alacritty/one_dark.toml"
 
 # symlink files in bash/ to ~
 for file in "$DOTFILES_DIR/bash/".*; do
