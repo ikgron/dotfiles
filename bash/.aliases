@@ -16,6 +16,7 @@ alias p="cd ~/Projects"
 
 # git
 alias g="git"
+alias gcl="git clone"
 alias gst="git status"
 alias gad="git add"
 alias grt="git reset"

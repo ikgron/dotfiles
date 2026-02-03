@@ -1,0 +1,26 @@
+[general]
+import = ["~/.config/alacritty/one_dark.toml"]
+
+[window]
+padding = { x = 5, y = 5 }
+dynamic_padding = true
+
+[font]
+size = 15.0
+
+[font.normal]
+family = "FiraCode Nerd Font Mono"
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[selection]
+save_to_clipboard = true
+
+[terminal.shell]
+program = "/bin/bash"
+args = ["--login"]

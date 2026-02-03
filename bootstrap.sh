@@ -6,6 +6,14 @@ DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 OS="$(uname)"
 
+# symlink starship config to ~/.config/starship/starship.toml
+mkdir -p "$HOME/.config/starship"
+ln -sf "$DOTFILES_DIR/config/starship/starship.toml" "$HOME/.config/starship/starship.toml"
+
+# symlink alacritty config to ~/.config/alacritty/alacritty.toml
+mkdir -p "$HOME/.config/alacritty"
+ln -sf "$DOTFILES_DIR/config/alacritty/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
+
 # symlink files in bash/ to ~
 for file in "$DOTFILES_DIR/bash/".*; do
   if [[ -f "$file" ]]; then

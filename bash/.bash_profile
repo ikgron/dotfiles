@@ -37,3 +37,7 @@ fi
 
 # add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari SystemUIServer Terminal" killall
+
+# change starship config location and set shell to use it
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+eval "$(starship init bash)"

@@ -5,8 +5,10 @@ brew "eza"
 brew "fastfetch"
 brew "git"
 brew "node"
+brew "starship"
 
 # casks
+cask "alacritty"
 cask "bitwarden"
 cask "cryptomator"
 cask "iterm2"
