@@ -38,16 +38,16 @@ alias vedr="$VISUAL"
 alias cls="clear && printf '\e[3J'"
 
 # ls with eza (color auto, list folders first, display type indicators by file name, )
-alias ls='eza --color=auto --icons=always --group-directories-first --classify=auto --sort=extension -A'
+alias ls="eza --color=auto --icons=always --group-directories-first --classify=auto --sort=extension -A"
 
 # ls -la with eza (color auto, list folders first, permissions in octal format, supress permissions field)
-alias la='eza --color=auto --icons=always --group-directories-first --classify=auto --sort=extension -a -l --octal-permissions --no-permissions --no-user --header'
+alias la="eza --color=auto --icons=always --group-directories-first --classify=auto --sort=extension -a -l --octal-permissions --no-permissions --no-user --header"
 
 # enable aliases to be sudo’ed
-alias sudo='sudo '
+alias sudo="sudo "
 
 # get macOS Software Updates, and update Homebrew, npm, and their installed packages
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g;'
+alias update="sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g;"
 
 # macOS has no `sha1sum`, so use `shasum` as a fallback
 command -v sha1sum >/dev/null || alias sha1sum="shasum"
@@ -60,3 +60,5 @@ alias reload="exec ${SHELL} -l"
 
 # print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+
+alias ff="cls && fastfetch"
