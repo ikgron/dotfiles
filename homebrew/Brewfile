@@ -11,12 +11,12 @@ brew "starship"
 # casks
 cask "alacritty"
 cask "bitwarden"
-cask "iterm2"
 cask "librewolf", args: { "no-quarantine" => true }
 cask "mullvad-browser"
 cask "protonvpn"
 cask "rectangle"
 cask "vscodium"
+cask "zed"
 
 # fonts
 cask "font-fira-code-nerd-font"

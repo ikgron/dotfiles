@@ -6,20 +6,21 @@ DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 OS="$(uname)"
 
-# symlink starship config to ~/.config/starship/starship.toml
-mkdir -p "$HOME/.config/starship"
-ln -sf "$DOTFILES_DIR/config/starship/starship.toml" "$HOME/.config/starship/starship.toml"
+CONFIG_SRC="$DOTFILES_DIR/config"
+CONFIG_DEST="$HOME/.config"
 
-# symlink alacritty config to ~/.config/alacritty/alacritty.toml
-mkdir -p "$HOME/.config/alacritty"
-ln -sf "$DOTFILES_DIR/config/alacritty/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
-ln -sf "$DOTFILES_DIR/config/alacritty/one_dark.toml" "$HOME/.config/alacritty/one_dark.toml"
+for dir in "$CONFIG_SRC"/*/; do
+    dirname=$(basename "$dir")
+    echo "symlinked $dirname"
+    mkdir -p "$CONFIG_DEST/$dirname"
+    ln -sf "$CONFIG_SRC/$dirname"/* "$CONFIG_DEST/$dirname/"
+done
 
 # symlink files in bash/ to ~
 for file in "$DOTFILES_DIR/bash/".*; do
   if [[ -f "$file" ]]; then
     ln -sf "$file" "$HOME/$(basename "$file")"
-    echo " symlinked $(basename "$file")"
+    echo "symlinked $(basename "$file")"
   fi
 done
 
