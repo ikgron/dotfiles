@@ -22,6 +22,6 @@ multiplier = 3
 save_to_clipboard = true
 
 [terminal.shell]
-program = "/bin/bash"
+program = "/usr/bin/env"
 # program = "C:\\Program Files\\Git\\bin\\bash.exe" # <- windows only
-args = ["--login"]
+args = ["bash", "--login"]
