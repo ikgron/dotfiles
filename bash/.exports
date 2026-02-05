@@ -2,7 +2,7 @@
 
 # set default editor and visual editor
 export EDITOR=nano
-export VISUAL=codium
+export VISUAL=zed
 
 # increase Bash history size. Allow 32³ entries; default is 500.
 export HISTSIZE='32768'
