@@ -10,10 +10,10 @@ CONFIG_SRC="$DOTFILES_DIR/config"
 CONFIG_DEST="$HOME/.config"
 
 for dir in "$CONFIG_SRC"/*/; do
-    dirname=$(basename "$dir")
-    echo "symlinked $dirname"
-    mkdir -p "$CONFIG_DEST/$dirname"
-    ln -sf "$CONFIG_SRC/$dirname"/* "$CONFIG_DEST/$dirname/"
+  dirname=$(basename "$dir")
+  echo "symlinked $dirname"
+  mkdir -p "$CONFIG_DEST/$dirname"
+  ln -sf "$CONFIG_SRC/$dirname"/* "$CONFIG_DEST/$dirname/"
 done
 
 # symlink files in bash/ to ~

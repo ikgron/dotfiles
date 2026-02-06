@@ -5,6 +5,7 @@ brew "dockutil"
 brew "eza"
 brew "fastfetch"
 brew "git"
+brwe "git-delta"
 brew "node"
 brew "starship"
 

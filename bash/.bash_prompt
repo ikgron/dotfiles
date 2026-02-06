@@ -1,31 +1,31 @@
 #!/usr/bin/env bash
 
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
-    export TERM=gnome-256color
+  export TERM=gnome-256color
 elif infocmp xterm-256color >/dev/null 2>&1; then
-    export TERM=xterm-256color
+  export TERM=xterm-256color
 fi
 
 function prompt_git() {
-    # check if we're in a git repo. (fast)
-    git rev-parse --is-inside-work-tree &>/dev/null || return
+  # check if we're in a git repo. (fast)
+  git rev-parse --is-inside-work-tree &>/dev/null || return
 
-    # check for what branch we're on. (fast)
-    #   if… HEAD isn’t a symbolic ref (typical branch),
-    #   then… get a tracking remote branch or tag
-    #   otherwise… get the short SHA for the latest commit
-    #   lastly just give up.
-    branchName="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || \
-        git describe --all --exact-match HEAD 2> /dev/null || \
-        git rev-parse --short HEAD 2> /dev/null || \
-        echo '(unknown)')";
+  # check for what branch we're on. (fast)
+  #   if… HEAD isn’t a symbolic ref (typical branch),
+  #   then… get a tracking remote branch or tag
+  #   otherwise… get the short SHA for the latest commit
+  #   lastly just give up.
+  branchName="$(git symbolic-ref --quiet --short HEAD 2>/dev/null ||
+    git describe --all --exact-match HEAD 2>/dev/null ||
+    git rev-parse --short HEAD 2>/dev/null ||
+    echo '(unknown)')"
 
-      dirty=$(git diff --no-ext-diff --quiet --ignore-submodules --exit-code || echo -e "*")
+  dirty=$(git diff --no-ext-diff --quiet --ignore-submodules --exit-code || echo -e "*")
 
-    [ -n "${s}" ] && s=" [${s}]";
-    echo -e "${1}${branchName}${2}$dirty";
+  [ -n "${s}" ] && s=" [${s}]"
+  echo -e "${1}${branchName}${2}$dirty"
 
-    return
+  return
 }
 
 tput sgr0 # reset colors

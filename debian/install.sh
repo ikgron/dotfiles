@@ -1,8 +1,11 @@
 # this will work with any debian based system
 
-# librewolf: run all 3 to install, last 2 to update
-sudo apt update && sudo apt install extrepo -y
+sudo apt install alacritty
+sudo apt install btop
+sudo apt install eza
+sudo apt install fastfetch
+sudo apt install nodejs
+sudo apt install starship
+sudo apt install zed
 
-sudo extrepo enable librewolf && sudo extrepo update librewolf
-
-sudo apt update && sudo apt install librewolf -y
+wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip
