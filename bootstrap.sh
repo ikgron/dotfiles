@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # make sure to run homebrew/install.sh and homebrew/brew.sh first if on mac
 
+echo -e "Git setup: \n git config --global user.name username \n git config --global user.email email"
+
 # get location of this file
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -16,13 +18,15 @@ for dir in "$CONFIG_SRC"/*/; do
   ln -sf "$CONFIG_SRC/$dirname"/* "$CONFIG_DEST/$dirname/"
 done
 
-# symlink files in bash/ to ~
-for file in "$DOTFILES_DIR/bash/".*; do
+# symlink files in home/ to ~
+for file in "$DOTFILES_DIR/home/".*; do
   if [[ -f "$file" ]]; then
     ln -sf "$file" "$HOME/$(basename "$file")"
     echo "symlinked $(basename "$file")"
   fi
 done
+
+git config --global include.path "~/.delta"
 
 if [[ "$OS" == "Darwin" ]]; then
   # install vscodium extensions, set dock, source ~/.bash_profile, set system preferences

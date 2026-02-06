@@ -1,0 +1,12 @@
+# to save my git-delta settings
+
+[core]
+	symlinks = true
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	side-by-side = true
+[merge]
+	conflictStyle = zdiff3

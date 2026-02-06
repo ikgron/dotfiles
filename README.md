@@ -13,7 +13,7 @@ cd dotfiles/
 bash bootstrap.sh
 ```
 
-Contains setup for Bash, Homebrew, macOS defaults, iTerm2, VSCodium, and more.
+Contains setup for Bash, Homebrew, macOS defaults, Alacritty, Zed, and more.
 
 ![screenshot](assets/terminal_screenshot.png)
 
