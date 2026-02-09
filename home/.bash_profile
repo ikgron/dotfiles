@@ -42,3 +42,4 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari SystemUIServ
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init bash)"
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH=$HOME/.local/bin:$PATH
