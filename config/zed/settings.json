@@ -10,8 +10,8 @@
   "soft_wrap": "editor_width",
   "autosave": {
     "after_delay": {
-      "milliseconds": 1000
-    }
+      "milliseconds": 1000,
+    },
   },
   "buffer_font_family": "FiraCode Nerd Font Mono",
   "title_bar": {
@@ -33,14 +33,15 @@
   "icon_theme": "Material Icon Theme",
   "base_keymap": "VSCode",
   "ui_font_size": 16,
-  "buffer_font_size": 15,
+  "buffer_font_size": 16,
   "theme": {
     "mode": "dark",
     "light": "One Light",
-    "dark": "One Dark",
+    "dark": "One Dark Pro",
   },
   "auto_install_extensions": {
     "html": true,
+    "one-dark-pro": true,
     "material-icon-theme": true,
   },
 }
