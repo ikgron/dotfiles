@@ -45,3 +45,6 @@ nohup.out
 # dotfiles
 .gitconfig
 .bash_history
+
+# other
+local/*
