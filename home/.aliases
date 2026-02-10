@@ -49,8 +49,17 @@ alias la="eza --color=auto --icons=always --group-directories-first --classify=a
 # enable aliases to be sudo’ed
 alias sudo="sudo "
 
-# get macOS Software Updates, and update Homebrew, npm, and their installed packages
-alias update="sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g;"
+# if i add more os specific aliases i'll split them up into separate files but for now this works
+case "$(uname -s)" in
+Darwin)
+  # get macOS Software Updates, and update Homebrew, npm, and their installed packages
+  alias update="sudo softwareupdate -i -a && brew update && brew upgrade && brew cleanup&& npm install npm -g && npm update -g"
+  ;;
+Linux)
+  # update apt packages and cleanup unneeded files
+  alias update='sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y'
+  ;;
+esac
 
 # macOS has no `sha1sum`, so use `shasum` as a fallback
 command -v sha1sum >/dev/null || alias sha1sum="shasum"

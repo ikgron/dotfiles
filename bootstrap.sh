@@ -11,22 +11,23 @@ CONFIG_DEST="$HOME/.config"
 
 for dir in "$CONFIG_SRC"/*/; do
   dirname=$(basename "$dir")
-  echo "symlinked $dirname"
   mkdir -p "$CONFIG_DEST/$dirname"
   ln -sf "$CONFIG_SRC/$dirname"/* "$CONFIG_DEST/$dirname/"
+  echo "symlinked $dirname"
 done
 
-# symlink files in home/ to ~
-for file in "$DOTFILES_DIR/home/".*; do
+# symlink files in home/ to ~ (files with or without a `.` in front)
+for file in "$DOTFILES_DIR/home/".* "$DOTFILES_DIR/home/"*; do
   if [[ -f "$file" ]]; then
     ln -sf "$file" "$HOME/$(basename "$file")"
     echo "symlinked $(basename "$file")"
   fi
 done
 
+# i forget sometimes:
 echo -e "\n Git setup: \n git config --global user.name username \n git config --global user.email email \n"
 
-git config --global include.path "~/.delta.gitconfig"
+git config --global include.path "~/.global.gitconfig"
 
 if [[ "$OS" == "Darwin" ]]; then
   # install vscodium extensions, set dock, source ~/.bash_profile, set system preferences
@@ -34,9 +35,6 @@ if [[ "$OS" == "Darwin" ]]; then
   bash "$DOTFILES_DIR/macos/dock.sh"
   source "$HOME/.bash_profile"
   bash "$DOTFILES_DIR/macos/defaults.sh" # run this last since it ends the script
-
-elif [[ "$OS" == "Linux" ]]; then
-  source "$DOTFILES_DIR/debian/install.sh"
 
 else
   echo "$OS is invalid."

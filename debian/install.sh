@@ -1,11 +1,15 @@
+#!/usr/bin/env bash
 # this will work with any debian based system
 
-sudo apt install alacritty
-sudo apt install btop
-sudo apt install eza
-sudo apt install fastfetch
-sudo apt install nodejs
-sudo apt install starship
-sudo apt install zed
+# update, upgrade, and install apps
+sudo apt update && sudo apt upgrade -y
 
-wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip
+sudo apt install -y alacritty btop eza fastfetch nodejs starship
+
+# recommended zed install
+curl -f https://zed.dev/install.sh | sh
+
+# install firacode nerd mono regular for user only (i don't care about the other variants)
+mkdir -p ~/.local/share/fonts
+wget -P ~/.local/share/fonts/ https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/FiraCode/Regular/FiraCodeNerdFontMono-Regular.ttf
+fc-cache -f
