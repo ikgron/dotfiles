@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 # make sure to run homebrew/install.sh and homebrew/brew.sh first if on mac
 
-echo -e "Git setup: \n git config --global user.name username \n git config --global user.email email"
-
 # get location of this file
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -26,7 +24,9 @@ for file in "$DOTFILES_DIR/home/".*; do
   fi
 done
 
-git config --global include.path "~/.delta"
+echo -e "\n Git setup: \n git config --global user.name username \n git config --global user.email email \n"
+
+git config --global include.path "~/.delta.gitconfig"
 
 if [[ "$OS" == "Darwin" ]]; then
   # install vscodium extensions, set dock, source ~/.bash_profile, set system preferences
