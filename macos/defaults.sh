@@ -116,17 +116,8 @@ defaults write com.apple.finder AppleShowAllFiles -bool "true"
 # finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool "true"
 
-# finder: show status bar
-defaults write com.apple.finder ShowStatusBar -bool "true"
-
-# finder: show path bar
-defaults write com.apple.finder ShowPathbar -bool "true"
-
 # keep folders on top when sorting by name
 defaults write com.apple.finder _FXSortFoldersFirst -bool "true"
-
-# when performing a search, search the current folder by default
-defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
 # disable the warning when changing a file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool "false"
@@ -140,18 +131,12 @@ defaults write com.apple.finder "FXPreferredViewStyle" -string "icnv"
 # show folders first
 defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true"
 
-# sort by name
-defaults write com.apple.finder FXPreferredSortSpecificChecked -bool "true"
-
 # remove trash after 30 days
 defaults write com.apple.finder "FXRemoveOldTrashItems" -bool "true"
 
 ###############################################################################
 # Dock                                                                        #
 ###############################################################################
-
-# show indicator for open applications in the Dock
-defaults write com.apple.dock show-process-indicators -bool "true"
 
 # don’t animate opening applications from the Dock
 defaults write com.apple.dock launchanim -bool "false"
