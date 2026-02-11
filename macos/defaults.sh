@@ -7,8 +7,8 @@ osascript -e 'tell application "System Settings" to quit'
 sudo -v
 
 # keep-alive: update existing `sudo` time stamp until this script has finished
-while true; do
-  sudo -n true
+while "true"; do
+  sudo -n "true"
   sleep 60
   kill -0 "$$" || exit
 done 2>/dev/null &
@@ -31,10 +31,10 @@ sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.serve
 defaults write com.apple.menuextra.battery ShowPercent YES
 
 # disable opening and closing window animations
-defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool "false"
 
 # save to disk (not to iCloud) by default
-defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool "false"
 
 # group windows by application
 defaults write com.apple.dock "expose-group-apps" -bool "true"
@@ -50,19 +50,19 @@ defaults write com.apple.CloudSubscriptionFeatures.optIn "545129924" -bool "fals
 ###############################################################################
 
 # disable typing automatic capitalization.
-defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool "false"
 
 # disable typing automatic period substition a.k.a. "smart stops".
 defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -int 0
 
 # disable typing automatic dash substitution e.g. "smart dashes".
-defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool "false"
 
 # disable typing automatic quote substitution a.k.a. "smart quotes".
-defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool "false"
 
 # disable typing automatic spelling correction a.k.a. "auto-correct".
-defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool "false"
 
 # enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs)
@@ -73,14 +73,14 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 ###############################################################################
 
 # tap to click for this user
-defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool "true"
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 # set language and text formats
 defaults write NSGlobalDomain AppleLanguages -array "en" "nl"
 defaults write NSGlobalDomain AppleLocale -string "en_US@currency=USD"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Inches"
-defaults write NSGlobalDomain AppleMetricUnits -bool false
+defaults write NSGlobalDomain AppleMetricUnits -bool "false"
 
 ###############################################################################
 # Screen                                                                      #
@@ -98,44 +98,50 @@ defaults write com.apple.screencapture location -string "${SCREENSHOTS_FOLDER}"
 defaults write com.apple.screencapture type -string "png"
 
 # disable shadow in screenshots
-defaults write com.apple.screencapture disable-shadow -bool true
+defaults write com.apple.screencapture disable-shadow -bool "true"
 
 ###############################################################################
 # Finder                                                                      #
 ###############################################################################
 
 # finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
-defaults write com.apple.finder QuitMenuItem -bool true
+defaults write com.apple.finder QuitMenuItem -bool "true"
 
 # finder: disable window animations and Get Info animations
-defaults write com.apple.finder DisableAllAnimations -bool true
+defaults write com.apple.finder DisableAllAnimations -bool "true"
 
 # finder: show hidden files by default
-defaults write com.apple.finder AppleShowAllFiles -bool true
+defaults write com.apple.finder AppleShowAllFiles -bool "true"
 
 # finder: show all filename extensions
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+defaults write NSGlobalDomain AppleShowAllExtensions -bool "true"
 
 # finder: show status bar
-defaults write com.apple.finder ShowStatusBar -bool true
+defaults write com.apple.finder ShowStatusBar -bool "true"
 
 # finder: show path bar
-defaults write com.apple.finder ShowPathbar -bool true
+defaults write com.apple.finder ShowPathbar -bool "true"
 
 # keep folders on top when sorting by name
-defaults write com.apple.finder _FXSortFoldersFirst -bool true
+defaults write com.apple.finder _FXSortFoldersFirst -bool "true"
 
 # when performing a search, search the current folder by default
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
 # disable the warning when changing a file extension
-defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool "false"
 
 # avoid creating .DS_Store files on network
-defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool "true"
 
 # set icon view
 defaults write com.apple.finder "FXPreferredViewStyle" -string "icnv"
+
+# show folders first
+defaults write com.apple.finder "_FXSortFoldersFirst" -bool true
+
+# sort by name
+defaults write com.apple.finder FXPreferredSortSpecificChecked -bool true
 
 # remove trash after 30 days
 defaults write com.apple.finder "FXRemoveOldTrashItems" -bool "true"
@@ -145,19 +151,19 @@ defaults write com.apple.finder "FXRemoveOldTrashItems" -bool "true"
 ###############################################################################
 
 # show indicator for open applications in the Dock
-defaults write com.apple.dock show-process-indicators -bool true
+defaults write com.apple.dock show-process-indicators -bool "true"
 
 # don’t animate opening applications from the Dock
-defaults write com.apple.dock launchanim -bool false
+defaults write com.apple.dock launchanim -bool "false"
 
 # automatically hide and show the Dock
-defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock autohide -bool "true"
 
 # make Dock icons of hidden applications translucent
-defaults write com.apple.dock showhidden -bool true
+defaults write com.apple.dock showhidden -bool "true"
 
 # don't show recently used applications in the Dock
-defaults write com.apple.dock show-recents -bool false
+defaults write com.apple.dock show-recents -bool "false"
 
 ###############################################################################
 # Activity Monitor                                                            #
@@ -178,16 +184,16 @@ defaults write com.apple.ActivityMonitor SortDirection -int 0
 ###############################################################################
 
 # enable the automatic update check
-defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool true
+defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool "true"
 
 # download newly available updates in background
-defaults write com.apple.SoftwareUpdate AutomaticDownload -bool true
+defaults write com.apple.SoftwareUpdate AutomaticDownload -bool "true"
 
 # install System data files & security updates
-defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -bool true
+defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -bool "true"
 
 # turn on app auto-update
-defaults write com.apple.commerce AutoUpdate -bool true
+defaults write com.apple.commerce AutoUpdate -bool "true"
 
 ###############################################################################
 # Kill affected applications                                                  #
