@@ -138,10 +138,10 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool "true"
 defaults write com.apple.finder "FXPreferredViewStyle" -string "icnv"
 
 # show folders first
-defaults write com.apple.finder "_FXSortFoldersFirst" -bool true
+defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true"
 
 # sort by name
-defaults write com.apple.finder FXPreferredSortSpecificChecked -bool true
+defaults write com.apple.finder FXPreferredSortSpecificChecked -bool "true"
 
 # remove trash after 30 days
 defaults write com.apple.finder "FXRemoveOldTrashItems" -bool "true"
