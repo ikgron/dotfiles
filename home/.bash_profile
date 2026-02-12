@@ -12,9 +12,6 @@ unset file
 # case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
 
-# append to the Bash history file, rather than overwriting it
-shopt -s histappend
-
 # autocorrect typos in path names when using `cd`
 shopt -s cdspell
 
@@ -42,4 +39,4 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari SystemUIServ
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init bash)"
 export PATH="/opt/homebrew/bin:$PATH"
-export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH # for zed
