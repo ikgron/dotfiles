@@ -16,20 +16,6 @@ alias p="cd ~/Projects"
 
 # git
 alias g="git"
-alias gcl="git clone"
-alias gst="git status"
-alias glg="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit"
-alias gfh="git fetch"
-alias gdf="git diff"
-alias gad="git add"
-alias grt="git reset"
-alias grr="git restore"
-alias gco="git commit"
-alias gpl="git pull"
-alias gps="git push"
-alias gpsf="git push --force"
-alias gbr="git branch"
-alias gch="git checkout"
 
 # open file in default editor
 alias edr="$EDITOR"
