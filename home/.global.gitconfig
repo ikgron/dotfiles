@@ -34,10 +34,11 @@
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit
 	fh = fetch
 	df = diff
+	sw = show
 	ad = add
 	rt = reset
 	rr = restore
-	cm = commit
+	cm = commit -m
 	pl = pull
 	ps = push
 	psf = push --force
