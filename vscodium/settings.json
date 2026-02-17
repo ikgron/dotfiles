@@ -6,10 +6,10 @@
   "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
   "terminal.integrated.fontLigatures.enabled": true,
   "editor.fontLigatures": true,
-  "editor.fontSize": 14,
+  "editor.fontSize": 16,
   "git.enableSmartCommit": true,
   "git.autofetch": true,
-  "debug.console.fontSize": 14,
-  "scm.inputFontSize": 14,
-  "terminal.integrated.fontSize": 14
+  "debug.console.fontSize": 16,
+  "scm.inputFontSize": 16,
+  "terminal.integrated.fontSize": 16
 }

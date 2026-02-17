@@ -29,19 +29,19 @@
   version = 2
 
 [alias]
-	cl = clone
-	st = status
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit
-	fh = fetch
-	df = diff
-	sw = show
-	ad = add
-	rt = reset
-	rr = restore
-	cm = commit -m
-	pl = pull
-	ps = push
-	psf = push --force
-	br = branch
-	co = checkout
-	sh = stash
+  ad = add
+  br = branch
+  cl = clone
+  cm = commit -m
+  co = checkout
+  df = diff
+  fh = fetch
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit
+  pl = pull
+  ps = push
+  psf = push --force
+  rr = restore
+  rt = reset
+  sh = stash
+  st = status
+  sw = show

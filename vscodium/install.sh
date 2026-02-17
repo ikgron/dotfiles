@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-VSCODIUM_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+VSCODIUM_DIR="$(dirname "${BASH_SOURCE}")"
 
 # install extensions from Codefile
 while IFS= read -r extension; do

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-HOMEBREW_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+HOMEBREW_DIR="$(dirname "${BASH_SOURCE}")"
 
 # save homebrew’s installed location
 BREW_PREFIX=$(brew --prefix)

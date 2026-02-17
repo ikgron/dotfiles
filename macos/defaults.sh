@@ -68,6 +68,9 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool "false"
 # (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
+# disable press-and-hold for keys in favor of key repeat
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
 ###############################################################################
 # Trackpad, mouse, Bluetooth accessories                                      #
 ###############################################################################
@@ -127,9 +130,6 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool "true"
 
 # set icon view
 defaults write com.apple.finder "FXPreferredViewStyle" -string "icnv"
-
-# show folders first
-defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true"
 
 # remove trash after 30 days
 defaults write com.apple.finder "FXRemoveOldTrashItems" -bool "true"
