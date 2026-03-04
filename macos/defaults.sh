@@ -42,9 +42,6 @@ defaults write com.apple.dock "expose-group-apps" -bool "true"
 # disable rich text
 defaults write com.apple.TextEdit "RichText" -bool "false"
 
-# deactivate Apple Intelligence
-defaults write com.apple.CloudSubscriptionFeatures.optIn "545129924" -bool "false"
-
 ###############################################################################
 # Keyboard & Input                                                            #
 ###############################################################################
@@ -110,29 +107,14 @@ defaults write com.apple.screencapture disable-shadow -bool "true"
 # finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
 defaults write com.apple.finder QuitMenuItem -bool "true"
 
-# finder: disable window animations and Get Info animations
-defaults write com.apple.finder DisableAllAnimations -bool "true"
-
 # finder: show hidden files by default
 defaults write com.apple.finder AppleShowAllFiles -bool "true"
 
 # finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool "true"
 
-# keep folders on top when sorting by name
-defaults write com.apple.finder _FXSortFoldersFirst -bool "true"
-
-# disable the warning when changing a file extension
-defaults write com.apple.finder FXEnableExtensionChangeWarning -bool "false"
-
 # avoid creating .DS_Store files on network
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool "true"
-
-# set icon view
-defaults write com.apple.finder "FXPreferredViewStyle" -string "icnv"
-
-# remove trash after 30 days
-defaults write com.apple.finder "FXRemoveOldTrashItems" -bool "true"
 
 ###############################################################################
 # Dock                                                                        #
@@ -149,36 +131,6 @@ defaults write com.apple.dock showhidden -bool "true"
 
 # don't show recently used applications in the Dock
 defaults write com.apple.dock show-recents -bool "false"
-
-###############################################################################
-# Activity Monitor                                                            #
-###############################################################################
-
-# visualize CPU usage in the Activity Monitor Dock icon
-defaults write com.apple.ActivityMonitor IconType -int 5
-
-# show all processes in Activity Monitor
-defaults write com.apple.ActivityMonitor ShowCategory -int 0
-
-# sort Activity Monitor results by CPU usage
-defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
-defaults write com.apple.ActivityMonitor SortDirection -int 0
-
-###############################################################################
-# Software Updates                                                            #
-###############################################################################
-
-# enable the automatic update check
-defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool "true"
-
-# download newly available updates in background
-defaults write com.apple.SoftwareUpdate AutomaticDownload -bool "true"
-
-# install System data files & security updates
-defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -bool "true"
-
-# turn on app auto-update
-defaults write com.apple.commerce AutoUpdate -bool "true"
 
 ###############################################################################
 # Kill affected applications                                                  #

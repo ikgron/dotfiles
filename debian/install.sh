@@ -4,7 +4,7 @@
 # update, upgrade, and install apps
 sudo apt update && sudo apt upgrade -y
 
-sudo apt install -y alacritty btop eza fastfetch nodejs starship
+sudo apt install -y alacritty btop eza fastfetch nodejs npm starship
 
 # recommended zed install
 curl -f https://zed.dev/install.sh | sh
