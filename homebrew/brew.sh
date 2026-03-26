@@ -20,3 +20,6 @@ brew bundle --file="$HOMEBREW_DIR/Brewfile"
 
 brew upgrade
 brew cleanup
+
+# remove quarantine from librewolf installed via homebrew
+xattr -dr com.apple.quarantine /Applications/LibreWolf.app 

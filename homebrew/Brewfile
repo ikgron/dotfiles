@@ -12,7 +12,7 @@ brew "starship"
 # casks
 cask "alacritty"
 cask "bitwarden"
-cask "librewolf", args: { "no-quarantine" => true }
+cask "librewolf"
 cask "mullvad-browser"
 cask "protonvpn"
 cask "rectangle"
