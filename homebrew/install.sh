@@ -2,7 +2,7 @@
 
 chsh -s /bin/bash
 
-# check if homebrew is installed
+# Check if homebrew is installed
 if ! command -v brew &>/dev/null; then
   echo "Installing Homebrew..."
   NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"

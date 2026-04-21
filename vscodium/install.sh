@@ -2,7 +2,7 @@
 
 VSCODIUM_DIR="$(dirname "${BASH_SOURCE}")"
 
-# install extensions from Codefile
+# Install extensions from Codefile
 while IFS= read -r extension; do
   if [[ ! -z "$extension" ]]; then
     codium --install-extension "$extension" --force

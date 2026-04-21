@@ -15,7 +15,7 @@
 [merge]
   conflictStyle = zdiff3
 
-# push easily. http://stackoverflow.com/a/23918418/89484
+# Push easily. http://stackoverflow.com/a/23918418/89484
 [push]
   default = simple
   followTags = true

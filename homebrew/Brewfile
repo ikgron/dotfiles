@@ -1,4 +1,4 @@
-# brews
+# Brews
 brew "bash-completion@2"
 brew "btop"
 brew "dockutil"
@@ -9,7 +9,7 @@ brew "git-delta"
 brew "node"
 brew "starship"
 
-# casks
+# Casks
 cask "alacritty"
 cask "bitwarden"
 cask "librewolf"
@@ -19,5 +19,5 @@ cask "rectangle"
 cask "vscodium"
 cask "zed"
 
-# fonts
+# Fonts
 cask "font-fira-code-nerd-font"

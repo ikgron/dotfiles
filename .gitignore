@@ -1,4 +1,4 @@
-# general
+# General
 .DS_Store
 __MACOSX/
 .AppleDouble
@@ -6,10 +6,10 @@ __MACOSX/
 Icon[
 ]
 
-# thumbnails
+# Thumbnails
 ._*
 
-# files that might appear in the root of a volume
+# Files that might appear in the root of a volume
 .DocumentRevisions-V100
 .fseventsd
 .Spotlight-V100
@@ -18,7 +18,7 @@ Icon[
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
 
-# directories potentially created on remote AFP share
+# Directories potentially created on remote AFP share
 .AppleDB
 .AppleDesktop
 Network Trash Folder
@@ -27,24 +27,24 @@ Temporary Items
 
 *~
 
-# temporary files which can be created if a process still has a handle open of a deleted file
+# Temporary files which can be created if a process still has a handle open of a deleted file
 .fuse_hidden*
 
-# metadata left by Dolphin file manager, which comes with KDE Plasma
+# Metadata left by Dolphin file manager, which comes with KDE Plasma
 .directory
 
-# linux trash folder which might appear on any partition or disk
+# Linux trash folder which might appear on any partition or disk
 .Trash-*
 
 # .nfs files are created when an open file is removed but is still being accessed
 .nfs*
 
-# log files created by default by the nohup command
+# Log files created by default by the nohup command
 nohup.out
 
-# dotfiles
+# Dotfiles
 .gitconfig
 .bash_history
 
-# other
+# Other
 local/*

@@ -9,7 +9,7 @@ is_executable() {
   type "$1" >/dev/null 2>&1
 }
 
-# try curl first to skip xcode popup when running on a fresh macOS device
+# Try curl first to skip xcode popup when running on a fresh macOS device
 if is_executable "curl"; then
   CMD="curl -#L $TARBALL | $TAR_CMD"
 

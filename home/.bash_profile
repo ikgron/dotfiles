@@ -1,21 +1,21 @@
-# add `~/bin` to `$PATH`
+# Add `~/bin` to `$PATH`
 if [ -d "$HOME/bin" ]; then
   export PATH="$HOME/bin:$PATH"
 fi
 
-# load dotfiles
+# Load dotfiles
 for file in ~/.{bash_prompt,exports,aliases}; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
 
-# case-insensitive globbing (used in pathname expansion)
+# Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
 
-# autocorrect typos in path names when using `cd`
+# Autocorrect typos in path names when using `cd`
 shopt -s cdspell
 
-# setup for homebrew bash-completion@2
+# Setup for homebrew bash-completion@2
 if [[ $(uname) == "darwin" ]] && command -v brew >/dev/null; then
   BREW_PREFIX=$(brew --prefix)
 
@@ -23,7 +23,7 @@ if [[ $(uname) == "darwin" ]] && command -v brew >/dev/null; then
     . "$BREW_PREFIX/etc/profile.d/bash_completion.sh"
   fi
 
-  # homebrew completion
+  # Homebrew completion
   [ -f "$BREW_PREFIX/etc/bash_completion.d/brew" ] && source "$BREW_PREFIX/etc/bash_completion.d/brew"
 fi
 
@@ -32,15 +32,15 @@ if type __git_complete &>/dev/null; then
   __git_complete g __git_main
 fi
 
-# add `killall` tab completion for common apps
+# Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari SystemUIServer Terminal" killall
 
-# change starship config location and set shell to use it
+# Change starship config location and set shell to use it
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init bash)"
 
-# add homebrew to PATH
+# Add homebrew to PATH
 export PATH="/opt/homebrew/bin:$PATH"
 
-# for zed
+# For zed
 export PATH=$HOME/.local/bin:$PATH 

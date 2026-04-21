@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# easier navigation
+# Easier navigation
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -8,22 +8,22 @@ alias .....="cd ../../../.."
 alias ~="cd ~"
 alias -- -="cd -"
 
-# shortcuts
+# Shortcuts
 alias dl="cd ~/Downloads"
 alias dm="cd ~/Documents"
 alias dt="cd ~/Desktop"
 alias p="cd ~/Projects"
 
-# git
+# Git
 alias g="git"
 
-# open file in default editor
+# Open file in default editor
 alias edr="$EDITOR"
 
-# open file in default visual editor
+# Open file in default visual editor
 alias vedr="$VISUAL"
 
-# actually clear terminal
+# Actually clear terminal
 alias cls="clear && printf '\e[3J'"
 
 # ls with eza (color auto, list folders first, display type indicators by file name, )
@@ -32,31 +32,31 @@ alias ls="eza --color=auto --icons=always --group-directories-first --classify=a
 # ls -la with eza (color auto, list folders first, permissions in octal format, supress permissions field)
 alias la="eza --color=auto --icons=always --group-directories-first --classify=auto --sort=extension -a -l --octal-permissions --no-permissions --no-user --header"
 
-# enable aliases to be sudo’ed
+# Enable aliases to be sudo’ed
 alias sudo="sudo "
 
-# if i add more os specific aliases i'll split them up into separate files but for now this works
+# If i add more os specific aliases i'll split them up into separate files but for now this works
 case "$(uname -s)" in
 Darwin)
-  # get macOS Software Updates, and update Homebrew, npm, and their installed packages
+  # Get macOS Software Updates, and update Homebrew, npm, and their installed packages
   alias update="sudo softwareupdate -i -a && brew update && brew upgrade && brew cleanup && npm install npm -g && npm update -g"
   ;;
 Linux)
-  # update apt packages and cleanup unneeded files
+  # Update apt packages and cleanup unneeded files
   alias update='sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y'
   ;;
 esac
 
-# macOS has no `sha1sum`, so use `shasum` as a fallback
+# MacOS has no `sha1sum`, so use `shasum` as a fallback
 command -v sha1sum >/dev/null || alias sha1sum="shasum"
 
-# recursively delete `.DS_Store` files
+# Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
-# reload the shell (i.e. invoke as a login shell)
+# Reload the shell (i.e. invoke as a login shell)
 alias reload="exec ${SHELL} -l"
 
-# print each PATH entry on a separate line
+# Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 
 alias ff="cls && fastfetch"

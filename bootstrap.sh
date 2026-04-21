@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# make sure to run homebrew/install.sh and homebrew/brew.sh first if on mac
+# Make sure to run homebrew/install.sh and homebrew/brew.sh first if on mac
 
-# get location of this file
+# Get location of this file
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 OS="$(uname)"
@@ -16,7 +16,7 @@ for dir in "$CONFIG_SRC"/*/; do
   echo "symlinked $dirname"
 done
 
-# symlink files in home/ to ~ (files with or without a `.` in front)
+# Symlink files in home/ to ~ (files with or without a `.` in front)
 for file in "$DOTFILES_DIR/home/".* "$DOTFILES_DIR/home/"*; do
   if [[ -f "$file" ]]; then
     ln -sf "$file" "$HOME/$(basename "$file")"
@@ -24,17 +24,17 @@ for file in "$DOTFILES_DIR/home/".* "$DOTFILES_DIR/home/"*; do
   fi
 done
 
-# i forget sometimes:
+# I forget sometimes:
 echo -e "\n Git setup: \n git config --global user.name username \n git config --global user.email email \n"
 
 git config --global include.path "~/.global.gitconfig"
 
 if [[ "$OS" == "Darwin" ]]; then
-  # install vscodium extensions, set dock, source ~/.bash_profile, set system preferences
+  # Install vscodium extensions, set dock, source ~/.bash_profile, set system preferences
   bash "$DOTFILES_DIR/vscodium/install.sh"
   bash "$DOTFILES_DIR/macos/dock.sh"
   source "$HOME/.bash_profile"
-  bash "$DOTFILES_DIR/macos/defaults.sh" # run this last since it ends the script
+  bash "$DOTFILES_DIR/macos/defaults.sh" # Run this last since it ends the script
 
 else
   echo "$OS is invalid."
