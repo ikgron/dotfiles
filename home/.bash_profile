@@ -34,13 +34,3 @@ fi
 
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari SystemUIServer Terminal" killall
-
-# Change starship config location and set shell to use it
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
-eval "$(starship init bash)"
-
-# Add homebrew to PATH
-export PATH="/opt/homebrew/bin:$PATH"
-
-# For zed
-export PATH=$HOME/.local/bin:$PATH 
