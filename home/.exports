@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 # Set default editor and visual editor
 export EDITOR=nano
 export VISUAL=zed
@@ -36,13 +34,3 @@ export LESS_TERMCAP_us=$(printf '\e[04;36m') # Enter underline mode – cyan
 # Change starship config location and set shell to use it
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init bash)"
-
-# Add homebrew to PATH
-export PATH="/opt/homebrew/bin:$PATH"
-
-# For zed
-export PATH=$HOME/.local/bin:$PATH 
-
-export ANTHROPIC_AUTH_TOKEN=ollama
-export ANTHROPIC_API_KEY=""
-export ANTHROPIC_BASE_URL=http://localhost:11434

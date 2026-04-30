@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+eval "$(/opt/homebrew/bin/brew shellenv bash)"
+
 HOMEBREW_DIR="$(dirname "${BASH_SOURCE}")"
 
 # Save homebrew’s installed location
@@ -22,4 +24,6 @@ brew upgrade
 brew cleanup
 
 # Remove quarantine from librewolf installed via homebrew
-xattr -dr com.apple.quarantine /Applications/LibreWolf.app 
+xattr -dr com.apple.quarantine /Applications/LibreWolf.app
+
+brew analytics off

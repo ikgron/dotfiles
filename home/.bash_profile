@@ -1,7 +1,4 @@
-# Add `~/bin` to `$PATH`
-if [ -d "$HOME/bin" ]; then
-  export PATH="$HOME/bin:$PATH"
-fi
+eval "$(/opt/homebrew/bin/brew shellenv bash)"
 
 # Load dotfiles
 for file in ~/.{bash_prompt,exports,aliases}; do
