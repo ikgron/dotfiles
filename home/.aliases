@@ -41,7 +41,7 @@ Darwin)
   ;;
 Linux)
   # Update apt packages and cleanup unneeded files
-  alias update='sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y'
+  alias update='sudo apt update && sudo apt full-upgrade && sudo apt autoremove -y'
   ;;
 esac
 
