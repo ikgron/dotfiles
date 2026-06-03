@@ -1,0 +1,51 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "git_panel": {
+    "dock": "left",
+  },
+  "project_panel": {
+    "dock": "left",
+  },
+  "soft_wrap": "editor_width",
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000,
+    },
+  },
+  "buffer_font_family": "FiraCode Nerd Font Mono",
+  "title_bar": {
+    "show_sign_in": false,
+  },
+  "terminal": {
+    "shell": "system",
+    "option_as_meta": true,
+    "font_family": "FiraCode Nerd Font Mono",
+  },
+  "disable_ai": true,
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "icon_theme": "Material Icon Theme",
+  "base_keymap": "VSCode",
+  "ui_font_size": 16,
+  "buffer_font_size": 16,
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "One Dark Pro",
+  },
+  "auto_install_extensions": {
+    "html": true,
+    "material-icon-theme": true,
+    "one-dark-pro": true,
+    "toml": true,
+  },
+}

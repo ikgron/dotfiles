@@ -1,0 +1,58 @@
+# Easier navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ~="cd ~"
+alias -- -="cd -"
+
+# Shortcuts
+alias dl="cd ~/Downloads"
+alias dm="cd ~/Documents"
+alias dt="cd ~/Desktop"
+alias p="cd ~/Projects"
+
+# Git
+alias g="git"
+
+# Actually clear terminal
+alias cls="clear && printf '\e[3J'"
+
+# ls with eza (color auto, list folders first, display type indicators by file name, )
+alias ls="eza --color=auto --icons=always --group-directories-first --classify=auto --sort=extension -A"
+
+# ls -la with eza (color auto, list folders first, permissions in octal format, supress permissions field)
+alias la="eza --color=auto --icons=always --group-directories-first --classify=auto --sort=extension -a -l --octal-permissions --no-permissions --no-user --header"
+
+# Enable aliases to be sudo’ed
+alias sudo="sudo "
+
+# Reload the shell
+alias reload="exec ${SHELL}"
+
+# Print each PATH entry on a separate line
+alias path='echo -e ${PATH//:/\\n}'
+
+# OS specific aliases
+case "$(uname)" in
+Darwin)
+    # Get macOS Software Updates and update Homebrew
+    alias update="sudo softwareupdate -i -a && brew update && brew upgrade && brew cleanup"
+
+    # Recursively delete `.DS_Store` files
+    alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+
+    # MacOS has no `sha1sum`, so use `shasum` as a fallback
+    command -v sha1sum >/dev/null || alias sha1sum="shasum"
+
+    # Brew uninstall and purge all cask files
+    alias brm="brew rm --zap"
+
+    # Better `stat`
+    alias stat="stat -x"
+    ;;
+Linux)
+    # Update apt packages, flatpak packages, and cleanup unneeded files
+    alias update="sudo apt update && sudo apt full-upgrade && sudo apt autoremove -y && flatpak update && flatpak uninstall --unused -y"
+    ;;
+esac

@@ -1,0 +1,8 @@
+{
+  "file_types": {
+    "Shell Script": [".aliases", ".bash_prompt", ".exports", ".inputrc"],
+    "Git Config": [".global.gitconfig"],
+    "TOML": ["config"],
+    "Ruby": ["Brewfile"],
+  },
+}
