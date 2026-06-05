@@ -9,29 +9,15 @@ cd ~/Projects/dotfiles/
 
 If on macOS, first run:
 ```bash
-bash macos/homebrew_install.sh
+homebrew/install.sh
 ```
 
 Then bootstrap with:
 
 ```bash
-bash bootstrap.sh
+bootstrap.sh
 ```
 
 Contains setup for Bash, Homebrew, macOS defaults, Alacritty, Ghostty, Zed, and more.
 
 ![screenshot](assets/terminal_screenshot.png)
-
-## Credits
-
-A lot of stuff was taken from
-<br>
-https://github.com/mathiasbynens/dotfiles/
-<br>
-and
-<br>
-https://github.com/paulirish/dotfiles/
-<br>
-and
-<br>
-https://github.com/paulmillr/dotfiles/
