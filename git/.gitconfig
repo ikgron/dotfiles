@@ -1,7 +1,17 @@
+[include]
+    path = ~/.gitconfig.local
+
+[gpg]
+    format = ssh
+
+[commit]
+    gpgSign = true
+
 [core]
     precomposeUnicode = true
     symlinks = true
     pager = delta
+   	excludesfile = ~/.gitignore
 
 [interactive]
     diffFilter = delta --color-only

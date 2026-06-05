@@ -1,4 +1,3 @@
-# Brews
 brew "bash-completion@2"
 brew "dockutil"
 brew "eza"
@@ -6,7 +5,6 @@ brew "git"
 brew "git-delta"
 brew "starship"
 
-# Casks
 cask "bitwarden"
 cask "ghostty"
 cask "librewolf"
@@ -15,5 +13,4 @@ cask "oversight"
 cask "protonvpn"
 cask "zed"
 
-# Fonts
 cask "font-fira-code-nerd-font"

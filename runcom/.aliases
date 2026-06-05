@@ -28,7 +28,7 @@ alias la="eza --color=auto --icons=always --group-directories-first --classify=a
 alias sudo="sudo "
 
 # Reload the shell
-alias reload="exec ${SHELL}"
+alias reload="source ~/.bash_profile"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'

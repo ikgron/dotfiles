@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# This should work with any debian based system
+# This should work with any Debian based system
 
 # Update, upgrade, and install apps
 sudo apt update && sudo apt upgrade -y
 
-sudo apt install -y alacritty eza gamemode ghostty git-delta starship unzip
+sudo apt install -y eza gamemode ghostty git-delta starship unzip
 
-# Recommended zed install
+# Recommended Zed install
 curl -f https://zed.dev/install.sh | sh
 
 # Install FiraCode Nerd Font for user only
