@@ -9,7 +9,6 @@ CONFIG_DEST="$HOME/.config"
 mkdir -p "$CONFIG_DEST"
 
 shopt -s dotglob nullglob
-
 # Symlink folders & files in config/ to ~/.config/
 for dir in "$CONFIG_SRC"/*/; do
     # Remove trailing slash
@@ -18,8 +17,8 @@ for dir in "$CONFIG_SRC"/*/; do
     ln -sfvn "$CONFIG_SRC/$dirname" "$CONFIG_DEST/$dirname"
 done
 
-# Symlink files in git/ and runcom/ to ~
-for file in "$DOTFILES_DIR"/{git,runcom}/*; do
+# Symlink files in home/ to ~
+for file in "$DOTFILES_DIR"/home/*; do
     if [[ -f "$file" ]]; then
         ln -sfv "$file" "$HOME/$(basename "$file")"
     fi
@@ -33,14 +32,13 @@ if [[ "$confirm" =~ ^[Yy]$ ]]; then
     read -rp "Username: " username
     read -rp "Email: " email
 
-    git config --file ~/.gitconfig.local user.name "$username"
-    git config --file ~/.gitconfig.local user.email "$email"
-    git config --file ~/.gitconfig.local user.signingKey ~/.ssh/id_ed25519.pub
+    git config --file ~/.config/git/config.local user.name "$username"
+    git config --file ~/.config/git/config.local user.email "$email"
+    git config --file ~/.config/git/config.local user.signingKey ~/.ssh/id_ed25519.pub
 fi
 
 if [[ "$(uname)" == "Linux" ]]; then
     bash "$DOTFILES_DIR/debian/install.sh"
-    return
 
 elif [[ "$(uname)" == "Darwin" ]]; then
     # Source ~/.bash_profile, set system preferences and dock

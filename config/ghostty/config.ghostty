@@ -14,6 +14,7 @@ shell-integration-features = no-cursor
 
 # Copy selected text to clipboard
 copy-on-select = clipboard
+clipboard-trim-trailing-spaces = true
 
 # Close app after last surface/window is closed
 quit-after-last-window-closed = true

@@ -1,7 +1,7 @@
 {
   "file_types": {
     "Shell Script": [".aliases", ".bash_prompt", ".exports", ".inputrc"],
-    "Git Config": [".gitconfig.local"],
-    "TOML": ["config"],
+    "Git Config": ["config.local", "config"],
+    "TOML": ["config.ghostty"],
   },
 }
