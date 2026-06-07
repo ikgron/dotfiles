@@ -53,6 +53,16 @@ Darwin)
     ;;
 Linux)
     # Update apt packages, flatpak packages, and cleanup unneeded files
-    alias update="sudo apt update && sudo apt full-upgrade && sudo apt autoremove -y && flatpak update && flatpak uninstall --unused -y"
+    alias update="sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y && flatpak update && flatpak uninstall --unused -y"
+
+    # Completely uninstall apt app
+    aptrm() {
+        sudo apt purge --autoremove -y "$1" && sudo apt clean
+    }
+
+    # Completely uninstall flatpak app
+    fprm() {
+        flatpak uninstall --delete-data -y "$1" && flatpak uninstall --unused -y
+    }
     ;;
 esac
