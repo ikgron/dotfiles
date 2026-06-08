@@ -11,6 +11,7 @@ cask "librewolf"
 cask "mullvad-browser"
 cask "oversight"
 cask "protonvpn"
+cask "vscodium"
 cask "zed"
 
 cask "font-fira-code-nerd-font"
