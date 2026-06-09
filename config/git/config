@@ -1,57 +1,57 @@
 [include]
-    path = ~/.config/git/config.local
+path = ~/.config/git/config.local
 
 [core]
-    precomposeUnicode = true
-    symlinks = true
-    pager = delta
-   	excludesfile = ~/.config/git/ignore
+precomposeUnicode = true
+symlinks = true
+pager = delta
+excludesfile = ~/.config/git/ignore
 
 [gpg]
-    format = ssh
+format = ssh
 
 [commit]
-    gpgSign = true
+gpgSign = true
 
 [interactive]
-    diffFilter = delta --color-only
+diffFilter = delta --color-only
 
 [delta]
-    navigate = true
-    side-by-side = true
-    hyperlinks = true
-    wrap-max-lines = unlimited
+navigate = true
+side-by-side = true
+hyperlinks = true
+wrap-max-lines = unlimited
 
 [merge]
-    conflictStyle = zdiff3
+conflictStyle = zdiff3
 
 # Push easily. http://stackoverflow.com/a/23918418/89484
 [push]
-    default = simple
-    followTags = true
-    autoSetupRemote = true
+default = simple
+followTags = true
+autoSetupRemote = true
 
 [pull]
-    ff = true
-    default = current
+ff = true
+default = current
 
 [protocol]
-    version = 2
+version = 2
 
 [alias]
-    ad = add
-    br = branch
-    cl = clone
-    cm = commit -m
-    co = checkout
-    df = diff
-    fh = fetch
-    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit
-    pl = pull
-    ps = push
-    psf = push --force
-    rr = restore
-    rt = reset
-    sh = stash
-    st = status
-    sw = show
+ad = add
+br = branch
+cl = clone
+cm = commit -m
+co = checkout
+df = diff
+fh = fetch
+lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit
+pl = pull
+ps = push
+psf = push --force
+rr = restore
+rt = reset
+sh = stash
+st = status
+sw = show

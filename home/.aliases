@@ -34,8 +34,7 @@ alias reload="source ~/.bash_profile"
 alias path='echo -e ${PATH//:/\\n}'
 
 # OS specific aliases
-case "$(uname)" in
-Darwin)
+if [[ "$(uname)" == "Darwin" ]]; then
     # Get macOS Software Updates and update Homebrew
     alias update="sudo softwareupdate -i -a && brew update && brew upgrade && brew cleanup"
 
@@ -50,8 +49,8 @@ Darwin)
 
     # Better `stat`
     alias stat="stat -x"
-    ;;
-Linux)
+
+elif [[ "$(uname)" == "Linux" ]]; then
     # Update apt packages, flatpak packages, and cleanup unneeded files
     alias update="sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y && flatpak update && flatpak uninstall --unused -y"
 
@@ -64,5 +63,4 @@ Linux)
     fprm() {
         flatpak uninstall --delete-data -y "$1" && flatpak uninstall --unused -y
     }
-    ;;
-esac
+fi

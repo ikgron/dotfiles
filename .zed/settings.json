@@ -2,6 +2,7 @@
   "file_types": {
     "Shell Script": [".aliases", ".bash_prompt", ".exports", ".inputrc"],
     "Git Config": ["config.local", "config"],
+    "Git Ignore": ["ignore"],
     "TOML": ["config.ghostty"],
   },
 }

@@ -22,6 +22,13 @@ if [[ $(uname) == "Darwin" ]] && command -v brew >/dev/null; then
     fi
 fi
 
+# Load Git on terminal launch so Git completion works (Linux only)
+if [[ $(uname) == "Linux" ]]; then
+    if [ -f /usr/share/bash-completion/completions/git ]; then
+        . /usr/share/bash-completion/completions/git
+    fi
+fi
+
 # Enable tab completion for `g` by marking it as an alias for `git`
 if type __git_complete &>/dev/null; then
     __git_complete g __git_main
