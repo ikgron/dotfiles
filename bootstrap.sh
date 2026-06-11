@@ -12,9 +12,9 @@ shopt -s dotglob nullglob
 # Symlink folders & files in config/ to ~/.config/
 for dir in "$CONFIG_SRC"/*/; do
     # Remove trailing slash
-    dirname=$(basename "$dir")
+    dir_name=$(basename "$dir")
 
-    ln -sfvn "$CONFIG_SRC/$dirname" "$CONFIG_DEST/$dirname"
+    ln -sfvn "$CONFIG_SRC/$dir_name" "$CONFIG_DEST/$dir_name"
 done
 
 # Symlink files in home/ to ~

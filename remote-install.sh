@@ -3,7 +3,7 @@
 SOURCE="https://codeberg.org/parser/dotfiles"
 TARBALL="$SOURCE/archive/refs/heads/main.tar.gz"
 TARGET="$HOME/Projects/dotfiles"
-TAR_CMD="tar -xzv -C "$TARGET" --strip-components=1 --exclude='{.gitignore}' --exclude='assets/*'"
+TAR_CMD="tar -xzv -C \"$TARGET\" --strip-components=1 --exclude='{.gitignore}' --exclude='assets/*'"
 
 is_executable() {
     type "$1" >/dev/null 2>&1
@@ -20,9 +20,9 @@ elif is_executable "wget"; then
     CMD="wget --no-check-certificate -O - $TARBALL | $TAR_CMD"
 fi
 
-if [ -z "$CMD" ]; then
+if [[ -z "$CMD" ]]; then
     echo "No git, curl or wget available. Aborting."
-
+    exit 1
 else
     echo "Installing dotfiles..."
     mkdir -p "$TARGET"

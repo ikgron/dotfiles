@@ -10,7 +10,7 @@ export HISTFILESIZE="${HISTSIZE}"
 export HISTCONTROL='ignoreboth'
 
 # Avoid issues with `gpg` as installed via Homebrew. https://stackoverflow.com/a/42265848/96656
-export GPG_TTY=$(tty)
+export GPG_TTY="$(tty)"
 
 # Hide the “default interactive shell is now zsh” warning on macOS.
 export BASH_SILENCE_DEPRECATION_WARNING=1
@@ -19,14 +19,14 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 export MANPAGER='less -X'
 
 # Highlighting inside manpages and elsewhere
-export LESS_TERMCAP_mb=$(printf '\e[01;31m') # Enter blinking mode – red
-export LESS_TERMCAP_md=$(printf '\e[01;35m') # Enter double-bright mode – bold, magenta
-export LESS_TERMCAP_me=$(printf '\e[0m')     # Turn off all appearance modes (mb, md, so, us)
-export LESS_TERMCAP_se=$(printf '\e[0m')     # Leave standout mode
-export LESS_TERMCAP_so=$(printf '\e[01;33m') # Enter standout mode – yellow
-export LESS_TERMCAP_ue=$(printf '\e[0m')     # Leave underline mode
-export LESS_TERMCAP_us=$(printf '\e[04;36m') # Enter underline mode – cyan
+export LESS_TERMCAP_mb="$(printf '\e[01;31m')" # Enter blinking mode – red
+export LESS_TERMCAP_md="$(printf '\e[01;35m')" # Enter double-bright mode – bold, magenta
+export LESS_TERMCAP_me="$(printf '\e[0m')"     # Turn off all appearance modes (mb, md, so, us)
+export LESS_TERMCAP_se="$(printf '\e[0m')"     # Leave standout mode
+export LESS_TERMCAP_so="$(printf '\e[01;33m')" # Enter standout mode – yellow
+export LESS_TERMCAP_ue="$(printf '\e[0m')"     # Leave underline mode
+export LESS_TERMCAP_us="$(printf '\e[04;36m')" # Enter underline mode – cyan
 
 # Change starship config location and set shell to use it
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 eval "$(starship init bash)"

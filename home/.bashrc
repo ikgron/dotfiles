@@ -3,8 +3,8 @@ if [[ "$(uname)" == "Darwin" ]]; then
 fi
 
 # Load dotfiles
-for file in ~/.{bash_prompt,exports,aliases}; do
-    [ -r "$file" ] && [ -f "$file" ] && source "$file"
+for file in ~/.{exports,aliases}; do
+    [[ -r "$file" && -f "$file" ]] && source "$file"
 done
 unset file
 
@@ -15,16 +15,16 @@ shopt -s nocaseglob
 shopt -s cdspell
 
 # Setup for bash-completion@2
-if [[ $(uname) == "Darwin" ]] && command -v brew >/dev/null; then
+if [[ "$(uname)" == "Darwin" ]] && command -v brew >/dev/null; then
     BREW_PREFIX=$(brew --prefix)
-    if [[ -s $BREW_PREFIX/etc/profile.d/bash_completion.sh ]]; then
+    if [[ -s "$BREW_PREFIX/etc/profile.d/bash_completion.sh" ]]; then
         . "$BREW_PREFIX/etc/profile.d/bash_completion.sh"
     fi
 fi
 
 # Load Git on terminal launch so Git completion works (Linux only)
-if [[ $(uname) == "Linux" ]]; then
-    if [ -f /usr/share/bash-completion/completions/git ]; then
+if [[ "$(uname)" == "Linux" ]]; then
+    if [[ -f /usr/share/bash-completion/completions/git ]]; then
         . /usr/share/bash-completion/completions/git
     fi
 fi

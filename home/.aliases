@@ -31,7 +31,7 @@ alias sudo="sudo "
 alias reload="source ~/.bash_profile"
 
 # Print each PATH entry on a separate line
-alias path='echo -e ${PATH//:/\\n}'
+alias path='tr ":" "\n" <<< "$PATH"'
 
 # OS specific aliases
 if [[ "$(uname)" == "Darwin" ]]; then
