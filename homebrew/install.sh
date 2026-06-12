@@ -26,7 +26,7 @@ fi
 echo "Installing everything from Brewfile"
 brew bundle --file="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/Brewfile"
 
-xattr -dr com.apple.quarantine /Applications/LibreWolf.app
+[[ -d /Applications/LibreWolf.app ]] && xattr -dr com.apple.quarantine /Applications/LibreWolf.app
 
 brew cleanup
 brew analytics off

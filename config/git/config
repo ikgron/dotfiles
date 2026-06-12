@@ -33,7 +33,6 @@ autoSetupRemote = true
 
 [pull]
 ff = true
-default = current
 
 [protocol]
 version = 2
@@ -45,6 +44,8 @@ cl = clone
 cm = commit -m
 co = checkout
 df = diff
+dfh = diff HEAD
+dfc = diff --cached
 fh = fetch
 lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit
 pl = pull
@@ -55,3 +56,4 @@ rt = reset
 sh = stash
 st = status
 sw = show
+undo = reset HEAD~1 --soft

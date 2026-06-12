@@ -14,13 +14,13 @@ echo "Installing dotfiles..."
 
 # Try curl first to skip xcode popup when running on a fresh macOS device
 if is_executable "curl"; then
-    curl -#L "$TARBALL" | tar -xzv -C "$TARGET" --strip-components=1 --exclude='{.gitignore}' --exclude='assets/*'
+    curl -#L "$TARBALL" | tar -xzv -C "$TARGET" --strip-components=1 --exclude='.gitignore' --exclude='assets/*'
 
 elif is_executable "git"; then
     git clone "$SOURCE" "$TARGET"
 
 elif is_executable "wget"; then
-    wget --no-check-certificate -O - "$TARBALL" | tar -xzv -C "$TARGET" --strip-components=1 --exclude='{.gitignore}' --exclude='assets/*'
+    wget --no-check-certificate -O - "$TARBALL" | tar -xzv -C "$TARGET" --strip-components=1 --exclude='.gitignore' --exclude='assets/*'
 
 else
     echo "No git, curl or wget available. Aborting."
