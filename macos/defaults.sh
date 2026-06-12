@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -eo pipefail
 
 COMPUTER_NAME="ThinkPad"
 

@@ -49,7 +49,7 @@ fh = fetch
 lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit
 pl = pull
 ps = push
-psf = push --force
+psf = push --force-with-lease
 rr = restore
 rt = reset
 sh = stash

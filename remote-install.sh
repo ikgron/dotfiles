@@ -1,30 +1,28 @@
 #!/usr/bin/env bash
+set -eo pipefail
 
 SOURCE="https://codeberg.org/parser/dotfiles"
 TARBALL="$SOURCE/archive/refs/heads/main.tar.gz"
-TARGET="$HOME/Projects/dotfiles"
-TAR_CMD="tar -xzv -C \"$TARGET\" --strip-components=1 --exclude='{.gitignore}' --exclude='assets/*'"
+TARGET="$PWD/dotfiles"
 
 is_executable() {
     type "$1" >/dev/null 2>&1
 }
 
+mkdir -p "$TARGET"
+echo "Installing dotfiles..."
+
 # Try curl first to skip xcode popup when running on a fresh macOS device
 if is_executable "curl"; then
-    CMD="curl -#L $TARBALL | $TAR_CMD"
+    curl -#L "$TARBALL" | tar -xzv -C "$TARGET" --strip-components=1 --exclude='{.gitignore}' --exclude='assets/*'
 
 elif is_executable "git"; then
-    CMD="git clone $SOURCE $TARGET"
+    git clone "$SOURCE" "$TARGET"
 
 elif is_executable "wget"; then
-    CMD="wget --no-check-certificate -O - $TARBALL | $TAR_CMD"
-fi
+    wget --no-check-certificate -O - "$TARBALL" | tar -xzv -C "$TARGET" --strip-components=1 --exclude='{.gitignore}' --exclude='assets/*'
 
-if [[ -z "$CMD" ]]; then
+else
     echo "No git, curl or wget available. Aborting."
     exit 1
-else
-    echo "Installing dotfiles..."
-    mkdir -p "$TARGET"
-    eval "$CMD"
 fi

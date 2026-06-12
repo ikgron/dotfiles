@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -eo pipefail
 # Make sure to run homebrew/install.sh first if on mac
 
 # Get location of this file
