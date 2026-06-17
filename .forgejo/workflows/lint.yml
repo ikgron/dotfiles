@@ -1,0 +1,22 @@
+on: [push, pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Syntax check
+        run: |
+          bash -n bootstrap.sh
+          bash -n remote-install.sh
+          bash -n uninstall.sh
+          bash -n homebrew/install.sh
+          bash -n macos/defaults.sh
+          bash -n debian/install.sh
+
+      - name: ShellCheck
+        run: |
+          sudo apt-get install -y shellcheck
+          shellcheck bootstrap.sh remote-install.sh uninstall.sh \
+            homebrew/install.sh macos/defaults.sh debian/install.sh
