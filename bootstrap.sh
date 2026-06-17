@@ -42,6 +42,7 @@ if [[ "$(uname)" == "Linux" ]]; then
 
 elif [[ "$(uname)" == "Darwin" ]]; then
     # Source ~/.bash_profile, set system preferences and dock
+    # shellcheck source=/dev/null
     source "$HOME/.bash_profile"
     bash "$DOTFILES_DIR/macos/defaults.sh"
 
