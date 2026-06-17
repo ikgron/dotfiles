@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 set -eo pipefail
-# Make sure to run homebrew/install.sh first if on mac
 
 # Get location of this file
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -33,9 +32,9 @@ if [[ "$confirm" =~ ^[Yy]$ ]]; then
     read -rp "Username: " username
     read -rp "Email: " email
 
-    git config --file ~/.config/git/config.local user.name "$username"
-    git config --file ~/.config/git/config.local user.email "$email"
-    git config --file ~/.config/git/config.local user.signingKey ~/.ssh/id_ed25519.pub
+    git config --file "$DOTFILES_DIR/config/git/config.local" user.name "$username"
+    git config --file "$DOTFILES_DIR/config/git/config.local" user.email "$email"
+    git config --file "$DOTFILES_DIR/config/git/config.local" user.signingKey ~/.ssh/id_ed25519.pub
 fi
 
 if [[ "$(uname)" == "Linux" ]]; then

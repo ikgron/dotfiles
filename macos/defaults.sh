@@ -50,6 +50,12 @@ else
     echo "Warning: dockutil not installed."
 fi
 
+# Keyboard
+# Set key-repeat timing, disable press and hold for special characters
+defaults write -g KeyRepeat -int 3
+defaults write -g InitialKeyRepeat -int 12
+defaults write -g ApplePressAndHoldEnabled -bool false
+
 # Kill affected apps
 for app in "Dock" "Finder" "SystemUIServer"; do
     killall "${app}" &>/dev/null
