@@ -31,7 +31,7 @@ bootstrap.sh  # symlinks configs, prompts for Git config setup, runs debian/inst
 | `config/<dir>/` | `~/.config/<dir>/` |
 | `home/.<file>` | `~/.<file>` |
 
-Configs: Alacritty, Ghostty, Git, Starship, Zed  
+Configs: Ghostty, Git, Starship, Zed  
 Shell dotfiles: `.aliases`, `.bash_profile`, `.bashrc`, `.exports`, `.inputrc`
 
 ## Uninstall
