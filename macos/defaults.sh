@@ -30,7 +30,7 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
 # show hidden files/folders by default
-defaults write com.apple.Finder AppleShowAllFiles -bool true
+defaults write com.apple.finder AppleShowAllFiles -bool true
 
 # Dock
 if command -v dockutil &>/dev/null; then
@@ -52,9 +52,9 @@ fi
 
 # Keyboard
 # Set key-repeat timing, disable press and hold for special characters
-defaults write -g KeyRepeat -int 3
-defaults write -g InitialKeyRepeat -int 12
-defaults write -g ApplePressAndHoldEnabled -bool false
+defaults write NSGlobalDomain KeyRepeat -int 3
+defaults write NSGlobalDomain InitialKeyRepeat -int 12
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Kill affected apps
 for app in "Dock" "Finder" "SystemUIServer"; do
