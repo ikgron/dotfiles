@@ -14,14 +14,14 @@ cd dotfiles/
 ### macOS
 
 ```bash
-homebrew/install.sh  # installs Homebrew, installs packages, switches to modern bash
-bootstrap.sh         # symlinks configs, prompts for Git config setup, applies macOS defaults
+bash macos/install.sh  # installs Homebrew, installs packages, switches to modern bash
+bash bootstrap.sh # symlinks configs, prompts for Git config setup, applies macOS defaults
 ```
 
 ### Linux (Debian-based)
 
 ```bash
-bootstrap.sh  # symlinks configs, prompts for Git config setup, runs debian/install.sh
+bash bootstrap.sh  # symlinks configs, prompts for Git config setup, runs debian/install.sh
 ```
 
 ## What gets linked
@@ -31,7 +31,7 @@ bootstrap.sh  # symlinks configs, prompts for Git config setup, runs debian/inst
 | `config/<dir>/` | `~/.config/<dir>/` |
 | `home/.<file>` | `~/.<file>` |
 
-Configs: Ghostty, Git, Starship, Zed  
+Configs: Ghostty, Git, Starship, Zed
 Shell dotfiles: `.aliases`, `.bash_profile`, `.bashrc`, `.exports`, `.inputrc`
 
 ## Uninstall

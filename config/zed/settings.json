@@ -19,7 +19,6 @@
   "buffer_font_size": 16,
   "icon_theme": "Material Icon Theme",
   "base_keymap": "VSCode",
-
   // Editor
   "soft_wrap": "editor_width",
   "autosave": {
@@ -27,28 +26,24 @@
       "milliseconds": 1000
     }
   },
-
   // Tabs
   "tabs": {
     "file_icons": true,
     "git_status": true
   },
-
   // Title bar
   "title_bar": {
     "show_sign_in": false
   },
-
   // Status bar
   "status_bar": {
     "cursor_position_button": false,
     "line_endings_button": false
   },
-
   // Panels
   "project_panel": {
     "dock": "left",
-    "hide_root": true,
+    "hide_root": true
   },
   "git_panel": {
     "dock": "left"
@@ -59,20 +54,17 @@
   "search": {
     "button": false
   },
-
   // Terminal
   "terminal": {
     "button": false,
     "font_family": "FiraCode Nerd Font Mono"
   },
-
   // Privacy
   "disable_ai": true,
   "telemetry": {
     "diagnostics": false,
     "metrics": false
   },
-
   // Extensions
   "auto_install_extensions": {
     "git-firefly": true,
@@ -81,12 +73,22 @@
     "one-dark-pro": true,
     "toml": true
   },
-
   // File types
   "file_types": {
-    "Git Config": ["config.local", "config"],
-    "Git Ignore": ["ignore"],
-    "Shell Script": [".aliases", ".exports", ".inputrc"],
-    "TOML": ["config.ghostty"]
+    "Git Config": [
+      "config.local",
+      "config"
+    ],
+    "Git Ignore": [
+      "ignore"
+    ],
+    "Shell Script": [
+      ".aliases",
+      ".exports",
+      ".inputrc"
+    ],
+    "TOML": [
+      "config.ghostty"
+    ]
   }
 }

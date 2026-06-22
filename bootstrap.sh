@@ -36,11 +36,20 @@ if [[ "$confirm" =~ ^[Yy]$ ]]; then
 fi
 
 if [[ "$(uname)" == "Linux" ]]; then
+    # Symlink vscode/settings.json
+    mkdir -p "$HOME/.config/VSCodium/User"
+    ln -sfv "$DOTFILES_DIR/vscode/settings.json" "$HOME/.config/VSCodium/User/settings.json"
+
+    # Install vscode extensions and Debian apps
+    bash "$DOTFILES_DIR/vscode/extensions.sh"
     bash "$DOTFILES_DIR/debian/install.sh"
 
 elif [[ "$(uname)" == "Darwin" ]]; then
-    # Source ~/.bash_profile, set system preferences and dock
-    # shellcheck source=/dev/null
+    # Symlink vscode/settings.json
+    mkdir -p "$HOME/Library/Application Support/VSCodium/User"
+    ln -sfv "$DOTFILES_DIR/vscode/settings.json" "$HOME/Library/Application Support/VSCodium/User/settings.json"
+
+    # Install vscode extensions, source ~/.bash_profile, set system preferences and dock
     source "$HOME/.bash_profile"
     bash "$DOTFILES_DIR/macos/defaults.sh"
 
