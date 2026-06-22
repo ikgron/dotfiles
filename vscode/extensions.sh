@@ -2,7 +2,6 @@
 set -eo pipefail
 
 extensions=(
-    anthropic.claude-code
     EditorConfig.EditorConfig
     PKief.material-icon-theme
     usernamehw.errorlens
