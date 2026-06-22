@@ -2,6 +2,9 @@
 export EDITOR=vim
 export VISUAL="zed --wait"
 
+# Set Starship config path
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+
 # Increase Bash history size. Allow 32³ entries; default is 500.
 export HISTSIZE='32768'
 export HISTFILESIZE="${HISTSIZE}"
