@@ -19,10 +19,7 @@ if is_executable "curl"; then
 elif is_executable "git"; then
     git clone "$SOURCE" "$TARGET"
 
-elif is_executable "wget"; then
-    wget --no-check-certificate -O - "$TARBALL" | tar -xzv -C "$TARGET" --strip-components=1 --exclude='.gitignore' --exclude='assets/*'
-
 else
-    echo "No git, curl or wget available. Aborting."
+    echo "No curl or git available. Aborting."
     exit 1
 fi

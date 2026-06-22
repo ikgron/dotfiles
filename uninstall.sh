@@ -12,11 +12,11 @@ echo "Removing symlinks created by bootstrap.sh..."
 
 shopt -s dotglob nullglob
 
-# Remove symlinked config folders
-for dir in "$CONFIG_SRC"/*/; do
-    dir_name=$(basename "$dir")
-    target="$CONFIG_DEST/$dir_name"
-    if [[ -L "$target" ]] && [[ "$(readlink "$target")" == "$CONFIG_SRC/$dir_name" ]]; then
+# Remove symlinked config folders and files
+for item in "$CONFIG_SRC"/*; do
+    name=$(basename "$item")
+    target="$CONFIG_DEST/$name"
+    if [[ -L "$target" ]] && [[ "$(readlink "$target")" == "$item" ]]; then
         rm -v "$target"
     fi
 done

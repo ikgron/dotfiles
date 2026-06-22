@@ -25,7 +25,3 @@ export LESS_TERMCAP_se="$(printf '\e[0m')"     # Leave standout mode
 export LESS_TERMCAP_so="$(printf '\e[01;33m')" # Enter standout mode – yellow
 export LESS_TERMCAP_ue="$(printf '\e[0m')"     # Leave underline mode
 export LESS_TERMCAP_us="$(printf '\e[04;32m')" # Enter underline mode – green
-
-# Change starship config location initialize
-export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
-eval "$(starship init bash)"
