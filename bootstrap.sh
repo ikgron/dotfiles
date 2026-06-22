@@ -50,6 +50,7 @@ elif [[ "$(uname)" == "Darwin" ]]; then
     ln -sfv "$DOTFILES_DIR/vscode/settings.json" "$HOME/Library/Application Support/VSCodium/User/settings.json"
 
     # Install vscode extensions, source ~/.bash_profile, set system preferences and dock
+    bash "$DOTFILES_DIR/vscode/extensions.sh"
     source "$HOME/.bash_profile"
     bash "$DOTFILES_DIR/macos/defaults.sh"
 
