@@ -7,7 +7,7 @@ My configuration for macOS and Linux.
 Download with:
 
 ```bash
-curl -L https://codeberg.org/parser/dotfiles/raw/branch/main/remote-install.sh | sh
+curl -L https://codeberg.org/parser/dotfiles/raw/branch/main/scripts/remote-install.sh | sh
 cd dotfiles/
 ```
 
@@ -15,13 +15,13 @@ cd dotfiles/
 
 ```bash
 bash macos/install.sh  # installs Homebrew, installs packages, switches to modern bash
-bash bootstrap.sh # symlinks configs, prompts for Git config setup, applies macOS defaults
+bash scripts/bootstrap.sh # symlinks configs, prompts for Git config setup, applies macOS defaults
 ```
 
 ### Linux (Debian-based)
 
 ```bash
-bash bootstrap.sh  # symlinks configs, prompts for Git config setup, runs debian/install.sh
+bash scripts/bootstrap.sh  # symlinks configs, prompts for Git config setup, runs debian/install.sh
 ```
 
 ## What gets linked
@@ -32,12 +32,13 @@ bash bootstrap.sh  # symlinks configs, prompts for Git config setup, runs debian
 | `home/.<file>` | `~/.<file>` |
 
 Configs: Ghostty, Git, Starship, Zed
+<br>
 Shell dotfiles: `.aliases`, `.bash_profile`, `.bashrc`, `.exports`, `.inputrc`
 
 ## Uninstall
 
 ```bash
-uninstall.sh  # removes only symlinks bootstrap.sh created; leaves ~/.config/git/config.local
+bash scripts/uninstall.sh  # removes only symlinks bootstrap.sh created; leaves ~/.config/git/config.local
 ```
 
 ![screenshot](assets/terminal_screenshot.png)

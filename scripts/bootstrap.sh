@@ -2,7 +2,7 @@
 set -eo pipefail
 
 # Get location of this file
-DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 CONFIG_SRC="$DOTFILES_DIR/config"
 CONFIG_DEST="$HOME/.config"

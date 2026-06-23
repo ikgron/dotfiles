@@ -1,23 +1,24 @@
 {
-    "workbench.colorTheme": "One Dark Pro Darker",
-    "workbench.iconTheme": "material-icon-theme",
-    "debug.disassemblyView.showSourceCode": false,
-    "editor.fontSize": 16,
-    "editor.formatOnSave": true,
-    "files.autoSave": "afterDelay",
-    "editor.fontFamily": "FiraCode Nerd Font Mono",
-    "editor.wordWrap": "on",
-    "terminal.integrated.fontSize": 16,
-    "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
-    "terminal.integrated.gpuAcceleration": "on",
-    "editor.fontLigatures": true,
-    "window.zoomLevel": 1,
-    "files.associations": {
-        ".aliases": "shellscript",
-        ".exports": "shellscript",
-        ".inputrc": "shellscript",
-        "ignore": "ignore",
-        "config": "properties",
-        "config.local": "properties"
-    }
+  "workbench.colorTheme": "One Dark Pro Darker",
+  "workbench.iconTheme": "material-icon-theme",
+  "window.zoomLevel": 1,
+  "editor.fontFamily": "FiraCode Nerd Font Mono",
+  "editor.fontSize": 16,
+  "editor.fontLigatures": true,
+  "editor.formatOnSave": true,
+  "editor.wordWrap": "on",
+  "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
+  "terminal.integrated.fontSize": 16,
+  "terminal.integrated.gpuAcceleration": "on",
+  "files.autoSave": "afterDelay",
+  "files.associations": {
+    ".aliases": "shellscript",
+    ".exports": "shellscript",
+    ".inputrc": "shellscript",
+    "ignore": "ignore",
+    "config": "properties",
+    "config.local": "properties"
+  },
+  "explorer.confirmDragAndDrop": false,
+  "debug.disassemblyView.showSourceCode": false
 }

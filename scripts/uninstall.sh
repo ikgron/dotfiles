@@ -3,7 +3,7 @@ set -eo pipefail
 # Removes symlinks created by bootstrap.sh.
 # Only removes a symlink if it still points into this repo — never touches real files.
 
-DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 CONFIG_SRC="$DOTFILES_DIR/config"
 CONFIG_DEST="$HOME/.config"
