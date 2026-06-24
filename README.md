@@ -32,7 +32,7 @@ bash scripts/bootstrap.sh  # symlinks configs, prompts for Git config setup, run
 | `home/.<file>` | `~/.<file>` |
 
 Configs: Ghostty, Git, Starship, Zed
-<br>
+
 Shell dotfiles: `.aliases`, `.bash_profile`, `.bashrc`, `.exports`, `.inputrc`
 
 ## Uninstall

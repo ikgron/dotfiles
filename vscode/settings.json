@@ -11,13 +11,15 @@
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.gpuAcceleration": "on",
   "files.autoSave": "afterDelay",
+  "files.insertFinalNewline": true,
   "files.associations": {
     ".aliases": "shellscript",
     ".exports": "shellscript",
     ".inputrc": "shellscript",
     "ignore": "ignore",
     "config": "properties",
-    "config.local": "properties"
+    "config.local": "properties",
+    "config.ghostty": "toml"
   },
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false
