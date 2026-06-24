@@ -19,11 +19,18 @@ alias g="git"
 # Actually clear terminal
 alias cls="clear && printf '\e[3J'"
 
-# ls with eza (color, icons, directories first, type indicators, sorted by extension)
-alias ls="eza --color=auto --icons=always --group-directories-first --classify=auto --sort=extension -A"
+# Use eza if available; use GNU ls as fallback
+if command -v eza &>/dev/null; then
+    # ls with eza (color, icons, directories first, type indicators, sorted by extension)
+    alias ls="eza --color=auto --icons=always --group-directories-first --classify=auto --sort=extension -A"
 
-# ls -la with eza (long, octal permissions, suppress permissions/user columns)
-alias la="eza --color=auto --icons=always --group-directories-first --classify=auto --sort=extension -a -l --octal-permissions --no-permissions --no-user --header"
+    # ls -la with eza (long, octal permissions, suppress permissions/user columns)
+    alias la="eza --color=auto --icons=always --group-directories-first --classify=auto --sort=extension -a -l --octal-permissions --no-permissions --no-user --header"
+
+else
+    alias ls="ls --color=auto --group-directories-first -XFA"
+    alias la="ls --color=auto --group-directories-first -XFlA"
+fi
 
 # Enable aliases to be sudo’ed
 alias sudo="sudo "
