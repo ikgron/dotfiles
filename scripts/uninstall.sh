@@ -33,4 +33,15 @@ done
 
 shopt -u dotglob nullglob
 
+# Remove VSCodium settings symlink
+if [[ "$(uname)" == "Linux" ]]; then
+    vscode_settings="$HOME/.config/VSCodium/User/settings.json"
+elif [[ "$(uname)" == "Darwin" ]]; then
+    vscode_settings="$HOME/Library/Application Support/VSCodium/User/settings.json"
+fi
+
+if [[ -n "${vscode_settings:-}" && -L "$vscode_settings" ]] && [[ "$(readlink "$vscode_settings")" == "$DOTFILES_DIR/vscode/settings.json" ]]; then
+    rm -v "$vscode_settings"
+fi
+
 echo "Done"

@@ -21,7 +21,7 @@ wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.g
 echo -e 'Types: deb\nURIs: https://download.vscodium.com/debs\nSuites: vscodium\nComponents: main\nArchitectures: amd64 arm64\nSigned-by: /usr/share/keyrings/vscodium-archive-keyring.gpg' |
     sudo tee /etc/apt/sources.list.d/vscodium.sources
 
-sudo apt update && sudo apt install codium
+sudo apt update && sudo apt install -y codium
 
 # Install FiraCode Nerd Font for user only
 FONT_DIR="$HOME/.local/share/fonts/FiraCode"

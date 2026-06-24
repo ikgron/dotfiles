@@ -49,10 +49,10 @@ elif [[ "$(uname)" == "Darwin" ]]; then
     mkdir -p "$HOME/Library/Application Support/VSCodium/User"
     ln -sfv "$DOTFILES_DIR/vscode/settings.json" "$HOME/Library/Application Support/VSCodium/User/settings.json"
 
-    # Install vscode extensions, source ~/.bash_profile, set system preferences and dock
+    # Install vscode extensions and set system preferences and dock
     bash "$DOTFILES_DIR/vscode/extensions.sh"
-    source "$HOME/.bash_profile"
     bash "$DOTFILES_DIR/macos/defaults.sh"
+    echo "Run 'source ~/.bash_profile' or open a new terminal to reload your shell."
 
 else
     echo "$(uname) is invalid."
