@@ -31,4 +31,4 @@ brew bundle --file="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/Brewfile"
 brew cleanup
 brew analytics off
 
-exec bash
+echo "Run 'source ~/.bash_profile' or open a new terminal to reload your shell."

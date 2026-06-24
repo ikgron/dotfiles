@@ -1,4 +1,4 @@
-"$schema" = 'https://starship.rs/config-schema.json'
+"$schema" = "https://starship.rs/config-schema.json"
 
 [username]
 style_user = "blue bold"
@@ -10,7 +10,7 @@ show_always = true
 [hostname]
 ssh_symbol = " "
 ssh_only = false
-format = '@ [$hostname](bold blue) '
+format = "@ [$hostname](bold blue) "
 trim_at = "."
 disabled = false
 
@@ -73,7 +73,7 @@ symbol = " "
 symbol = " "
 
 [git_commit]
-tag_symbol = '  '
+tag_symbol = "  "
 
 [golang]
 symbol = " "

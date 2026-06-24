@@ -20,5 +20,5 @@
     "config.local": "properties"
   },
   "explorer.confirmDragAndDrop": false,
-  "debug.disassemblyView.showSourceCode": false
+  "explorer.confirmDelete": false
 }

@@ -8,13 +8,30 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install -y eza gamemode ghostty git-delta starship unzip
 
 # Recommended Zed install
-curl -f https://zed.dev/install.sh | sh
+if ! curl -fsSL https://zed.dev/install.sh | sh; then
+    echo "Error: Zed installation failed." >&2
+    exit 1
+fi
+
+# Install VSCodium
+wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg |
+    gpg --dearmor |
+    sudo dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg
+
+echo -e 'Types: deb\nURIs: https://download.vscodium.com/debs\nSuites: vscodium\nComponents: main\nArchitectures: amd64 arm64\nSigned-by: /usr/share/keyrings/vscodium-archive-keyring.gpg' |
+    sudo tee /etc/apt/sources.list.d/vscodium.sources
+
+sudo apt update && sudo apt install codium
 
 # Install FiraCode Nerd Font for user only
-mkdir -p ~/.local/share/fonts/FiraCode
-wget -P ~/.local/share/fonts/FiraCode "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip"
+FONT_DIR="$HOME/.local/share/fonts/FiraCode"
+mkdir -p "$FONT_DIR"
+if ! wget -P "$FONT_DIR" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip"; then
+    echo "Error: FiraCode font download failed." >&2
+    exit 1
+fi
 
 # Unzip, delete archive, and refresh font cache
-unzip ~/.local/share/fonts/FiraCode/FiraCode.zip -d ~/.local/share/fonts/FiraCode/
-rm ~/.local/share/fonts/FiraCode/FiraCode.zip
+unzip "$FONT_DIR/FiraCode.zip" -d "$FONT_DIR/"
+rm "$FONT_DIR/FiraCode.zip"
 fc-cache -fv
