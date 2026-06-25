@@ -2,7 +2,7 @@ theme = Atom One Dark
 
 # Set font and font size
 font-family = "FiraCode Nerd Font Mono"
-font-size = 16
+font-size = 18
 
 # Set window settings
 window-padding-x = 5

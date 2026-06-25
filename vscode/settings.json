@@ -22,5 +22,6 @@
     "config.ghostty": "toml"
   },
   "explorer.confirmDragAndDrop": false,
-  "explorer.confirmDelete": false
+  "explorer.confirmDelete": false,
+  "git.autofetch": true
 }
