@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-# Get location of this file
+# Get location of this repo
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 CONFIG_SRC="$DOTFILES_DIR/config"
@@ -15,11 +15,9 @@ for item in "$CONFIG_SRC"/*; do
     ln -sfvn "$item" "$CONFIG_DEST/$name"
 done
 
-# Symlink files in home/ to ~
-for file in "$DOTFILES_DIR"/home/*; do
-    if [[ -f "$file" ]]; then
-        ln -sfv "$file" "$HOME/$(basename "$file")"
-    fi
+# Symlink folders and files in home/ to ~
+for item in "$DOTFILES_DIR"/home/*; do
+    ln -sfvn "$item" "$HOME/$(basename "$item")"
 done
 shopt -u dotglob nullglob
 

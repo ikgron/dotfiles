@@ -5,7 +5,7 @@ set -eo pipefail
 # Update, upgrade, and install apps
 sudo apt update && sudo apt upgrade -y
 
-sudo apt install -y eza gamemode ghostty git-delta starship unzip
+sudo apt install -y btop eza gamemode ghostty git-delta starship
 
 # Recommended Zed install
 if ! curl -fsSL https://zed.dev/install.sh | sh; then
