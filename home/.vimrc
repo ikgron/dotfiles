@@ -59,5 +59,6 @@ syntax on
 filetype plugin indent on
 
 " Colors
+set termguicolors
 set background=dark
-silent! colorscheme onedark
+colorscheme onedark
