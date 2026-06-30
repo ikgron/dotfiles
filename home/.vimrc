@@ -8,6 +8,8 @@ set wildmenu
 set laststatus=2
 set showcmd
 set scrolloff=5
+set noruler
+set shortmess+=F
 
 " Search
 set incsearch
