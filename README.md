@@ -38,7 +38,7 @@ Shell dotfiles: `.aliases`, `.bash_profile`, `.bashrc`, `.exports`, `.inputrc`
 ## Uninstall
 
 ```bash
-bash scripts/uninstall.sh  # removes only symlinks bootstrap.sh created; leaves ~/.config/git/config.local
+bash scripts/uninstall.sh  # only removes symlinks bootstrap.sh created
 ```
 
 ![screenshot](assets/terminal_screenshot.png)

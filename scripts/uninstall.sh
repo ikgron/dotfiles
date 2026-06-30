@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -eo pipefail
-# Removes symlinks created by bootstrap.sh.
-# Only removes a symlink if it still points into this repo — never touches real files.
+# Removes symlinks created by bootstrap.sh
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
@@ -21,13 +20,11 @@ for item in "$CONFIG_SRC"/*; do
     fi
 done
 
-# Remove symlinked home files
-for file in "$DOTFILES_DIR"/home/*; do
-    if [[ -f "$file" ]]; then
-        target="$HOME/$(basename "$file")"
-        if [[ -L "$target" ]] && [[ "$(readlink "$target")" == "$file" ]]; then
-            rm -v "$target"
-        fi
+# Remove symlinked home folders and files
+for item in "$DOTFILES_DIR"/home/*; do
+    target="$HOME/$(basename "$item")"
+    if [[ -L "$target" ]] && [[ "$(readlink "$target")" == "$item" ]]; then
+        rm -v "$target"
     fi
 done
 
