@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -eo pipefail
+set -euo pipefail
 
 SOURCE="https://codeberg.org/parser/dotfiles"
 TARBALL="$SOURCE/archive/refs/heads/main.tar.gz"

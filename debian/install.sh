@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -eo pipefail
+set -euo pipefail
 # This should work with any Debian based system
 
 # Update, upgrade, and install apps

@@ -8,7 +8,7 @@ insert_final_newline = true
 trim_trailing_whitespace = true
 indent_style = space
 
-[*.sh]
+[{*.sh,.aliases,.bash_profile,.bashrc,.exports,.inputrc}]
 indent_size = 4
 
 [{*.json,*.toml}]

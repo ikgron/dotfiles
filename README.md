@@ -30,10 +30,13 @@ bash scripts/bootstrap.sh  # symlinks configs, prompts for Git config setup, run
 |---|---|
 | `config/<dir>/` | `~/.config/<dir>/` |
 | `home/.<file>` | `~/.<file>` |
+| `vscode/settings.json` | VSCodium `User/settings.json` |
 
 Configs: Ghostty, Git, Starship, Zed
 
 Shell dotfiles: `.aliases`, `.bash_profile`, `.bashrc`, `.exports`, `.inputrc`
+
+Vim: `.vimrc` + `.vim/`
 
 ## Uninstall
 
