@@ -1,8 +1,3 @@
-# Prepend GNU coreutils to PATH on macOS (overrides BSD tools)
-if [[ "$(uname)" == "Darwin" ]] && [[ -d /opt/homebrew ]]; then
-    export PATH="$(/opt/homebrew/bin/brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
-fi
-
 # Set default editor and visual editor
 export EDITOR=vim
 export VISUAL="zed --wait"

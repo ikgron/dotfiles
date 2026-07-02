@@ -28,8 +28,8 @@ if command -v eza &>/dev/null; then
     alias la="eza --color=auto --icons=always --group-directories-first --classify=auto --sort=extension -a -l --octal-permissions --no-permissions --no-user --header"
 
 else
-    alias ls="ls --color=auto --group-directories-first -XFA"
-    alias la="ls --color=auto --group-directories-first -XFlA"
+    alias ls="gls --color=auto --group-directories-first -XFA"
+    alias la="gls --color=auto --group-directories-first -XFlA"
 fi
 
 # Enable aliases to be sudo’ed
@@ -54,6 +54,9 @@ if [[ "$(uname)" == "Darwin" ]]; then
 
     # Brew uninstall and purge all cask files
     alias brm="brew rm --zap"
+
+    # Better `stat`
+    alias stat="stat -x"
 
 elif [[ "$(uname)" == "Linux" ]]; then
     # Update apt packages, flatpak packages, and cleanup unneeded files
