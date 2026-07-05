@@ -3,6 +3,7 @@ set -euo pipefail
 # Removes symlinks created by bootstrap.sh
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+os="$(uname)"
 
 CONFIG_SRC="$DOTFILES_DIR/config"
 CONFIG_DEST="$HOME/.config"
@@ -31,9 +32,9 @@ done
 shopt -u dotglob nullglob
 
 # Remove VSCodium settings symlink
-if [[ "$(uname)" == "Linux" ]]; then
+if [[ "$os" == "Linux" ]]; then
     vscode_settings="$HOME/.config/VSCodium/User/settings.json"
-elif [[ "$(uname)" == "Darwin" ]]; then
+elif [[ "$os" == "Darwin" ]]; then
     vscode_settings="$HOME/Library/Application Support/VSCodium/User/settings.json"
 fi
 

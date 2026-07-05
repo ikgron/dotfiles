@@ -1,6 +1,9 @@
-if [[ "$(uname)" == "Darwin" ]]; then
+if [[ "$OSTYPE" == darwin* ]]; then
     eval "$(/opt/homebrew/bin/brew shellenv bash)"
 fi
+
+# Everything below is for interactive shells only
+[[ $- == *i* ]] || return 0
 
 # Load dotfiles
 for file in ~/.{exports,aliases}; do
@@ -23,18 +26,23 @@ PROMPT_COMMAND="history -a${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
 # Record timestamps in history
 HISTTIMEFORMAT='%F %T '
 
-# Setup for bash-completion@2
-if [[ "$(uname)" == "Darwin" ]] && [[ -d /opt/homebrew ]]; then
+# Setup for bash-completion@2 (macOS) / bash-completion (Linux)
+if [[ "$OSTYPE" == darwin* ]]; then
     if [[ -s /opt/homebrew/etc/profile.d/bash_completion.sh ]]; then
         . /opt/homebrew/etc/profile.d/bash_completion.sh
     fi
+elif [[ "$OSTYPE" == linux* ]]; then
+    if [[ -r /usr/share/bash-completion/bash_completion ]]; then
+        . /usr/share/bash-completion/bash_completion
+    fi
 fi
 
-# Load Git on terminal launch so Git completion works (Linux only)
-if [[ "$(uname)" == "Linux" ]]; then
-    if [[ -f /usr/share/bash-completion/completions/git ]]; then
-        . /usr/share/bash-completion/completions/git
-    fi
+# Load Git completion
+if ! type __git_complete &>/dev/null; then
+    for f in /usr/share/bash-completion/completions/git "${HOMEBREW_PREFIX:-/opt/homebrew}/share/bash-completion/completions/git"; do
+        [[ -r "$f" ]] && . "$f" && break
+    done
+    unset f
 fi
 
 # Enable tab completion for `g` by marking it as an alias for `git`

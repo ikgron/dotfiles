@@ -19,7 +19,7 @@ alias g="git"
 # Actually clear terminal
 alias cls="clear && printf '\e[3J'"
 
-# Use eza if available; use GNU ls as fallback
+# Use eza if available; use GNU ls as fallback (gls on macOS, ls on Linux)
 if command -v eza &>/dev/null; then
     # ls with eza (color, icons, directories first, type indicators, sorted by extension)
     alias ls="eza --color=auto --icons=always --group-directories-first --classify=auto --sort=extension -A"
@@ -27,9 +27,13 @@ if command -v eza &>/dev/null; then
     # ls -la with eza (long, octal permissions, suppress permissions/user columns)
     alias la="eza --color=auto --icons=always --group-directories-first --classify=auto --sort=extension -a -l --octal-permissions --no-permissions --no-user --header"
 
-else
+elif command -v gls &>/dev/null; then
     alias ls="gls --color=auto --group-directories-first -XFA"
     alias la="gls --color=auto --group-directories-first -XFlA"
+
+else
+    alias ls="ls --color=auto --group-directories-first -XFA"
+    alias la="ls --color=auto --group-directories-first -XFlA"
 fi
 
 # Enable aliases to be sudo’ed
@@ -42,7 +46,7 @@ alias reload="source ~/.bash_profile"
 alias path='tr ":" "\n" <<< "$PATH"'
 
 # OS specific aliases
-if [[ "$(uname)" == "Darwin" ]]; then
+if [[ "$OSTYPE" == darwin* ]]; then
     # Get macOS Software Updates and update Homebrew
     alias update="sudo softwareupdate -i -a && brew update && brew upgrade && brew cleanup"
 
@@ -58,7 +62,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
     # Better `stat`
     alias stat="stat -x"
 
-elif [[ "$(uname)" == "Linux" ]]; then
+elif [[ "$OSTYPE" == linux* ]]; then
     # Update apt packages, flatpak packages, and cleanup unneeded files
     alias update="sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y && flatpak update && flatpak uninstall --unused -y"
 

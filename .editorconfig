@@ -8,8 +8,11 @@ insert_final_newline = true
 trim_trailing_whitespace = true
 indent_style = space
 
-[{*.sh,.aliases,.bash_profile,.bashrc,.exports,.inputrc}]
+[{*.sh,.aliases,.bash_profile,.bashrc,.exports,.inputrc,.vimrc}]
 indent_size = 4
 
 [{*.json,*.toml}]
 indent_size = 2
+
+[{config,config.local}]
+indent_style = tab

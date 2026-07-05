@@ -3,6 +3,7 @@ set -euo pipefail
 
 # Get location of this repo
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+os="$(uname)"
 
 CONFIG_SRC="$DOTFILES_DIR/config"
 CONFIG_DEST="$HOME/.config"
@@ -33,16 +34,16 @@ if [[ "$confirm" =~ ^[Yy]$ ]]; then
     git config --file "$DOTFILES_DIR/config/git/config.local" user.signingKey ~/.ssh/id_ed25519.pub
 fi
 
-if [[ "$(uname)" == "Linux" ]]; then
+if [[ "$os" == "Linux" ]]; then
     # Symlink vscode/settings.json
     mkdir -p "$HOME/.config/VSCodium/User"
     ln -sfv "$DOTFILES_DIR/vscode/settings.json" "$HOME/.config/VSCodium/User/settings.json"
 
-    # Install vscode extensions and Debian apps
-    bash "$DOTFILES_DIR/vscode/extensions.sh"
+    # Install Debian apps and vscode extensions
     bash "$DOTFILES_DIR/debian/install.sh"
+    bash "$DOTFILES_DIR/vscode/extensions.sh"
 
-elif [[ "$(uname)" == "Darwin" ]]; then
+elif [[ "$os" == "Darwin" ]]; then
     # Symlink vscode/settings.json
     mkdir -p "$HOME/Library/Application Support/VSCodium/User"
     ln -sfv "$DOTFILES_DIR/vscode/settings.json" "$HOME/Library/Application Support/VSCodium/User/settings.json"
@@ -53,6 +54,6 @@ elif [[ "$(uname)" == "Darwin" ]]; then
     echo "Run 'source ~/.bash_profile' or open a new terminal to reload your shell."
 
 else
-    echo "$(uname) is invalid."
+    echo "Unsupported OS: $os"
     exit 1
 fi

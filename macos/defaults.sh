@@ -58,5 +58,5 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Kill affected apps
 for app in "Dock" "Finder" "SystemUIServer"; do
-    killall "${app}" &>/dev/null
+    killall "${app}" &>/dev/null || true
 done

@@ -7,7 +7,7 @@ My configuration for macOS and Linux.
 Download with:
 
 ```bash
-curl -L https://codeberg.org/parser/dotfiles/raw/branch/main/scripts/remote-install.sh | sh
+curl -L https://codeberg.org/parser/dotfiles/raw/branch/main/scripts/remote-install.sh | bash
 cd dotfiles/
 ```
 
