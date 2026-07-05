@@ -22,14 +22,14 @@ sudo scutil --set LocalHostName "$COMPUTER_NAME"
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$COMPUTER_NAME"
 
 # Finder
-# allow quitting via ⌘ + Q; doing so will also hide desktop icons
+# Allow quitting via ⌘ + Q; doing so will also hide desktop icons
 defaults write com.apple.finder QuitMenuItem -bool true
 
 # Avoid creating .DS_Store files on network and USB volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
-# show hidden files/folders by default
+# Show hidden files/folders by default
 defaults write com.apple.finder AppleShowAllFiles -bool true
 
 # Dock

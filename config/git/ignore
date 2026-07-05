@@ -53,7 +53,7 @@ tmbootpicker.efi
 # Linux:
 *~
 
-# temporary files which can be created if a process still has a handle open of a deleted file
+# Temporary files which can be created if a process still has a handle open of a deleted file
 .fuse_hidden*
 
 # Metadata left by Dolphin file manager, which comes with KDE Plasma

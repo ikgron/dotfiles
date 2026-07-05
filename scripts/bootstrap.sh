@@ -12,8 +12,7 @@ mkdir -p "$CONFIG_DEST"
 shopt -s dotglob nullglob
 # Symlink folders and files in config/ to ~/.config/
 for item in "$CONFIG_SRC"/*; do
-    name=$(basename "$item")
-    ln -sfvn "$item" "$CONFIG_DEST/$name"
+    ln -sfvn "$item" "$CONFIG_DEST/$(basename "$item")"
 done
 
 # Symlink folders and files in home/ to ~
