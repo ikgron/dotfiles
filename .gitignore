@@ -1,1 +1,5 @@
 *.local
+
+# Annoying folders created every time you launch Zed
+config/zed/themes/
+config/zed/prompts/
