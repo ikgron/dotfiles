@@ -43,6 +43,7 @@ if command -v dockutil &>/dev/null; then
     dockutil --no-restart --add "/Applications/Mullvad Browser.app"
     dockutil --no-restart --add "/System/Applications/Music.app"
     dockutil --no-restart --add "/Applications/Zed.app"
+    dockutil --no-restart --add "/Applications/VSCodium.app"
     dockutil --no-restart --add "/Applications/Ghostty.app"
     dockutil --no-restart --add "/Applications/Bitwarden.app"
     echo "Dock set"
