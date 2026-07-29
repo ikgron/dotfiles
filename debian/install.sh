@@ -5,7 +5,18 @@ set -euo pipefail
 # Update, upgrade, and install apps
 sudo apt update && sudo apt upgrade -y
 
-sudo apt install -y btop curl eza fontconfig gamemode ghostty git git-delta gpg starship unzip wget
+sudo apt install -y --ignore-missing btop curl eza fontconfig gamemode git git-delta gpg starship unzip wget
+
+# Ghostty
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"
+
+# Fastfetch
+curl -Lo /tmp/fastfetch-latest.deb \
+    https://github.com/fastfetch-cli/fastfetch/releases/latest/download/fastfetch-linux-amd64.deb
+
+sudo dpkg -i /tmp/fastfetch-latest.deb
+
+rm /tmp/fastfetch-latest.deb
 
 # Recommended Zed install
 curl -fsSL https://zed.dev/install.sh | sh

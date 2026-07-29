@@ -45,6 +45,9 @@ alias reload="source ~/.bash_profile"
 # Print each PATH entry on a separate line
 alias path='tr ":" "\n" <<< "$PATH"'
 
+# Fastfetch
+alias ff="cls && printf '\n\n' && fastfetch"
+
 # OS specific aliases
 if [[ "$OSTYPE" == darwin* ]]; then
     # Get macOS Software Updates and update Homebrew

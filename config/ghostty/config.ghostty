@@ -16,9 +16,6 @@ shell-integration-features = no-cursor
 copy-on-select = clipboard
 clipboard-trim-trailing-spaces = true
 
-# Close app after last surface/window is closed
-quit-after-last-window-closed = true
-
 # macOS only:
 # Enable secure input and hide icon
 macos-auto-secure-input = true
@@ -30,6 +27,3 @@ confirm-close-surface = false
 
 # ctrl+shift+w to close surface, not entire tab
 keybind = ctrl+shift+w=close_surface
-
-# Single instance mode:
-gtk-single-instance = true
