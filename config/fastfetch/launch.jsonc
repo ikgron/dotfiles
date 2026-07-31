@@ -4,7 +4,12 @@
     "display": {
         "separator": "  ",
         "color": "white",
-        "constants": ["\u001b[37m", "\u001b[37m", "\u001b[37m", "\u001b[37m"]
+        "constants": [
+            "\u001b[37m",
+            "\u001b[37m",
+            "\u001b[37m",
+            "\u001b[37m"
+        ]
     },
     "modules": [
         "break",
@@ -20,7 +25,7 @@
         {
             "type": "command",
             "key": "│   uptime",
-            "text": "uptime -p | cut -d ' ' -f 2-",
+            "text": "if [ \"$(uname)\" = \"Darwin\" ]; then boot=$(sysctl -n kern.boottime | awk -F'[= ,]+' '{print $3}'); now=$(date +%s); s=$((now-boot)); d=$((s/86400)); h=$((s%86400/3600)); m=$((s%3600/60)); out=\"\"; [ $d -gt 0 ] && out=\"$d days, \"; [ $h -gt 0 ] && out=\"$out$h hours, \"; out=\"$out$m minutes\"; echo \"$out\"; else uptime -p | cut -d ' ' -f 2-; fi",
             "format": "{>22} │"
         },
         {
@@ -31,7 +36,7 @@
         {
             "type": "command",
             "key": "│ {$3}{$1}  mem   ",
-            "text": "free -m | awk 'NR==2{printf \"%.2f GiB / %.2f GiB\",$3/1024,$2/1024}'",
+            "text": "if [ \"$(uname)\" = \"Darwin\" ]; then ps=$(vm_stat | head -1 | awk '{print $8}'); eval \"$(vm_stat | awk -v ps=$ps '/Pages active/{gsub(\"\\\\.\",\"\",$3);a=$3} /Pages wired down/{gsub(\"\\\\.\",\"\",$4);w=$4} /Pages occupied by compressor/{gsub(\"\\\\.\",\"\",$5);c=$5} END{printf \"used=%d\\n\",(a+w+c)*ps}')\"; total=$(sysctl -n hw.memsize); awk -v u=$used -v t=$total 'BEGIN{printf \"%.2f GiB / %.2f GiB\",u/1073741824,t/1073741824}'; else free -m | awk 'NR==2{printf \"%.2f GiB / %.2f GiB\",$3/1024,$2/1024}'; fi",
             "format": "{$3}{>22}{$1} │"
         },
         {
@@ -48,7 +53,7 @@
         {
             "type": "command",
             "key": "│   hname ",
-            "text": "hostnamectl hostname",
+            "text": "if [ \"$(uname)\" = \"Darwin\" ]; then scutil --get ComputerName 2>/dev/null || hostname -s; else hostnamectl hostname; fi",
             "format": "{>22} │"
         },
         {
