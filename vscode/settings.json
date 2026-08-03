@@ -8,7 +8,7 @@
   "editor.formatOnSave": true,
   "editor.wordWrap": "on",
   "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
-  "terminal.integrated.fontSize": 16,
+  "terminal.integrated.fontSize": 18,
   "terminal.integrated.gpuAcceleration": "on",
   "files.autoSave": "afterDelay",
   "files.insertFinalNewline": true,
