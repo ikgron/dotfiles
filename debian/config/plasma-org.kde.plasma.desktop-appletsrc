@@ -82,10 +82,6 @@ migrated=true
 immutability=1
 plugin=org.kde.plasma.devicenotifier
 
-[Containments][420][Applets][424][Applets][437]
-immutability=1
-plugin=org.kde.kscreen
-
 [Containments][420][Applets][424][Applets][449]
 immutability=1
 plugin=org.kde.plasma.battery
@@ -107,30 +103,11 @@ DialogHeight=630
 DialogWidth=810
 
 [Containments][420][Applets][424][General]
-extraItems=org.kde.plasma.volume,org.kde.plasma.bluetooth,org.kde.plasma.brightness,org.kde.plasma.devicenotifier,org.kde.kscreen,org.kde.plasma.networkmanagement,org.kde.plasma.battery,org.kde.kupapplet,org.kde.plasma.clipboard,org.kde.plasma.notifications,org.kde.plasma.weather
-hiddenItems=openrgb,steam,org.kde.plasma.bluetooth,org.kde.plasma.brightness,org.kde.plasma.devicenotifier,org.kde.kscreen,org.kde.plasma.battery,org.kde.kupapplet,org.kde.plasma.clipboard,org.kde.plasma.notifications,org.kde.plasma.weather
+extraItems=org.kde.plasma.volume,org.kde.plasma.bluetooth,org.kde.plasma.brightness,org.kde.plasma.devicenotifier,org.kde.plasma.networkmanagement,org.kde.plasma.battery,org.kde.kupapplet,org.kde.plasma.clipboard,org.kde.plasma.notifications,org.kde.plasma.weather
+hiddenItems=openrgb,steam,org.kde.plasma.bluetooth,org.kde.plasma.brightness,org.kde.plasma.devicenotifier,org.kde.plasma.battery,org.kde.kupapplet,org.kde.plasma.clipboard,org.kde.plasma.notifications,org.kde.plasma.weather
 knownItems=org.kde.kupapplet,org.kde.kdeconnect,org.kde.plasma.vault,org.kde.plasma.notifications,org.kde.plasma.brightness,org.kde.plasma.networkmanagement,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.printmanager,org.kde.plasma.weather,org.kde.plasma.volume,org.kde.plasma.devicenotifier,org.kde.plasma.battery,org.kde.plasma.mediacontroller,org.kde.plasma.manage-inputmethod,org.kde.plasma.keyboardindicator,org.kde.plasma.cameraindicator,org.kde.kscreen,org.kde.plasma.keyboardlayout
 scaleIconsToFit=true
 shownItems=proton.vpn.app.gtk,org.kde.plasma.volume,org.kde.plasma.networkmanagement
-
-[Containments][420][Applets][439]
-immutability=1
-plugin=org.kde.plasma.digitalclock
-
-[Containments][420][Applets][439][Configuration]
-popupHeight=451
-popupWidth=560
-
-[Containments][420][Applets][439][Configuration][Appearance]
-autoFontAndSize=false
-boldText=true
-fontStyleName=bold
-fontWeight=700
-use24hFormat=0
-
-[Containments][420][Applets][439][Configuration][ConfigDialog]
-DialogHeight=630
-DialogWidth=810
 
 [Containments][420][Applets][440][Configuration]
 popupHeight=400
@@ -150,8 +127,31 @@ panelWidgets=[{"id":422,"name":"org.kde.plasma.appmenu","title":"Global Menu","i
 immutability=1
 plugin=org.kde.plasma.showdesktop
 
+[Containments][420][Applets][457]
+immutability=1
+plugin=org.kde.plasma.digitalclock
+
+[Containments][420][Applets][457][Configuration]
+popupHeight=451
+popupWidth=810
+
+[Containments][420][Applets][457][Configuration][Appearance]
+boldText=true
+customDateFormat=dd MMM
+dateDisplayFormat=BesideTime
+dateFormat=custom
+displayTimezoneFormat=UTCOffset
+enabledCalendarPlugins=holidaysevents
+fontStyleName=bold
+fontWeight=700
+use24hFormat=2
+
+[Containments][420][Applets][457][Configuration][ConfigDialog]
+DialogHeight=630
+DialogWidth=810
+
 [Containments][420][General]
-AppletOrder=422;423;424;439;440;442
+AppletOrder=422;423;424;457;442
 
 [Containments][443]
 activityId=
@@ -209,7 +209,7 @@ immutability=1
 plugin=org.kde.plasma.marginsseparator
 
 [Containments][443][General]
-AppletOrder=444;445;446;447;448
+AppletOrder=444;445;446;448
 
 [ScreenMapping]
 itemsOnDisabledScreens=
