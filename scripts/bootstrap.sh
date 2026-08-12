@@ -42,6 +42,9 @@ if [[ "$os" == "Linux" ]]; then
     bash "$DOTFILES_DIR/debian/install.sh"
     bash "$DOTFILES_DIR/vscode/extensions.sh"
 
+    # Copy debian/config/* to ~/.config/
+    cp -afv "$DOTFILES_DIR/debian/config/." "$HOME/.config/"
+
 elif [[ "$os" == "Darwin" ]]; then
     # Symlink vscode/settings.json
     mkdir -p "$HOME/Library/Application Support/VSCodium/User"
