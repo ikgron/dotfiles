@@ -5,17 +5,7 @@ set -euo pipefail
 # Update, upgrade, and install apps
 sudo apt update && sudo apt upgrade -y
 
-sudo apt install -y --ignore-missing btop curl eza fontconfig gamemode git git-delta gpg starship unzip wget
-
-# Ghostty
-sudo add-apt-repository -y ppa:mkasberg/ghostty-ubuntu
-sudo apt update
-sudo apt install -y ghostty
-
-# Fastfetch
-sudo add-apt-repository -y ppa:zhangsongcui3371/fastfetch
-sudo apt update
-sudo apt install -y fastfetch
+sudo apt install -y --ignore-missing btop curl eza fastfetch fontconfig gamemode ghostty git git-delta gpg starship unzip wget
 
 # Recommended Zed install
 if ! command -v zed &>/dev/null; then
@@ -34,15 +24,23 @@ echo -e 'Types: deb\nURIs: https://download.vscodium.com/debs\nSuites: vscodium\
 
 sudo apt update && sudo apt install -y codium
 
-# Install FiraCode Nerd Font for user only
-FONT_DIR="$HOME/.local/share/fonts/FiraCode"
+FONTS=("FiraCode" "JetBrainsMono")
+FONT_DIR="$HOME/.local/share/fonts"
+
 mkdir -p "$FONT_DIR"
 
-if [ ! -f "$FONT_DIR/FiraCode.ttf" ] && ! ls "$FONT_DIR"/*.ttf &>/dev/null; then
-  wget -O "$FONT_DIR/FiraCode.zip" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip"
-  unzip -o "$FONT_DIR/FiraCode.zip" -d "$FONT_DIR/"
-  rm "$FONT_DIR/FiraCode.zip"
-  fc-cache -fv
-else
-  echo "FiraCode Nerd Font is already installed."
-fi
+for FONT_NAME in "${FONTS[@]}"; do
+    if find "$FONT_DIR/$FONT_NAME" -type f \( -name '*.ttf' -o -name '*.otf' \) -print -quit 2>/dev/null | grep -q .; then
+        echo "$FONT_NAME already installed."
+        continue
+    fi
+
+    echo "Downloading $FONT_NAME"
+    mkdir -p "$FONT_DIR/$FONT_NAME"
+    curl -fL "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/$FONT_NAME.zip" \
+        -o "/tmp/$FONT_NAME.zip"
+    unzip -q -o "/tmp/$FONT_NAME.zip" -d "$FONT_DIR/$FONT_NAME"
+    rm "/tmp/$FONT_NAME.zip"
+done
+
+fc-cache -f
