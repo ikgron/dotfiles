@@ -38,9 +38,8 @@ if [[ "$os" == "Linux" ]]; then
     mkdir -p "$HOME/.config/VSCodium/User"
     ln -sfv "$DOTFILES_DIR/vscode/settings.json" "$HOME/.config/VSCodium/User/settings.json"
 
-    # Install Debian apps and vscode extensions
+    # Install apps
     bash "$DOTFILES_DIR/debian/install.sh"
-    bash "$DOTFILES_DIR/vscode/extensions.sh"
 
     # Copy debian/config/* to ~/.config/
     cp -afv "$DOTFILES_DIR/debian/config/." "$HOME/.config/"
@@ -51,11 +50,15 @@ elif [[ "$os" == "Darwin" ]]; then
     ln -sfv "$DOTFILES_DIR/vscode/settings.json" "$HOME/Library/Application Support/VSCodium/User/settings.json"
 
     # Install vscode extensions and set system preferences and dock
-    bash "$DOTFILES_DIR/vscode/extensions.sh"
     bash "$DOTFILES_DIR/macos/defaults.sh"
     echo "Run 'source ~/.bash_profile' or open a new terminal to reload your shell."
 
 else
     echo "Unsupported OS: $os"
     exit 1
+fi
+
+# Install VSCodium extensions if installed
+if command -v codium &>/dev/null; then
+    bash "$DOTFILES_DIR/vscode/extensions.sh"
 fi

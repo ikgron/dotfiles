@@ -8,21 +8,25 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install -y --ignore-missing btop curl eza fastfetch fontconfig gamemode ghostty git git-delta gpg starship unzip wget
 
 # Recommended Zed install
-if ! command -v zed &>/dev/null; then
-  curl -fsSL https://zed.dev/install.sh | sh
+if command -v zed &>/dev/null; then
+    echo "Zed is already installed"
 else
-  echo "Zed is already installed."
+    curl -fsSL https://zed.dev/install.sh | sh
 fi
 
 # Install VSCodium
-wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg \
-    | gpg --dearmor \
-    | sudo dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg
-
-echo -e 'Types: deb\nURIs: https://download.vscodium.com/debs\nSuites: vscodium\nComponents: main\nArchitectures: amd64 arm64\nSigned-by: /usr/share/keyrings/vscodium-archive-keyring.gpg' \
-| sudo tee /etc/apt/sources.list.d/vscodium.sources
-
-sudo apt update && sudo apt install -y codium
+if command -v codium &>/dev/null; then
+    echo "VSCodium is already installed"
+else
+    wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg \
+        | gpg --dearmor \
+        | sudo dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg
+    
+    echo -e 'Types: deb\nURIs: https://download.vscodium.com/debs\nSuites: vscodium\nComponents: main\nArchitectures: amd64 arm64\nSigned-by: /usr/share/keyrings/vscodium-archive-keyring.gpg' \
+    | sudo tee /etc/apt/sources.list.d/vscodium.sources
+    
+    sudo apt update && sudo apt install -y codium
+fi
 
 FONTS=("FiraCode" "JetBrainsMono")
 FONT_DIR="$HOME/.local/share/fonts"

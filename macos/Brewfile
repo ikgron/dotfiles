@@ -1,7 +1,6 @@
 brew "bash"
 brew "bash-completion@2"
 brew "btop"
-brew "coreutils"
 brew "dockutil"
 brew "eza"
 brew "fastfetch"
