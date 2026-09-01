@@ -16,6 +16,9 @@ gpgSign = true
 [interactive]
 diffFilter = delta --color-only
 
+[init]
+	defaultBranch = main
+
 [delta]
 navigate = true
 side-by-side = true
