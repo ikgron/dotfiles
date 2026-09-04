@@ -14,6 +14,7 @@ cask "librewolf"
 cask "mullvad-browser"
 cask "oversight"
 cask "protonvpn"
+cask "vorssaint"
 cask "vscodium"
 cask "zed"
 
