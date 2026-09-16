@@ -25,7 +25,7 @@
         {
             "type": "command",
             "key": "│   uptime",
-            "text": "if [ \"$(uname)\" = \"Darwin\" ]; then boot=$(sysctl -n kern.boottime | awk -F'[= ,]+' '{print $3}'); now=$(date +%s); s=$((now-boot)); d=$((s/86400)); h=$((s%86400/3600)); m=$((s%3600/60)); out=\"\"; [ $d -gt 0 ] && out=\"$d days, \"; [ $h -gt 0 ] && out=\"$out$h hours, \"; out=\"$out$m minutes\"; echo \"$out\"; else uptime -p | cut -d ' ' -f 2-; fi",
+            "text": "if [ \"$(uname)\" = \"Darwin\" ]; then boot=$(sysctl -n kern.boottime | awk -F'[= ,]+' '{print $3}'); now=$(date +%s); s=$((now-boot)); d=$((s/86400)); h=$((s%86400/3600)); m=$((s%3600/60)); out=\"\"; [ $d -gt 0 ] && out=\"$d days, \"; [ $h -gt 0 ] && out=\"$out$h hours \"; out=\"$out$m minutes\"; echo \"$out\"; else uptime -p | cut -d ' ' -f 2-; fi",
             "format": "{>22} │"
         },
         {
@@ -52,9 +52,9 @@
         },
         {
             "type": "command",
-            "key": "│   hname ",
+            "key": "│   hostname ",
             "text": "if [ \"$(uname)\" = \"Darwin\" ]; then scutil --get ComputerName 2>/dev/null || hostname -s; else hostnamectl hostname; fi",
-            "format": "{>22} │"
+            "format": "{>19} │"
         },
         {
             "type": "os",

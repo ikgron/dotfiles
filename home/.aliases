@@ -85,3 +85,7 @@ fi
 alias gcc='gcc-16'
 alias g++='g++-16'
 alias gcc-strict='gcc-16 -Wall -Wextra -Werror'
+
+gccrun() {
+    gcc -Wall -Wextra -Werror "$@" && ./a.out
+}

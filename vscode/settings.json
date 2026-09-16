@@ -25,5 +25,6 @@
   "explorer.confirmDelete": false,
   "git.autofetch": true,
   "editor.formatOnPaste": true,
-  "editor.unicodeHighlight.nonBasicASCII": false
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "workbench.activityBar.location": "top"
 }

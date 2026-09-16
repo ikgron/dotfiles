@@ -2,6 +2,7 @@
 set -euo pipefail
 
 extensions=(
+    albert.tabout
     EditorConfig.EditorConfig
     PKief.material-icon-theme
     usernamehw.errorlens
