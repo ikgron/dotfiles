@@ -32,6 +32,9 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 # Show hidden files/folders by default
 defaults write com.apple.finder AppleShowAllFiles -bool true
 
+# Open TextEdit as plain text instead of rich text (requires terminal to have full disk access)
+defaults write com.apple.TextEdit RichText -int 0
+
 # Dock
 if command -v dockutil &>/dev/null; then
     dockutil --no-restart --remove all
