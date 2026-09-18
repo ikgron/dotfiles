@@ -38,9 +38,6 @@ if [[ "$os" == "Linux" ]]; then
     mkdir -p "$HOME/.config/VSCodium/User"
     ln -sfv "$DOTFILES_DIR/vscode/settings.json" "$HOME/.config/VSCodium/User/settings.json"
 
-    # Install apps
-    bash "$DOTFILES_DIR/debian/install.sh"
-
     # Copy debian/config/* to ~/.config/
     cp -afv "$DOTFILES_DIR/debian/config/." "$HOME/.config/"
 

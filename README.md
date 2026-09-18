@@ -18,7 +18,19 @@ bash macos/install.sh  # installs Homebrew, installs packages, switches to moder
 bash scripts/bootstrap.sh # symlinks configs, prompts for Git config setup, applies macOS defaults
 ```
 
-### Linux (Debian-based)
+### Linux
+
+```bash
+bash arch/install.sh
+```
+
+or
+
+```bash
+bash debian/install.sh
+```
+
+then
 
 ```bash
 bash scripts/bootstrap.sh  # symlinks configs, prompts for Git config setup, runs debian/install.sh
