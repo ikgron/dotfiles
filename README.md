@@ -21,13 +21,13 @@ bash scripts/bootstrap.sh # symlinks configs, prompts for Git config setup, appl
 ### Linux
 
 ```bash
-bash arch/install.sh
+bash linux/arch/install.sh
 ```
 
 or
 
 ```bash
-bash debian/install.sh
+bash linux/debian/install.sh
 ```
 
 then

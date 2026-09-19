@@ -38,8 +38,8 @@ if [[ "$os" == "Linux" ]]; then
     mkdir -p "$HOME/.config/VSCodium/User"
     ln -sfv "$DOTFILES_DIR/vscode/settings.json" "$HOME/.config/VSCodium/User/settings.json"
 
-    # Copy debian/config/* to ~/.config/
-    cp -afv "$DOTFILES_DIR/debian/config/." "$HOME/.config/"
+    ln -sfv "$DOTFILES_DIR/linux/config/plasma-org.kde.plasma.desktop-appletsrc \
+          ~/.config/plasma-org.kde.plasma.desktop-appletsrc"
 
 elif [[ "$os" == "Darwin" ]]; then
     # Symlink vscode/settings.json

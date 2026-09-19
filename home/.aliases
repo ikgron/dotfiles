@@ -66,26 +66,28 @@ if [[ "$OSTYPE" == darwin* ]]; then
     # Better `stat`
     alias stat="stat -x"
 
+    # C
+    alias gcc='gcc-16'
+    alias g++='g++-16'
+    alias gcc-strict='gcc-16 -Wall -Wextra -Werror'
+
+    gccrun() {
+        gcc-16 -Wall -Wextra -Werror "$@" && ./a.out
+    }
+
 elif [[ "$OSTYPE" == linux* ]]; then
-    # Update apt packages, flatpak packages, and cleanup unneeded files
-    alias update="sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y && flatpak update && flatpak uninstall --unused -y"
+    # Update system and aur packages and cleanup unneeded files
+    alias update="paru -Syu && sudo pacman -Rns \$(pacman -Qtdq 2>/dev/null) 2>/dev/null || true"
 
-    # Completely uninstall apt app
-    aptrm() {
-        sudo apt purge --autoremove -y "$1" && sudo apt clean
+    # Completely uninstall a package
+    rmapp() {
+        paru -Rns "$1"
+        sudo pacman -Sc
     }
 
-    # Completely uninstall flatpak app
-    fprm() {
-        flatpak uninstall --delete-data -y "$1" && flatpak uninstall --unused -y
-    }
+     alias gcc-strict='gcc -Wall -Wextra -Werror'
+ 
+     gccrun() {
+         gcc -Wall -Wextra -Werror "$@" && ./a.out
+     }
 fi
-
-# C
-alias gcc='gcc-16'
-alias g++='g++-16'
-alias gcc-strict='gcc-16 -Wall -Wextra -Werror'
-
-gccrun() {
-    gcc -Wall -Wextra -Werror "$@" && ./a.out
-}
