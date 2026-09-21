@@ -17,6 +17,7 @@ sudo pacman -S --needed --noconfirm \
     gnupg \
     librewolf \
     paru \
+    proton-vpn-gtk-app \
     starship \
     unzip \
 
