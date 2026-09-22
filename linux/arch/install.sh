@@ -60,12 +60,9 @@ fc-cache -f
 
 # Change shell to bash (CachyOS defaults to fish)
 BASH_PATH="$(command -v bash)"
-CURRENT_USER="$(id -un)"
-CURRENT_LOGIN_SHELL="$(getent passwd "$CURRENT_USER" | cut -d: -f7)"
+CURRENT_SHELL="$(getent passwd "$USER" | cut -d: -f7)"
 
-if [[ "$CURRENT_LOGIN_SHELL" != "$BASH_PATH" ]]; then
-    chsh -s "$BASH_PATH" "$CURRENT_USER"
-    echo "Bash is now the login shell."
-else
-    echo "Bash is already the login shell."
+if [[ "$CURRENT_SHELL" != "$BASH_PATH" ]]; then
+    chsh -s "$BASH_PATH"
 fi
+
