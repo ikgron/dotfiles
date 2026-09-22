@@ -76,18 +76,31 @@ if [[ "$OSTYPE" == darwin* ]]; then
     }
 
 elif [[ "$OSTYPE" == linux* ]]; then
-    # Update system and aur packages and cleanup unneeded files
-    alias update="paru -Syu && sudo pacman -Rns \$(pacman -Qtdq 2>/dev/null) 2>/dev/null || true"
+    # Update packages and clean up orphaned dependencies
+    update() {
+        sudo pacman -Syu
+
+        local orphans
+        orphans=$(pacman -Qtdq 2>/dev/null || true)
+
+        if [[ -n "$orphans" ]]; then
+            sudo pacman -Rns -- $orphans
+        fi
+    }
 
     # Completely uninstall a package
     rmapp() {
-        paru -Rns "$1"
-        sudo pacman -Sc
+        sudo pacman -Rns "$1" && sudo pacman -Sc
     }
 
-     alias gcc-strict='gcc -Wall -Wextra -Werror'
- 
-     gccrun() {
-         gcc -Wall -Wextra -Werror "$@" && ./a.out
-     }
+    # Zed
+    alias zed='zeditor'
+
+    # C
+    alias gcc-strict='gcc -Wall -Wextra -Werror'
+
+    gccrun() {
+        gcc -Wall -Wextra -Werror "$@" && ./a.out
+    }
 fi
+
