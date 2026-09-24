@@ -34,12 +34,29 @@ if [[ "$confirm" =~ ^[Yy]$ ]]; then
 fi
 
 if [[ "$os" == "Linux" ]]; then
-    # Symlink vscode/settings.json
+    # Symlink VSCodium settings
     mkdir -p "$HOME/.config/VSCodium/User"
-    ln -sfv "$DOTFILES_DIR/vscode/settings.json" "$HOME/.config/VSCodium/User/settings.json"
+    ln -sfv \
+        "$DOTFILES_DIR/vscode/settings.json" \
+        "$HOME/.config/VSCodium/User/settings.json"
 
-    ln -sfv "$DOTFILES_DIR/linux/config/plasma-org.kde.plasma.desktop-appletsrc \
-          ~/.config/plasma-org.kde.plasma.desktop-appletsrc"
+    # Symlink KDE settings
+    ln -sfv \
+        "$DOTFILES_DIR/linux/config/plasma-org.kde.plasma.desktop-appletsrc" \
+        "$HOME/.config/plasma-org.kde.plasma.desktop-appletsrc"
+
+    # Symlink udev hwdb rules
+    sudo mkdir -p /etc/udev/hwdb.d
+    sudo ln -sfv \
+        "$DOTFILES_DIR/linux/system/udev/hwdb.d/99-ducky-no-joystick.hwdb" \
+        "/etc/udev/hwdb.d/99-ducky-no-joystick.hwdb"
+
+    # Reload udev hwdb
+    sudo systemd-hwdb update
+    sudo udevadm control --reload-rules
+    sudo udevadm trigger --subsystem-match=input
+
+fi
 
 elif [[ "$os" == "Darwin" ]]; then
     # Symlink vscode/settings.json

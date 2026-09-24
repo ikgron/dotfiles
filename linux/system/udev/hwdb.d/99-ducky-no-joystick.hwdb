@@ -1,0 +1,4 @@
+# Prevent Ducky keyboard from being classified as a joystick.
+# The keyboard exposes ABS_X/ABS_Y, causing udev to set ID_INPUT_JOYSTICK=1.
+id-input:usb:v3233p8311:name:Ducky Ducky One 3 TKL RGB:
+ ID_INPUT_JOYSTICK=0
