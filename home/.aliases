@@ -52,7 +52,7 @@ alias fff="cls && fastfetch -c ~/.config/fastfetch/launch.jsonc"
 # OS specific aliases
 if [[ "$OSTYPE" == darwin* ]]; then
     # Get macOS Software Updates and update Homebrew
-    alias update="sudo softwareupdate -i -a && brew update && brew upgrade && brew cleanup"
+    alias update="brew update && brew upgrade && brew cleanup && sudo softwareupdate -i -a"
 
     # Recursively delete `.DS_Store` files
     alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
@@ -77,7 +77,8 @@ if [[ "$OSTYPE" == darwin* ]]; then
 
 elif [[ "$OSTYPE" == linux* ]]; then
     # Update packages and clean up orphaned dependencies
-    update() {
+    # Had to change alias to lupdate (Linux update) because on macOS bash randomly decided having 2 `update` aliases was a syntax error
+    lupdate() {
         sudo pacman -Syu
 
         local orphans
