@@ -11,7 +11,7 @@ CONFIG_DEST="$HOME/.config"
 if [[ "$os" == "Linux" ]]; then
     mkdir -p "$CONFIG_DEST"
     shopt -s dotglob nullglob
-    # Symlink folders and files in config/ to ~/.config/
+    # Symlink folders and files in linux/config/ to ~/.config/
     for item in "$CONFIG_SRC_LINUX"/*; do
         ln -sfvn "$item" "$CONFIG_DEST/$(basename "$item")"
     done

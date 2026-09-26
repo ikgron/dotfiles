@@ -14,8 +14,9 @@ cd dotfiles/
 ### macOS
 
 ```bash
-bash macos/install.sh  # installs Homebrew, installs packages, switches to modern bash
-bash scripts/bootstrap.sh # symlinks configs, prompts for Git config setup, applies macOS defaults
+bash macos/install.sh  # Installs Homebrew, installs packages, switches to modern bash
+bash scripts/bootstrap.sh # Symlinks configs, prompts for Git config setup, applies macOS defaults
+bash scripts/bootstrap-mac.sh # Symlinks VSCodium settings and install extensions, runs defaults.sh
 ```
 
 ### Linux
@@ -33,7 +34,8 @@ bash linux/debian/install.sh
 then
 
 ```bash
-bash scripts/bootstrap.sh  # symlinks configs, prompts for Git config setup, runs debian/install.sh
+bash scripts/bootstrap.sh  # Symlinks configs, prompts for Git config setup, runs debian/install.sh
+bash scripts/boostrap-linux.sh # Symlinks Linux specific configs and system settings, symlinks VSCodium settings
 ```
 
 ## What gets linked
@@ -44,7 +46,7 @@ bash scripts/bootstrap.sh  # symlinks configs, prompts for Git config setup, run
 | `home/.<file>` | `~/.<file>` |
 | `vscode/settings.json` | VSCodium `User/settings.json` |
 
-Configs: Ghostty, Git, Starship, Zed
+Configs: Fastfetch, Ghostty, Git, Starship, Zed
 
 Shell dotfiles: `.aliases`, `.bash_profile`, `.bashrc`, `.exports`, `.inputrc`
 
