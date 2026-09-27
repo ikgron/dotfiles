@@ -2,47 +2,45 @@
 set -euo pipefail
 
 # Get location of this repo
-DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-os="$(uname)"
+DOTFILES_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
+OS="$(uname -s)"
 
-CONFIG_SRC_LINUX="$DOTFILES_DIR/linux/config"
+source "$DOTFILES_DIR/scripts/lib.sh"
+
+CONFIG_SRC="$DOTFILES_DIR/linux/config"
 CONFIG_DEST="$HOME/.config"
 
-if [[ "$os" == "Linux" ]]; then
+if [[ "$OS" == "Linux" ]]; then
     mkdir -p "$CONFIG_DEST"
-    shopt -s dotglob nullglob
-    # Symlink folders and files in linux/config/ to ~/.config/
-    for item in "$CONFIG_SRC_LINUX"/*; do
-        ln -sfvn "$item" "$CONFIG_DEST/$(basename "$item")"
-    done
-    shopt -u dotglob nullglob
+
+    # Symlink files in dotfiles/linux/config/ to ~/.config/
+    link_files "$CONFIG_SRC" "$CONFIG_DEST"
 
     # Symlink VSCodium settings
-    mkdir -p "$HOME/.config/VSCodium/User"
+    VSCODIUM_CONFIG_DEST="$CONFIG_DEST/VSCodium/User/settings.json"
+
+    mkdir -p -- "$(dirname "$VSCODIUM_CONFIG_DEST")"
     ln -sfv \
-        "$DOTFILES_DIR/vscode/settings.json" \
-        "$HOME/.config/VSCodium/User/settings.json"
+        "$DOTFILES_DIR/vscodium/settings.json" \
+        "$VSCODIUM_CONFIG_DEST"
 
     # Symlink udev hwdb rules
-    mkdir -p /etc/udev/hwdb.d
-    ln -sfv \
+    UDEV_CONFIG_DEST="/etc/udev/hwdb.d/99-keyboard.hwdb"
+
+    sudo mkdir -p -- "$(dirname "$UDEV_CONFIG_DEST")"
+    sudo ln -sfv \
         "$DOTFILES_DIR/linux/system/udev/hwdb.d/99-keyboard.hwdb" \
-        "/etc/udev/hwdb.d/99-keyboard.hwdb"
+        "$UDEV_CONFIG_DEST"
 
     # Reload udev hwdb
     sudo systemd-hwdb update
     sudo udevadm control --reload-rules
     sudo udevadm trigger --subsystem-match=input
 
-    # Symlink wireplumber config
-    mkdir -p "$HOME/.config/wireplumber/wireplumber.conf.d"
-    ln -sfv "$DOTFILES_DIR/linux/wireplumber/wireplumber.conf.d/51-audio.conf" \
-        "$HOME/.config/wireplumber/wireplumber.conf.d/51-audio.conf"
-
-    # Restart wireplumber
+    # Restart WirePlumber
     systemctl --user restart wireplumber
 
 else
-    echo "Unsupported OS: $os"
+    echo "Unsupported OS: $OS"
     exit 1
 fi

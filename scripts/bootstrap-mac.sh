@@ -2,21 +2,23 @@
 set -euo pipefail
 
 # Get location of this repo
-DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-os="$(uname)"
+DOTFILES_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
+OS="$(uname -s)"
 
-if [[ "$os" == "Darwin" ]]; then
+if [[ "$OS" == "Darwin" ]]; then
+    VSCODIUM_CONFIG_SRC="$DOTFILES_DIR/vscodium/settings.json"
+    VSCODIUM_CONFIG_DEST="$HOME/Library/Application Support/VSCodium/User/settings.json"
+
     # Symlink VSCodium settings
-    mkdir -p "$HOME/Library/Application Support/VSCodium/User"
-    ln -sfv \
-        "$DOTFILES_DIR/vscode/settings.json" \
-        "$HOME/Library/Application Support/VSCodium/User/settings.json"
+    mkdir -p -- "$(dirname "$VSCODIUM_CONFIG_DEST")"
+    ln -sfv -- "$VSCODIUM_CONFIG_SRC" "$VSCODIUM_CONFIG_DEST"
 
-    # Install VSCode extensions and set system preferences and dock
+    # Apply system preferences and set dock
     bash "$DOTFILES_DIR/macos/defaults.sh"
 
     echo "Run 'source ~/.bash_profile' or open a new terminal to reload your shell."
+
 else
-    echo "Unsupported OS: $os"
+    echo "Unsupported OS: $OS"
     exit 1
 fi
