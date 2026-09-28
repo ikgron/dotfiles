@@ -5,21 +5,6 @@ RightButton;NoModifier=org.kde.contextmenu
 [ActionPlugins][1]
 RightButton;NoModifier=org.kde.contextmenu
 
-[Containments][419]
-ItemGeometries-2560x1440=
-ItemGeometriesHorizontal=
-activityId=e78dfc4f-c2d9-4f5e-baa3-e0a49bf7c52a
-formfactor=0
-immutability=1
-lastScreen=0
-location=0
-plugin=org.kde.plasma.folder
-wallpaperplugin=org.kde.image
-
-[Containments][419][Wallpaper][org.kde.image][General]
-Blur=true
-FillMode=0
-
 [Containments][420]
 activityId=
 formfactor=2
@@ -103,9 +88,9 @@ DialogHeight=630
 DialogWidth=810
 
 [Containments][420][Applets][424][General]
-extraItems=org.kde.plasma.volume,org.kde.plasma.bluetooth,org.kde.plasma.brightness,org.kde.plasma.devicenotifier,org.kde.plasma.networkmanagement,org.kde.plasma.battery,org.kde.kupapplet,org.kde.plasma.clipboard,org.kde.plasma.notifications,org.kde.plasma.weather
+extraItems=org.kde.plasma.volume,org.kde.plasma.bluetooth,org.kde.plasma.brightness,org.kde.plasma.devicenotifier,org.kde.plasma.networkmanagement,org.kde.plasma.battery,org.kde.plasma.clipboard,org.kde.plasma.notifications,org.kde.plasma.weather
 hiddenItems=openrgb,steam,org.kde.plasma.bluetooth,org.kde.plasma.brightness,org.kde.plasma.devicenotifier,org.kde.plasma.battery,org.kde.kupapplet,org.kde.plasma.clipboard,org.kde.plasma.notifications,org.kde.plasma.weather
-knownItems=org.kde.kupapplet,org.kde.kdeconnect,org.kde.plasma.vault,org.kde.plasma.notifications,org.kde.plasma.brightness,org.kde.plasma.networkmanagement,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.printmanager,org.kde.plasma.weather,org.kde.plasma.volume,org.kde.plasma.devicenotifier,org.kde.plasma.battery,org.kde.plasma.mediacontroller,org.kde.plasma.manage-inputmethod,org.kde.plasma.keyboardindicator,org.kde.plasma.cameraindicator,org.kde.kscreen,org.kde.plasma.keyboardlayout
+knownItems=org.kde.kdeconnect,org.kde.plasma.notifications,org.kde.plasma.brightness,org.kde.plasma.networkmanagement,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.weather,org.kde.plasma.volume,org.kde.plasma.devicenotifier,org.kde.plasma.battery,org.kde.plasma.mediacontroller,org.kde.plasma.manage-inputmethod,org.kde.plasma.keyboardindicator,org.kde.plasma.cameraindicator,org.kde.kscreen,org.kde.plasma.keyboardlayout
 scaleIconsToFit=true
 shownItems=proton.vpn.app.gtk,org.kde.plasma.volume,org.kde.plasma.networkmanagement
 
@@ -210,6 +195,17 @@ plugin=org.kde.plasma.marginsseparator
 
 [Containments][443][General]
 AppletOrder=444;445;446;448
+
+[Containments][458]
+ItemGeometries-2560x1440=
+ItemGeometriesHorizontal=
+activityId=226b0947-4d64-4641-b5e0-9f7314668ca9
+formfactor=0
+immutability=1
+lastScreen=0
+location=0
+plugin=org.kde.plasma.folder
+wallpaperplugin=org.kde.image
 
 [ScreenMapping]
 itemsOnDisabledScreens=
