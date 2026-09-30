@@ -25,12 +25,6 @@ bash scripts/bootstrap-mac.sh # Symlinks VSCodium settings and install extension
 bash linux/arch/install.sh
 ```
 
-or
-
-```bash
-bash linux/debian/install.sh
-```
-
 then
 
 ```bash

@@ -20,9 +20,6 @@ shopt -s cdspell
 # Append to history instead of overwriting it
 shopt -s histappend
 
-# Flush history after each command so other terminals see it immediately
-PROMPT_COMMAND="history -a${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
-
 # Record timestamps in history
 HISTTIMEFORMAT='%F %T '
 
@@ -55,8 +52,7 @@ if command -v starship &>/dev/null; then
     eval "$(starship init bash)"
 fi
 
-# Only run in interactive shells and only if installed
-if [[ $- == *i* ]] && [[ -z "$FASTFETCH_RAN" ]] && command -v fastfetch &>/dev/null; then
+if [[ -z "$FASTFETCH_RAN" ]] && command -v fastfetch &>/dev/null; then
     export FASTFETCH_RAN=1
     fastfetch -c ~/.config/fastfetch/launch.jsonc
 fi

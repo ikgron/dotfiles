@@ -1,75 +1,71 @@
 # Easier navigation
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias ~="cd ~"
-alias -- -="cd -"
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ~='cd ~'
+alias -- -='cd -'
 
 # Shortcuts
-alias dl="cd ~/Downloads"
-alias dm="cd ~/Documents"
-alias dt="cd ~/Desktop"
-alias p="cd ~/Projects"
-alias d="cd ~/Projects/dotfiles"
+alias dl='cd ~/Downloads'
+alias dm='cd ~/Documents'
+alias dt='cd ~/Desktop'
+alias p='cd ~/Projects'
+alias d='cd ~/Projects/dotfiles'
 
 # Git
-alias g="git"
+alias g='git'
 
 # Actually clear terminal
-alias cls="clear && printf '\e[3J'"
+alias cls='clear && printf "\e[3J"'
 
-# Use eza if available; use GNU ls as fallback (gls on macOS, ls on Linux)
+# Use eza if available; fallback to BSD ls on macOS, GNU ls on Linux
 if command -v eza &>/dev/null; then
     # ls with eza (color, icons, directories first, type indicators, sorted by extension)
-    alias ls="eza --color=auto --icons=always --group-directories-first --classify=auto --sort=extension -A"
+    alias ls='eza --color=auto --icons=always --group-directories-first --classify=auto --sort=extension -A'
 
     # ls -la with eza (long, octal permissions, suppress permissions/user columns)
-    alias la="eza --color=auto --icons=always --group-directories-first --classify=auto --sort=extension -a -l --octal-permissions --no-permissions --no-user --header"
+    alias la='eza --color=auto --icons=always --group-directories-first --classify=auto --sort=extension -a -l --octal-permissions --no-permissions --no-user --header'
 
-elif command -v gls &>/dev/null; then
-    alias ls="gls --color=auto --group-directories-first -XFA"
-    alias la="gls --color=auto --group-directories-first -XFlA"
+elif ls --version >/dev/null 2>&1; then
+    alias ls='ls --color=auto --group-directories-first -XFA'
+    alias la='ls --color=auto --group-directories-first -XFlA'
 
 else
-    alias ls="ls --color=auto --group-directories-first -XFA"
-    alias la="ls --color=auto --group-directories-first -XFlA"
+    alias ls='ls -GF'
+    alias la='ls -GFA'
 fi
 
 # Enable aliases to be sudo’ed
-alias sudo="sudo "
+alias sudo='sudo '
 
 # Reload the shell
-alias reload="source ~/.bash_profile"
+alias reload='source ~/.bash_profile'
 
 # Print each PATH entry on a separate line
 alias path='tr ":" "\n" <<< "$PATH"'
 
 # Fastfetch
-alias ff="cls && printf '\n\n' && fastfetch"
-alias fff="cls && fastfetch -c ~/.config/fastfetch/launch.jsonc"
+alias ff='cls && printf '\n\n' && fastfetch'
+alias fff='cls && fastfetch -c ~/.config/fastfetch/launch.jsonc'
 
 # OS specific aliases
 if [[ "$OSTYPE" == darwin* ]]; then
     # Get macOS Software Updates and update Homebrew
-    alias update="brew update && brew upgrade && brew cleanup && sudo softwareupdate -i -a"
+    alias update='sudo softwareupdate -i -a && brew update && brew upgrade && brew cleanup'
 
     # Recursively delete `.DS_Store` files
-    alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
-
-    # MacOS has no `sha1sum`, so use `shasum` as a fallback
-    command -v sha1sum >/dev/null || alias sha1sum="shasum"
+    alias cleanup='find . -type f -name "*.DS_Store" -ls -delete'
 
     # Brew uninstall and purge all cask files
-    alias brm="brew rm --zap"
+    alias brm='brew rm --zap'
 
     # Better `stat`
-    alias stat="stat -x"
+    alias stat='stat -x'
 
     # C
     alias gcc='gcc-16'
     alias g++='g++-16'
-    alias gcc-strict='gcc-16 -Wall -Wextra -Werror'
 
     gccrun() {
         gcc-16 -Wall -Wextra -Werror "$@" && ./a.out
@@ -77,7 +73,6 @@ if [[ "$OSTYPE" == darwin* ]]; then
 
 elif [[ "$OSTYPE" == linux* ]]; then
     # Update packages and clean up orphaned dependencies
-    # Had to change alias to lupdate (Linux update) because on macOS bash randomly decided having 2 `update` aliases was a syntax error
     lupdate() {
         sudo pacman -Syu
 
@@ -98,8 +93,6 @@ elif [[ "$OSTYPE" == linux* ]]; then
     alias zed='zeditor'
 
     # C
-    alias gcc-strict='gcc -Wall -Wextra -Werror'
-
     gccrun() {
         gcc -Wall -Wextra -Werror "$@" && ./a.out
     }

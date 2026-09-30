@@ -16,14 +16,17 @@ sudo pacman -S --needed --noconfirm \
     git-delta \
     gnupg \
     librewolf \
+    mullvad-browser-bin \
+    protonup-qt \
     proton-vpn-gtk-app \
     starship \
+    steam \
     unzip \
     vscodium \
     zed
 
 # Fonts
-FONTS=("FiraCode" "JetBrainsMono")
+FONTS=("FiraCode")
 FONT_DIR="$HOME/.local/share/fonts"
 
 mkdir -p "$FONT_DIR"
@@ -38,8 +41,6 @@ for FONT_NAME in "${FONTS[@]}"; do
         echo "$FONT_NAME already installed."
         continue
     fi
-
-    echo "Downloading $FONT_NAME Nerd Font..."
 
     mkdir -p "$FONT_DIR/$FONT_NAME"
 
