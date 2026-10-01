@@ -48,7 +48,7 @@ if type __git_complete &>/dev/null; then
 fi
 
 # Initialize Starship
-if command -v starship &>/dev/null; then
+if command -v starship &>/dev/null && [[ -z "$STARSHIP_SHELL" ]]; then
     eval "$(starship init bash)"
 fi
 
