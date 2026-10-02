@@ -46,7 +46,7 @@ alias reload='source ~/.bash_profile'
 alias path='tr ":" "\n" <<< "$PATH"'
 
 # Fastfetch
-alias ff='cls && printf '\n\n' && fastfetch'
+alias ff="cls && printf '\n\n' && fastfetch"
 alias fff='cls && fastfetch -c ~/.config/fastfetch/launch.jsonc'
 
 # OS specific aliases
