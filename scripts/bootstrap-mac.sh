@@ -22,3 +22,10 @@ else
     echo "Unsupported OS: $OS"
     exit 1
 fi
+
+# To use touch id for sudo:
+# sudo cp /etc/pam.d/sudo_local.template /etc/pam.d/sudo_local
+# sudo nano /etc/pam.d/sudo_local
+
+# Uncomment:
+# auth sufficient pam_tid.so
