@@ -1,0 +1,9 @@
+[
+  {
+    "context": "Editor && !in_snippet && !showing_completions",
+    "bindings": {
+      "tab": "editor::MoveToEndOfLargerSyntaxNode",
+      "shift-tab": "editor::Tab"
+    }
+  }
+]
