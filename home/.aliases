@@ -97,4 +97,3 @@ elif [[ "$OSTYPE" == linux* ]]; then
         gcc -Wall -Wextra -Werror "$@" && ./a.out
     }
 fi
-
