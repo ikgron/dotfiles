@@ -36,7 +36,11 @@ if command -v git &>/dev/null; then
     fi
 fi
 
-# Install VSCodium extensions if installed
+# Install extensions if VSCodium is installed
 if command -v codium &>/dev/null; then
-    bash "$DOTFILES_DIR/vscodium/extensions.sh"
+    read -rp "Install VSCodium extensions now? (y/n): " confirm
+
+    if [[ "$confirm" =~ ^[Yy]$ ]]; then
+        bash "$DOTFILES_DIR/vscodium/extensions.sh"
+    fi
 fi
