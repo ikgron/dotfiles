@@ -25,6 +25,11 @@
       "milliseconds": 1000,
     },
   },
+  "diagnostics": {
+    "inline": {
+      "enabled": true,
+    },
+  },
   // Tabs
   "tabs": {
     "file_icons": true,
