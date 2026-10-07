@@ -50,35 +50,35 @@ remove_files \
     "$HOME"
 
 case "$OS" in
-    Linux)
-        # Linux config files
-        remove_files \
-            "$DOTFILES_DIR/linux/config" \
-            "$HOME/.config"
+Linux)
+    # Linux config files
+    remove_files \
+        "$DOTFILES_DIR/linux/config" \
+        "$HOME/.config"
 
-        # Linux system files
-        remove_files \
-            "$DOTFILES_DIR/linux/system" \
-            "/etc" \
-            true
+    # Linux system files
+    remove_files \
+        "$DOTFILES_DIR/linux/system" \
+        "/etc" \
+        true
 
-        # Linux VSCodium settings
-        remove_if_linked \
-            "$HOME/.config/VSCodium/User/settings.json" \
-            "$DOTFILES_DIR/vscodium/settings.json"
-        ;;
+    # Linux VSCodium settings
+    remove_if_linked \
+        "$HOME/.config/VSCodium/User/settings.json" \
+        "$DOTFILES_DIR/vscodium/settings.json"
+    ;;
 
-    Darwin)
-        # macOS VSCodium settings
-        remove_if_linked \
-            "$HOME/Library/Application Support/VSCodium/User/settings.json" \
-            "$DOTFILES_DIR/vscodium/settings.json"
-        ;;
+Darwin)
+    # macOS VSCodium settings
+    remove_if_linked \
+        "$HOME/Library/Application Support/VSCodium/User/settings.json" \
+        "$DOTFILES_DIR/vscodium/settings.json"
+    ;;
 
-    *)
-        echo "Unsupported OS: $OS"
-        exit 1
-        ;;
+*)
+    echo "Unsupported OS: $OS"
+    exit 1
+    ;;
 esac
 
 echo "Done"

@@ -34,10 +34,10 @@ bash scripts/boostrap-linux.sh # Symlinks Linux specific configs and system sett
 
 ## What gets linked
 
-| Source | Destination |
-|---|---|
-| `config/<dir>/` | `~/.config/<dir>/` |
-| `home/.<file>` | `~/.<file>` |
+| Source                 | Destination                   |
+| ---------------------- | ----------------------------- |
+| `config/<dir>/`        | `~/.config/<dir>/`            |
+| `home/.<file>`         | `~/.<file>`                   |
 | `vscode/settings.json` | VSCodium `User/settings.json` |
 
 Configs: Fastfetch, Ghostty, Git, Starship, Zed

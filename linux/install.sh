@@ -66,4 +66,3 @@ CURRENT_SHELL="$(getent passwd "$USER" | cut -d: -f7)"
 if [[ "$CURRENT_SHELL" != "$BASH_PATH" ]]; then
     chsh -s "$BASH_PATH"
 fi
-
