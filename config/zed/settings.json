@@ -49,6 +49,8 @@
     "hide_root": true,
   },
   "git_panel": {
+    "group_by": "staging",
+    "tree_view": true,
     "dock": "left",
   },
   "collaboration_panel": {
