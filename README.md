@@ -31,7 +31,7 @@ bash scripts/linux-bootstrap.sh # Symlinks VSCodium settings, symlinks Linux spe
 
 | Source                 | Destination                   |
 | ---------------------- | ----------------------------- |
-| `config/<dir>/`        | `~/.config/<dir>/`            |
+| `config/<dir>/<file>`  | `~/.config/<dir>/<file>`      |
 | `home/.<file>`         | `~/.<file>`                   |
 | `vscode/settings.json` | VSCodium `User/settings.json` |
 
