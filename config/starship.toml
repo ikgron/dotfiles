@@ -15,7 +15,7 @@ trim_at = "."
 disabled = false
 
 [directory]
-read_only = " "
+read_only = " 󰌾"
 truncate_to_repo = true
 style = "bold italic green"
 
@@ -28,133 +28,376 @@ symbol = " "
 format = "[$symbol$branch]($style) "
 
 [aws]
-symbol = " "
+symbol = " "
+format = "[$symbol($name )]($style)"
+
+[azure]
+symbol = " "
+format = "[$symbol($name )]($style)"
+
+[battery]
+full_symbol = "󰁹 "
+charging_symbol = "󰂄 "
+discharging_symbol = "󰂃 "
+unknown_symbol = "󰂑 "
+empty_symbol = "󰂎 "
 
 [buf]
 symbol = " "
+format = "[$symbol($name )]($style)"
 
 [bun]
 symbol = " "
+format = "[$symbol($name )]($style)"
 
 [c]
 symbol = " "
+format = "[$symbol($name )]($style)"
+
+[cpp]
+symbol = " "
+format = "[$symbol($name )]($style)"
 
 [cmake]
 symbol = " "
+format = "[$symbol($name )]($style)"
+
+[cobol]
+symbol = " "
+format = "[$symbol($name )]($style)"
 
 [conda]
-symbol = " "
+symbol = " "
+format = "[$symbol($name )]($style)"
+
+[container]
+symbol = " "
+format = "[$symbol($name )]($style)"
 
 [crystal]
 symbol = " "
+format = "[$symbol($name )]($style)"
 
 [dart]
-symbol = " "
+symbol = " "
+format = "[$symbol($name )]($style)"
 
 [deno]
 symbol = " "
+format = "[$symbol($name )]($style)"
+
+[direnv]
+symbol = " "
+format = "[$symbol($name )]($style)"
 
 [docker_context]
 symbol = " "
+format = "[$symbol($name )]($style)"
+
+[dotnet]
+symbol = " "
+format = "[$symbol($name )]($style)"
 
 [elixir]
 symbol = " "
+format = "[$symbol($name )]($style)"
 
 [elm]
 symbol = " "
+format = "[$symbol($name )]($style)"
+
+[erlang]
+symbol = " "
+format = "[$symbol($name )]($style)"
 
 [fennel]
 symbol = " "
+format = "[$symbol($name )]($style)"
+
+[fortran]
+symbol = " "
+format = "[$symbol($name )]($style)"
 
 [fossil_branch]
 symbol = " "
+format = "[$symbol($name )]($style)"
 
 [gcloud]
-symbol = " "
+symbol = "󱇶 "
+format = "[$symbol($name )]($style)"
+
+[gleam]
+symbol = " "
+format = "[$symbol($name )]($style)"
 
 [git_commit]
-tag_symbol = "  "
+tag_symbol = '  '
+format = "[$symbol($name )]($style)"
 
 [golang]
 symbol = " "
+format = "[$symbol($name )]($style)"
 
 [gradle]
 symbol = " "
+format = "[$symbol($name )]($style)"
 
 [guix_shell]
 symbol = " "
+format = "[$symbol($name )]($style)"
 
 [haskell]
 symbol = " "
+format = "[$symbol($name )]($style)"
 
 [haxe]
 symbol = " "
+format = "[$symbol($name )]($style)"
+
+[helm]
+symbol = " "
+format = "[$symbol($name )]($style)"
 
 [hg_branch]
 symbol = " "
+format = "[$symbol($name )]($style)"
 
 [java]
-symbol = " "
+symbol = " "
+format = "[$symbol($name )]($style)"
 
 [julia]
 symbol = " "
+format = "[$symbol($name )]($style)"
 
 [kotlin]
 symbol = " "
+format = "[$symbol($name )]($style)"
+
+[kubernetes]
+symbol = "󱃾 "
+format = "[$symbol($name )]($style)"
 
 [lua]
 symbol = " "
+format = "[$symbol($name )]($style)"
+
+[maven]
+symbol = " "
+format = "[$symbol($name )]($style)"
 
 [memory_usage]
 symbol = "󰍛 "
+format = "[$symbol($name )]($style)"
 
 [meson]
 symbol = "󰔷 "
+format = "[$symbol($name )]($style)"
+
+[mojo]
+symbol = "󰈸 "
+format = "[$symbol($name )]($style)"
+
+[nats]
+symbol = " "
+format = "[$symbol($name )]($style)"
+
+[netns]
+symbol = "󰛳 "
+format = "[$symbol($name )]($style)"
 
 [nim]
-symbol = "󰆥 "
+symbol = " "
+format = "[$symbol($name )]($style)"
 
 [nix_shell]
 symbol = " "
+format = "[$symbol($name )]($style)"
 
 [nodejs]
 symbol = " "
+format = "[$symbol($name )]($style)"
 
 [ocaml]
 symbol = " "
+format = "[$symbol($name )]($style)"
+
+[odin]
+symbol = "󰟢 "
+format = "[$symbol($name )]($style)"
+
+[opa]
+symbol = " "
+format = "[$symbol($name )]($style)"
+
+[openstack]
+symbol = " "
+format = "[$symbol($name )]($style)"
+
+[os.symbols]
+AIX = " "
+AlmaLinux = " "
+Alpaquita = " "
+Alpine = " "
+ALTLinux = " "
+Amazon = " "
+Android = " "
+AOSC = " "
+Arch = " "
+Artix = " "
+Bluefin = " "
+CachyOS = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Elementary = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = " "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = " "
+InstantOS = " "
+Ios = "󰀷 "
+Kali = " "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+Nobara = " "
+OpenBSD = " "
+OpenCloudOS = " "
+openEuler = " "
+openSUSE = " "
+OracleLinux = "󰺡 "
+PikaOS = " "
+Pop = " "
+Raspbian = " "
+Redhat = "󱄛 "
+RedHatEnterprise = "󱄛 "
+Redox = "󰀘 "
+RockyLinux = " "
+Solus = " "
+SUSE = " "
+Ubuntu = " "
+Ultramarine = " "
+Unknown = " "
+Uos = " "
+Void = " "
+Windows = "󰍲 "
+Zorin = " "
 
 [package]
 symbol = "󰏗 "
+format = "[$symbol($name )]($style)"
 
 [perl]
 symbol = " "
+format = "[$symbol($name )]($style)"
 
 [php]
 symbol = " "
+format = "[$symbol($name )]($style)"
 
 [pijul_channel]
 symbol = " "
+format = "[$symbol($name )]($style)"
+
+[pixi]
+symbol = "󰏗 "
+format = "[$symbol($name )]($style)"
+
+[pulumi]
+symbol = " "
+format = "[$symbol($name )]($style)"
+
+[purescript]
+symbol = " "
+format = "[$symbol($name )]($style)"
 
 [python]
 symbol = " "
+format = "[$symbol($name )]($style)"
+
+[raku]
+symbol = "󱖊 "
+format = "[$symbol($name )]($style)"
+
+[red]
+symbol = "󱍼 "
+format = "[$symbol($name )]($style)"
 
 [rlang]
 symbol = "󰟔 "
+format = "[$symbol($name )]($style)"
 
 [ruby]
 symbol = " "
+format = "[$symbol($name )]($style)"
 
 [rust]
 symbol = "󱘗 "
+format = "[$symbol($name )]($style)"
 
 [scala]
 symbol = " "
+format = "[$symbol($name )]($style)"
+
+[shlvl]
+symbol = "󰹍 "
+format = "[$symbol($name )]($style)"
+
+[singularity]
+symbol = " "
+format = "[$symbol($name )]($style)"
+
+[solidity]
+symbol = " "
+format = "[$symbol($name )]($style)"
+
+[spack]
+symbol = " "
+format = "[$symbol($name )]($style)"
 
 [status]
 symbol = " "
+format = "[$symbol($name )]($style)"
+
+[sudo]
+symbol = " "
+format = "[$symbol($name )]($style)"
 
 [swift]
 symbol = " "
+format = "[$symbol($name )]($style)"
+
+[terraform]
+symbol = " "
+format = "[$symbol($name )]($style)"
+
+[vlang]
+symbol = " "
+format = "[$symbol($name )]($style)"
+
+[typst]
+symbol = " "
+format = "[$symbol($name )]($style)"
+
+[vagrant]
+symbol = " "
+format = "[$symbol($name )]($style)"
+
+[xmake]
+symbol = " "
+format = "[$symbol($name )]($style)"
 
 [zig]
 symbol = " "
+format = "[$symbol($name )]($style)"
