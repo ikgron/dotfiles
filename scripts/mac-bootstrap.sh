@@ -16,6 +16,12 @@ if [[ "$OS" == "Darwin" ]]; then
     # Apply system preferences and set dock
     bash "$DOTFILES_DIR/macos/defaults.sh"
 
+    # Switch to using brew-installed bash as default shell
+    if ! grep -Fq "$(brew --prefix)/bin/bash" /etc/shells; then
+        echo "$(brew --prefix)/bin/bash" | sudo tee -a /etc/shells
+        chsh -s "$(brew --prefix)/bin/bash"
+    fi
+
     echo "Run 'source ~/.bash_profile' or open a new terminal to reload your shell."
 
 else
@@ -23,9 +29,11 @@ else
     exit 1
 fi
 
-# To use touch id for sudo:
-# sudo cp /etc/pam.d/sudo_local.template /etc/pam.d/sudo_local
-# sudo nano /etc/pam.d/sudo_local
+: '
+To use Touch ID for sudo:
+sudo cp /etc/pam.d/sudo_local.template /etc/pam.d/sudo_local
+sudo nano /etc/pam.d/sudo_local
 
-# Uncomment:
-# auth sufficient pam_tid.so
+Uncomment:
+auth sufficient pam_tid.so
+'

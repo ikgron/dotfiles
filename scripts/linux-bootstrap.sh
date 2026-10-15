@@ -7,26 +7,20 @@ OS="$(uname -s)"
 
 source "$DOTFILES_DIR/scripts/lib.sh"
 
-CONFIG_SRC="$DOTFILES_DIR/linux/config"
-CONFIG_DEST="$HOME/.config"
-
 if [[ "$OS" == "Linux" ]]; then
-    mkdir -p "$CONFIG_DEST"
-
-    # Symlink files in dotfiles/linux/config/ to ~/.config/
-    link_files "$CONFIG_SRC" "$CONFIG_DEST"
+    # Set variables
+    VSCODIUM_CONFIG_DEST="$HOME/.config/VSCodium/User/settings.json"
+    UDEV_CONFIG_DEST="/etc/udev/hwdb.d/99-keyboard.hwdb"
+    BASH_PATH="$(command -v bash)"
+    CURRENT_SHELL="$(getent passwd "$USER" | cut -d: -f7)"
 
     # Symlink VSCodium settings
-    VSCODIUM_CONFIG_DEST="$CONFIG_DEST/VSCodium/User/settings.json"
-
     mkdir -p -- "$(dirname "$VSCODIUM_CONFIG_DEST")"
     ln -sfv \
         "$DOTFILES_DIR/vscodium/settings.json" \
         "$VSCODIUM_CONFIG_DEST"
 
     # Symlink udev hwdb rules
-    UDEV_CONFIG_DEST="/etc/udev/hwdb.d/99-keyboard.hwdb"
-
     sudo mkdir -p -- "$(dirname "$UDEV_CONFIG_DEST")"
     sudo ln -sfv \
         "$DOTFILES_DIR/linux/system/udev/hwdb.d/99-keyboard.hwdb" \
@@ -37,8 +31,14 @@ if [[ "$OS" == "Linux" ]]; then
     sudo udevadm control --reload-rules
     sudo udevadm trigger --subsystem-match=input
 
-    # Restart WirePlumber
-    systemctl --user restart wireplumber
+    # Change shell to bash (CachyOS defaults to fish)
+    if [[ "$CURRENT_SHELL" != "$BASH_PATH" ]]; then
+        chsh -s "$BASH_PATH"
+        read -rp "Reboot now? (y/n): " confirm
+        if [[ "$confirm" =~ ^[Yy]$ ]]; then
+            sudo reboot
+        fi
+    fi
 
 else
     echo "Unsupported OS: $OS"

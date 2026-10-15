@@ -14,22 +14,17 @@ cd dotfiles/
 ### macOS
 
 ```bash
-bash macos/install.sh  # Installs Homebrew, installs packages, switches to modern bash
-bash scripts/bootstrap.sh # Symlinks configs, prompts for Git config setup, applies macOS defaults
-bash scripts/bootstrap-mac.sh # Symlinks VSCodium settings and install extensions, runs defaults.sh
+bash macos/install.sh  # Installs Homebrew, installs packages
+bash scripts/bootstrap.sh # Symlinks configs, prompts for Git config setup, install VSCodium extensions
+bash scripts/mac-bootstrap.sh # Symlinks VSCodium settings, runs defaults.sh, switches to modern bash
 ```
 
 ### Linux
 
 ```bash
-bash linux/arch/install.sh
-```
-
-then
-
-```bash
-bash scripts/bootstrap.sh  # Symlinks configs, prompts for Git config setup, runs debian/install.sh
-bash scripts/boostrap-linux.sh # Symlinks Linux specific configs and system settings, symlinks VSCodium settings
+bash linux/arch/install.sh # Installs apps
+bash scripts/bootstrap.sh  # Symlinks configs, prompts for Git config setup, install VSCodium extensions
+bash scripts/linux-bootstrap.sh # Symlinks VSCodium settings, symlinks Linux specific configs and system settings
 ```
 
 ## What gets linked

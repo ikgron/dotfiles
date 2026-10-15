@@ -14,14 +14,6 @@ echo "Updating Homebrew..."
 brew update
 brew upgrade
 
-brew install bash
-
-# Switch to using brew-installed bash as default shell
-if ! grep -Fq "$(brew --prefix)/bin/bash" /etc/shells; then
-    echo "$(brew --prefix)/bin/bash" | sudo tee -a /etc/shells
-    chsh -s "$(brew --prefix)/bin/bash"
-fi
-
 echo "Installing everything from Brewfile"
 brew bundle --file="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/Brewfile"
 

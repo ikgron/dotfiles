@@ -11,17 +11,17 @@ sudo pacman -S --needed --noconfirm \
     eza \
     fastfetch \
     fontconfig \
-    gamemode \
     ghostty \
     git-delta \
-    gnupg \
     librewolf \
     mullvad-browser-bin \
+    openrgb \
     protonup-qt \
     proton-vpn-gtk-app \
     starship \
     steam \
     unzip \
+    vesktop-bin \
     vscodium \
     zed
 
@@ -58,11 +58,3 @@ for FONT_NAME in "${FONTS[@]}"; do
 done
 
 fc-cache -f
-
-# Change shell to bash (CachyOS defaults to fish)
-BASH_PATH="$(command -v bash)"
-CURRENT_SHELL="$(getent passwd "$USER" | cut -d: -f7)"
-
-if [[ "$CURRENT_SHELL" != "$BASH_PATH" ]]; then
-    chsh -s "$BASH_PATH"
-fi
