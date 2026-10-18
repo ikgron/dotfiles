@@ -50,7 +50,6 @@
   },
   "git_panel": {
     "group_by": "staging",
-    "tree_view": true,
     "dock": "left",
   },
   "collaboration_panel": {
@@ -81,7 +80,7 @@
   "file_types": {
     "Git Config": ["config.local", "config"],
     "Git Ignore": ["ignore"],
-    "Shell Script": [".aliases", ".exports", ".inputrc", "Brewfile"],
+    "Shell Script": [".aliases", ".bash_prompt", ".exports", ".inputrc", "Brewfile"],
     "TOML": ["config.ghostty"],
   },
 }
