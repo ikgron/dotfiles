@@ -100,7 +100,6 @@
 		{
 			"type": "battery",
 			"key": "│{#cyan}│ {icon}  Battery   │{$4}│{#keys}│{$2}",
-			// "format": "{capacity} ({time-formatted})"
 		},
 		{
 			"type": "custom",
