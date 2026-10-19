@@ -22,6 +22,7 @@ BREW_BASH="$(brew --prefix)/bin/bash"
 if ! grep -Fqx "$BREW_BASH" /etc/shells; then
     echo "$BREW_BASH" | sudo tee -a /etc/shells
 fi
+
 if [[ "$SHELL" != "$BREW_BASH" ]]; then
     chsh -s "$BREW_BASH"
 fi

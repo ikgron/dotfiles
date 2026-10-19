@@ -37,3 +37,4 @@ if [[ "$CURRENT_SHELL" != "$BASH_PATH" ]]; then
 	if [[ "$confirm" =~ ^[Yy]$ ]]; then
 		sudo reboot
 	fi
+fi

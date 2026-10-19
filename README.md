@@ -39,10 +39,4 @@ Shell dotfiles: `.aliases`, `.bash_profile`, `.bashrc`, `.exports`, `.inputrc`
 
 Vim: `.vimrc` + `.vim/`
 
-## Uninstall
-
-```bash
-bash scripts/uninstall.sh  # only removes symlinks bootstrap.sh created
-```
-
 ![screenshot](assets/terminal_screenshot.png)

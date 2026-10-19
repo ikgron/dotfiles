@@ -16,10 +16,10 @@
 		// Constants are reusable strings referenced by {$1}, {$2}, etc.
 		// These contain ANSI escape codes for cursor positioning
 		"constants": [
-			"──────────────────────────────────────────────────", // {$1} - horizontal line for borders
-			"\u001b[50D", // {$2} - move cursor left 47 columns
-			"\u001b[51C", // {$3} - move cursor right 47 columns
-			"\u001b[50C", // {$4} - move cursor right 46 columns
+			"────────────────────────────────────────────────────────────", // {$1} - horizontal line for borders
+			"\u001b[60D", // {$2} - move cursor left 47 columns
+			"\u001b[61C", // {$3} - move cursor right 47 columns
+			"\u001b[60C", // {$4} - move cursor right 46 columns
 		],
 		"brightColor": false,
 	},

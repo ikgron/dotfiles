@@ -70,10 +70,11 @@ if [[ "$OSTYPE" == darwin* ]]; then
 	gccrun() {
 		gcc-16 -Wall -Wextra -Werror "$@" && ./a.out
 	}
+fi
 
-elif [[ "$OSTYPE" == linux* ]]; then
+if [[ "$OSTYPE" == linux* ]]; then
 	# Update packages and clean up orphaned dependencies
-	lupdate() {
+	update() {
 		sudo pacman -Syu
 
 		local orphans
