@@ -131,7 +131,7 @@ symbol = " "
 format = "[$symbol($name )]($style)"
 
 [git_commit]
-tag_symbol = '  '
+tag_symbol = "  "
 format = "[$symbol($name )]($style)"
 
 [golang]

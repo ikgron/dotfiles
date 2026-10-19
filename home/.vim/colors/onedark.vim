@@ -49,7 +49,7 @@
 highlight clear
 
 if exists("syntax_on")
-  syntax reset
+	syntax reset
 endif
 
 set t_Co=256
@@ -62,72 +62,72 @@ let g:colors_name="onedark"
 " < https://github.com/joshdick/onedark.vim/blob/main/README.md >
 " for more information.)
 if !exists("g:onedark_termcolors")
-  let g:onedark_termcolors = 256
+	let g:onedark_termcolors = 256
 endif
 
 " Not all terminals support italics properly. If yours does, opt-in.
 if !exists("g:onedark_terminal_italics")
-  let g:onedark_terminal_italics = 0
+	let g:onedark_terminal_italics = 0
 endif
 
 " This function is based on one from FlatColor: https://github.com/MaxSt/FlatColor/
 " Which in turn was based on one found in hemisu: https://github.com/noahfrederick/vim-hemisu/
 let s:group_colors = {} " Cache of default highlight group settings, for later reference via `onedark#extend_highlight`
 function! s:h(group, style, ...)
-  if (a:0 > 0) " Will be true if we got here from onedark#extend_highlight
-    let s:highlight = s:group_colors[a:group]
-    for style_type in ["fg", "bg", "sp"]
-      if (has_key(a:style, style_type))
-        let l:default_style = (has_key(s:highlight, style_type) ? copy(s:highlight[style_type]) : { "cterm16": "NONE", "cterm": "NONE", "gui": "NONE" })
-        let s:highlight[style_type] = extend(l:default_style, a:style[style_type])
-      endif
-    endfor
-    if (has_key(a:style, "gui"))
-      let s:highlight.gui = a:style.gui
-    endif
-    if (has_key(a:style, "cterm"))
-      let s:highlight.cterm = a:style.cterm
-    endif
-  else
-    let s:highlight = a:style
-    let s:group_colors[a:group] = s:highlight " Cache default highlight group settings
-  endif
+	if (a:0 > 0) " Will be true if we got here from onedark#extend_highlight
+		let s:highlight = s:group_colors[a:group]
+		for style_type in ["fg", "bg", "sp"]
+			if (has_key(a:style, style_type))
+				let l:default_style = (has_key(s:highlight, style_type) ? copy(s:highlight[style_type]) : { "cterm16": "NONE", "cterm": "NONE", "gui": "NONE" })
+				let s:highlight[style_type] = extend(l:default_style, a:style[style_type])
+			endif
+		endfor
+		if (has_key(a:style, "gui"))
+			let s:highlight.gui = a:style.gui
+		endif
+		if (has_key(a:style, "cterm"))
+			let s:highlight.cterm = a:style.cterm
+		endif
+	else
+		let s:highlight = a:style
+		let s:group_colors[a:group] = s:highlight " Cache default highlight group settings
+	endif
 
-  if g:onedark_terminal_italics == 0
-    if has_key(s:highlight, "cterm") && s:highlight["cterm"] == "italic"
-      unlet s:highlight.cterm
-    endif
-    if has_key(s:highlight, "gui") && s:highlight["gui"] == "italic"
-      unlet s:highlight.gui
-    endif
-  endif
+	if g:onedark_terminal_italics == 0
+		if has_key(s:highlight, "cterm") && s:highlight["cterm"] == "italic"
+			unlet s:highlight.cterm
+		endif
+		if has_key(s:highlight, "gui") && s:highlight["gui"] == "italic"
+			unlet s:highlight.gui
+		endif
+	endif
 
-  if g:onedark_termcolors == 16
-    let l:ctermfg = (has_key(s:highlight, "fg") ? s:highlight.fg.cterm16 : "NONE")
-    let l:ctermbg = (has_key(s:highlight, "bg") ? s:highlight.bg.cterm16 : "NONE")
-  else
-    let l:ctermfg = (has_key(s:highlight, "fg") ? s:highlight.fg.cterm : "NONE")
-    let l:ctermbg = (has_key(s:highlight, "bg") ? s:highlight.bg.cterm : "NONE")
-  endif
+	if g:onedark_termcolors == 16
+		let l:ctermfg = (has_key(s:highlight, "fg") ? s:highlight.fg.cterm16 : "NONE")
+		let l:ctermbg = (has_key(s:highlight, "bg") ? s:highlight.bg.cterm16 : "NONE")
+	else
+		let l:ctermfg = (has_key(s:highlight, "fg") ? s:highlight.fg.cterm : "NONE")
+		let l:ctermbg = (has_key(s:highlight, "bg") ? s:highlight.bg.cterm : "NONE")
+	endif
 
-  execute "highlight" a:group
-    \ "guifg="   (has_key(s:highlight, "fg")    ? s:highlight.fg.gui   : "NONE")
-    \ "guibg="   (has_key(s:highlight, "bg")    ? s:highlight.bg.gui   : "NONE")
-    \ "guisp="   (has_key(s:highlight, "sp")    ? s:highlight.sp.gui   : "NONE")
-    \ "gui="     (has_key(s:highlight, "gui")   ? s:highlight.gui      : "NONE")
-    \ "ctermfg=" . l:ctermfg
-    \ "ctermbg=" . l:ctermbg
-    \ "cterm="   (has_key(s:highlight, "cterm") ? s:highlight.cterm    : "NONE")
+	execute "highlight" a:group
+		\ "guifg="   (has_key(s:highlight, "fg")    ? s:highlight.fg.gui   : "NONE")
+		\ "guibg="   (has_key(s:highlight, "bg")    ? s:highlight.bg.gui   : "NONE")
+		\ "guisp="   (has_key(s:highlight, "sp")    ? s:highlight.sp.gui   : "NONE")
+		\ "gui="     (has_key(s:highlight, "gui")   ? s:highlight.gui      : "NONE")
+		\ "ctermfg=" . l:ctermfg
+		\ "ctermbg=" . l:ctermbg
+		\ "cterm="   (has_key(s:highlight, "cterm") ? s:highlight.cterm    : "NONE")
 endfunction
 
 " public {{{
 
 function! onedark#set_highlight(group, style)
-  call s:h(a:group, a:style)
+	call s:h(a:group, a:style)
 endfunction
 
 function! onedark#extend_highlight(group, style)
-  call s:h(a:group, a:style, 1)
+	call s:h(a:group, a:style, 1)
 endfunction
 
 " }}}
@@ -163,12 +163,12 @@ let s:vertsplit = s:colors.vertsplit
 " Terminal Colors {{{
 
 if !has('nvim')
-  let g:terminal_ansi_colors = [
-    \ s:black.gui, s:red.gui, s:green.gui, s:yellow.gui,
-    \ s:blue.gui, s:purple.gui, s:cyan.gui, s:white.gui,
-    \ s:visual_grey.gui, s:dark_red.gui, s:green.gui, s:dark_yellow.gui,
-    \ s:blue.gui, s:purple.gui, s:cyan.gui, s:comment_grey.gui
-  \]
+	let g:terminal_ansi_colors = [
+		\ s:black.gui, s:red.gui, s:green.gui, s:yellow.gui,
+		\ s:blue.gui, s:purple.gui, s:cyan.gui, s:white.gui,
+		\ s:visual_grey.gui, s:dark_red.gui, s:green.gui, s:dark_yellow.gui,
+		\ s:blue.gui, s:purple.gui, s:cyan.gui, s:comment_grey.gui
+	\]
 endif
 
 " }}}
@@ -220,10 +220,10 @@ call s:h("Cursor", { "fg": s:black, "bg": s:blue }) " the character under the cu
 call s:h("CursorIM", {}) " like Cursor, but used when in IME mode
 call s:h("CursorColumn", { "bg": s:cursor_grey }) " the screen column that the cursor is in when 'cursorcolumn' is set
 if &diff
-  " Don't change the background color in diff mode
-  call s:h("CursorLine", { "gui": "underline" }) " the screen line that the cursor is in when 'cursorline' is set
+	" Don't change the background color in diff mode
+	call s:h("CursorLine", { "gui": "underline" }) " the screen line that the cursor is in when 'cursorline' is set
 else
-  call s:h("CursorLine", { "bg": s:cursor_grey }) " the screen line that the cursor is in when 'cursorline' is set
+	call s:h("CursorLine", { "bg": s:cursor_grey }) " the screen line that the cursor is in when 'cursorline' is set
 endif
 call s:h("Directory", { "fg": s:blue }) " directory names (and other special names in listings)
 call s:h("DiffAdd", { "bg": s:green, "fg": s:black }) " diff mode: Added line
@@ -231,8 +231,8 @@ call s:h("DiffChange", { "fg": s:yellow, "gui": "underline", "cterm": "underline
 call s:h("DiffDelete", { "bg": s:red, "fg": s:black }) " diff mode: Deleted line
 call s:h("DiffText", { "bg": s:yellow, "fg": s:black }) " diff mode: Changed text within a changed line
 if get(g:, 'onedark_hide_endofbuffer', 0)
-    " If enabled, will style end-of-buffer filler lines (~) to appear to be hidden.
-    call s:h("EndOfBuffer", { "fg": s:black }) " filler lines (~) after the last line in the buffer
+		" If enabled, will style end-of-buffer filler lines (~) to appear to be hidden.
+		call s:h("EndOfBuffer", { "fg": s:black }) " filler lines (~) after the last line in the buffer
 endif
 call s:h("ErrorMsg", { "fg": s:red }) " error messages on the command line
 call s:h("VertSplit", { "fg": s:vertsplit }) " the column separating vertically split windows
@@ -645,48 +645,48 @@ hi link gitcommitUnmergedArrow gitcommitUnmergedFile
 " Neovim-Specific Highlighting {{{
 
 if has("nvim")
-  " Neovim terminal colors {{{
-  let g:terminal_color_0 =  s:black.gui
-  let g:terminal_color_1 =  s:red.gui
-  let g:terminal_color_2 =  s:green.gui
-  let g:terminal_color_3 =  s:yellow.gui
-  let g:terminal_color_4 =  s:blue.gui
-  let g:terminal_color_5 =  s:purple.gui
-  let g:terminal_color_6 =  s:cyan.gui
-  let g:terminal_color_7 =  s:white.gui
-  let g:terminal_color_8 =  s:visual_grey.gui
-  let g:terminal_color_9 =  s:dark_red.gui
-  let g:terminal_color_10 = s:green.gui " No dark version
-  let g:terminal_color_11 = s:dark_yellow.gui
-  let g:terminal_color_12 = s:blue.gui " No dark version
-  let g:terminal_color_13 = s:purple.gui " No dark version
-  let g:terminal_color_14 = s:cyan.gui " No dark version
-  let g:terminal_color_15 = s:comment_grey.gui
-  let g:terminal_color_background = s:background.gui
-  let g:terminal_color_foreground = s:foreground.gui
-  " }}}
+	" Neovim terminal colors {{{
+	let g:terminal_color_0 =  s:black.gui
+	let g:terminal_color_1 =  s:red.gui
+	let g:terminal_color_2 =  s:green.gui
+	let g:terminal_color_3 =  s:yellow.gui
+	let g:terminal_color_4 =  s:blue.gui
+	let g:terminal_color_5 =  s:purple.gui
+	let g:terminal_color_6 =  s:cyan.gui
+	let g:terminal_color_7 =  s:white.gui
+	let g:terminal_color_8 =  s:visual_grey.gui
+	let g:terminal_color_9 =  s:dark_red.gui
+	let g:terminal_color_10 = s:green.gui " No dark version
+	let g:terminal_color_11 = s:dark_yellow.gui
+	let g:terminal_color_12 = s:blue.gui " No dark version
+	let g:terminal_color_13 = s:purple.gui " No dark version
+	let g:terminal_color_14 = s:cyan.gui " No dark version
+	let g:terminal_color_15 = s:comment_grey.gui
+	let g:terminal_color_background = s:background.gui
+	let g:terminal_color_foreground = s:foreground.gui
+	" }}}
 
-  " Neovim Diagnostics {{{
-  call s:h("DiagnosticError", { "fg": s:red })
-  call s:h("DiagnosticWarn", { "fg": s:yellow })
-  call s:h("DiagnosticInfo", { "fg": s:blue })
-  call s:h("DiagnosticHint", { "fg": s:cyan })
-  call s:h("DiagnosticUnderlineError", { "fg": s:red, "gui": "underline", "cterm": "underline" })
-  call s:h("DiagnosticUnderlineWarn", { "fg": s:yellow, "gui": "underline", "cterm": "underline" })
-  call s:h("DiagnosticUnderlineInfo", { "fg": s:blue, "gui": "underline", "cterm": "underline" })
-  call s:h("DiagnosticUnderlineHint", { "fg": s:cyan, "gui": "underline", "cterm": "underline" })
-  " }}}
+	" Neovim Diagnostics {{{
+	call s:h("DiagnosticError", { "fg": s:red })
+	call s:h("DiagnosticWarn", { "fg": s:yellow })
+	call s:h("DiagnosticInfo", { "fg": s:blue })
+	call s:h("DiagnosticHint", { "fg": s:cyan })
+	call s:h("DiagnosticUnderlineError", { "fg": s:red, "gui": "underline", "cterm": "underline" })
+	call s:h("DiagnosticUnderlineWarn", { "fg": s:yellow, "gui": "underline", "cterm": "underline" })
+	call s:h("DiagnosticUnderlineInfo", { "fg": s:blue, "gui": "underline", "cterm": "underline" })
+	call s:h("DiagnosticUnderlineHint", { "fg": s:cyan, "gui": "underline", "cterm": "underline" })
+	" }}}
 
-  " Neovim LSP (for versions < 0.5.1) {{{
-  hi link LspDiagnosticsDefaultError DiagnosticError
-  hi link LspDiagnosticsDefaultWarning DiagnosticWarn
-  hi link LspDiagnosticsDefaultInformation DiagnosticInfo
-  hi link LspDiagnosticsDefaultHint DiagnosticHint
-  hi link LspDiagnosticsUnderlineError DiagnosticUnderlineError
-  hi link LspDiagnosticsUnderlineWarning DiagnosticUnderlineWarn
-  hi link LspDiagnosticsUnderlineInformation DiagnosticUnderlineInfo
-  hi link LspDiagnosticsUnderlineHint DiagnosticUnderlineHint
-  " }}}
+	" Neovim LSP (for versions < 0.5.1) {{{
+	hi link LspDiagnosticsDefaultError DiagnosticError
+	hi link LspDiagnosticsDefaultWarning DiagnosticWarn
+	hi link LspDiagnosticsDefaultInformation DiagnosticInfo
+	hi link LspDiagnosticsDefaultHint DiagnosticHint
+	hi link LspDiagnosticsUnderlineError DiagnosticUnderlineError
+	hi link LspDiagnosticsUnderlineWarning DiagnosticUnderlineWarn
+	hi link LspDiagnosticsUnderlineInformation DiagnosticUnderlineInfo
+	hi link LspDiagnosticsUnderlineHint DiagnosticUnderlineHint
+	" }}}
 endif
 
 " }}}

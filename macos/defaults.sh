@@ -10,9 +10,9 @@ sudo -v
 
 # Keep-alive: update existing `sudo` time stamp until `defaults.sh` has finished
 while true; do
-    sudo -n true
-    sleep 60
-    kill -0 "$$" || exit
+	sudo -n true
+	sleep 60
+	kill -0 "$$" || exit
 done 2>/dev/null &
 
 # Set computer name
@@ -37,21 +37,21 @@ defaults write com.apple.TextEdit RichText -int 0
 
 # Dock
 if command -v dockutil &>/dev/null; then
-    dockutil --no-restart --remove all
+	dockutil --no-restart --remove all
 
-    dockutil --no-restart --add "/System/Applications/Apps.app"
-    dockutil --no-restart --add "/System/Applications/System Settings.app"
-    dockutil --no-restart --add "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app"
-    dockutil --no-restart --add "/Applications/LibreWolf.app"
-    dockutil --no-restart --add "/Applications/Mullvad Browser.app"
-    dockutil --no-restart --add "/System/Applications/Music.app"
-    dockutil --no-restart --add "/Applications/Zed.app"
-    dockutil --no-restart --add "/Applications/VSCodium.app"
-    dockutil --no-restart --add "/Applications/Ghostty.app"
-    dockutil --no-restart --add "/Applications/Bitwarden.app"
-    echo "Dock set"
+	dockutil --no-restart --add "/System/Applications/Apps.app"
+	dockutil --no-restart --add "/System/Applications/System Settings.app"
+	dockutil --no-restart --add "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app"
+	dockutil --no-restart --add "/Applications/LibreWolf.app"
+	dockutil --no-restart --add "/Applications/Mullvad Browser.app"
+	dockutil --no-restart --add "/System/Applications/Music.app"
+	dockutil --no-restart --add "/Applications/Zed.app"
+	dockutil --no-restart --add "/Applications/VSCodium.app"
+	dockutil --no-restart --add "/Applications/Ghostty.app"
+	dockutil --no-restart --add "/Applications/Bitwarden.app"
+	echo "Dock set"
 else
-    echo "Warning: dockutil not installed."
+	echo "Warning: dockutil not installed."
 fi
 
 # Keyboard
@@ -62,5 +62,5 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Kill affected apps
 for app in "Dock" "Finder" "SystemUIServer"; do
-    killall "${app}" &>/dev/null || true
+	killall "${app}" &>/dev/null || true
 done

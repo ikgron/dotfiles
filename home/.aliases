@@ -21,19 +21,19 @@ alias cls='clear && printf "\e[3J"'
 
 # Use eza if available; fallback to BSD ls on macOS, GNU ls on Linux
 if command -v eza &>/dev/null; then
-    # ls with eza (color, icons, directories first, type indicators, sorted by extension)
-    alias ls='eza --color=auto --icons=always --group-directories-first --classify=auto --sort=extension -A'
+	# ls with eza (color, icons, directories first, type indicators, sorted by extension)
+	alias ls='eza --color=auto --icons=always --group-directories-first --classify=auto --sort=extension -A'
 
-    # ls -la with eza (long, octal permissions, suppress permissions/user columns)
-    alias la='eza --color=auto --icons=always --group-directories-first --classify=auto --sort=extension -a -l --octal-permissions --no-permissions --no-user --header'
+	# ls -la with eza (long, octal permissions, suppress permissions/user columns)
+	alias la='eza --color=auto --icons=always --group-directories-first --classify=auto --sort=extension -a -l --octal-permissions --no-permissions --no-user --header'
 
 elif ls --version >/dev/null 2>&1; then
-    alias ls='ls --color=auto --group-directories-first -XFA'
-    alias la='ls --color=auto --group-directories-first -XFlA'
+	alias ls='ls --color=auto --group-directories-first -XFA'
+	alias la='ls --color=auto --group-directories-first -XFlA'
 
 else
-    alias ls='ls -GF'
-    alias la='ls -GFA'
+	alias ls='ls -GF'
+	alias la='ls -GFA'
 fi
 
 # Enable aliases to be sudo’ed
@@ -51,49 +51,49 @@ alias fff='cls && fastfetch -c ~/.config/fastfetch/launch.jsonc'
 
 # OS specific aliases
 if [[ "$OSTYPE" == darwin* ]]; then
-    # Get macOS Software Updates and update Homebrew
-    alias update='sudo softwareupdate -i -a && brew update && brew upgrade && brew cleanup'
+	# Get macOS Software Updates and update Homebrew
+	alias update='sudo softwareupdate -i -a && brew update && brew upgrade && brew cleanup'
 
-    # Recursively delete `.DS_Store` files
-    alias cleanup='find . -type f -name "*.DS_Store" -ls -delete'
+	# Recursively delete `.DS_Store` files
+	alias cleanup='find . -type f -name "*.DS_Store" -ls -delete'
 
-    # Brew uninstall and purge all cask files
-    alias brm='brew rm --zap'
+	# Brew uninstall and purge all cask files
+	alias brm='brew rm --zap'
 
-    # Better `stat`
-    alias stat='stat -x'
+	# Better `stat`
+	alias stat='stat -x'
 
-    # C
-    alias gcc='gcc-16'
-    alias g++='g++-16'
+	# C
+	alias gcc='gcc-16'
+	alias g++='g++-16'
 
-    gccrun() {
-        gcc-16 -Wall -Wextra -Werror "$@" && ./a.out
-    }
+	gccrun() {
+		gcc-16 -Wall -Wextra -Werror "$@" && ./a.out
+	}
 
 elif [[ "$OSTYPE" == linux* ]]; then
-    # Update packages and clean up orphaned dependencies
-    lupdate() {
-        sudo pacman -Syu
+	# Update packages and clean up orphaned dependencies
+	lupdate() {
+		sudo pacman -Syu
 
-        local orphans
-        orphans=$(pacman -Qtdq 2>/dev/null || true)
+		local orphans
+		orphans=$(pacman -Qtdq 2>/dev/null || true)
 
-        if [[ -n "$orphans" ]]; then
-            sudo pacman -Rns -- $orphans
-        fi
-    }
+		if [[ -n "$orphans" ]]; then
+			sudo pacman -Rns -- $orphans
+		fi
+	}
 
-    # Completely uninstall a package
-    rmapp() {
-        sudo pacman -Rns "$1" && sudo pacman -Sc
-    }
+	# Completely uninstall a package
+	rmapp() {
+		sudo pacman -Rns "$1" && sudo pacman -Sc
+	}
 
-    # Zed
-    alias zed='zeditor'
+	# Zed
+	alias zed='zeditor'
 
-    # C
-    gccrun() {
-        gcc -Wall -Wextra -Werror "$@" && ./a.out
-    }
+	# C
+	gccrun() {
+		gcc -Wall -Wextra -Werror "$@" && ./a.out
+	}
 fi
