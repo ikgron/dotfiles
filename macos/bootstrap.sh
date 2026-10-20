@@ -15,7 +15,10 @@ mkdir -p -- "$(dirname "$VSCODIUM_CONFIG_DEST")"
 ln -sfv -- "$VSCODIUM_CONFIG_SRC" "$VSCODIUM_CONFIG_DEST"
 
 # Apply system preferences and set dock
-bash "$DOTFILES_DIR/macos/defaults.sh"
+read -rp "Apply macOS defaults now? (y/n): " confirm
+	if [[ "$confirm" =~ ^[Yy]$ ]]; then
+		bash "$DOTFILES_DIR/macos/defaults.sh"
+	fi
 
 # Switch to using brew-installed bash as default shell
 BREW_BASH="$(brew --prefix)/bin/bash"

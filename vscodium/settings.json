@@ -14,6 +14,7 @@
 	"files.insertFinalNewline": true,
 	"files.associations": {
 		".aliases": "shellscript",
+		".bash_prompt": "shellscript",
 		".exports": "shellscript",
 		".inputrc": "shellscript",
 		"ignore": "ignore",

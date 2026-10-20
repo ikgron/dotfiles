@@ -14,14 +14,14 @@ cd dotfiles/
 ### macOS
 
 ```bash
-bash macos/install.sh  # Installs Homebrew, installs packages
+bash macos/install.sh  # Installs Homebrew and packages
 bash macos/bootstrap.sh # Symlinks configs and ~/* stuff, prompts for Git config setup, install VSCodium extensions, symlinks VSCodium settings, runs defaults.sh, switches to modern bash
 ```
 
 ### Linux
 
 ```bash
-bash linux/install.sh # Installs apps
+bash linux/install.sh # Installs packages
 bash linux/bootstrap.sh # Symlinks configs and ~/* stuff, prompts for Git config setup, install VSCodium extensions, symlinks VSCodium settings, symlinks Linux specific configs and system settings
 ```
 
