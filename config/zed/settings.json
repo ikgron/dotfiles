@@ -20,6 +20,7 @@
 	"format_on_save": "on",
 	"colorize_brackets": true,
 	"soft_wrap": "editor_width",
+	"hard_tabs": true,
 	"autosave": {
 		"after_delay": {
 			"milliseconds": 1000,
@@ -78,22 +79,15 @@
 	},
 	// File types
 	"file_types": {
-		"Git Config": [
-			"config.local",
-			"config"
-		],
-		"Git Ignore": [
-			"ignore"
-		],
+		"Git Config": ["config.local", "config"],
+		"Git Ignore": ["ignore"],
 		"Shell Script": [
 			".aliases",
 			".bash_prompt",
 			".exports",
 			".inputrc",
-			"Brewfile"
+			"Brewfile",
 		],
-		"TOML": [
-			"config.ghostty"
-		],
+		"TOML": ["config.ghostty"],
 	},
 }
