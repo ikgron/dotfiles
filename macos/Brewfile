@@ -9,6 +9,7 @@ brew "git-delta"
 brew "starship"
 
 cask "bitwarden"
+cask "blockblock"
 cask "ghostty"
 cask "librewolf"
 cask "mullvad-browser"
