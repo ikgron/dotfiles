@@ -42,10 +42,10 @@ shared_setup() {
 
 	# Install extensions if VSCodium is installed
 	if command -v codium &>/dev/null; then
-		read -rp "Install VSCodium extensions now? (y/n): " confirm
+		read -rp "Symlink VSCodium settings.json and install extensions now? (y/n): " confirm
 
 		if [[ "$confirm" =~ ^[Yy]$ ]]; then
-			bash "$dotfiles_dir/vscodium/extensions.sh"
+			bash "$dotfiles_dir/vscodium/vscodium.sh"
 		fi
 	fi
 }

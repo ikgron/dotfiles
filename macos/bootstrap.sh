@@ -7,13 +7,6 @@ DOTFILES_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 source "$DOTFILES_DIR/scripts/lib.sh"
 shared_setup "$DOTFILES_DIR"
 
-VSCODIUM_CONFIG_SRC="$DOTFILES_DIR/vscodium/settings.json"
-VSCODIUM_CONFIG_DEST="$HOME/Library/Application Support/VSCodium/User/settings.json"
-
-# Symlink VSCodium settings
-mkdir -p -- "$(dirname "$VSCODIUM_CONFIG_DEST")"
-ln -sfv -- "$VSCODIUM_CONFIG_SRC" "$VSCODIUM_CONFIG_DEST"
-
 # Apply system preferences and set dock
 read -rp "Apply macOS defaults now? (y/n): " confirm
 	if [[ "$confirm" =~ ^[Yy]$ ]]; then

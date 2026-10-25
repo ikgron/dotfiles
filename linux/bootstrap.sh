@@ -9,7 +9,6 @@ shared_setup "$DOTFILES_DIR"
 
 # Set variables
 WIREPLUMBER_CONFIG_DEST="$HOME/.config/wireplumber/wireplumber.conf.d/51-audio.conf"
-VSCODIUM_CONFIG_DEST="$HOME/.config/VSCodium/User/settings.json"
 UDEV_CONFIG_DEST="/etc/udev/hwdb.d/99-keyboard.hwdb"
 BASH_PATH="$(command -v bash)"
 CURRENT_SHELL="$(getent passwd "$USER" | cut -d: -f7)"
@@ -18,12 +17,6 @@ CURRENT_SHELL="$(getent passwd "$USER" | cut -d: -f7)"
 mkdir -p -- "$(dirname "$WIREPLUMBER_CONFIG_DEST")"
 ln -sfv -- "$DOTFILES_DIR/linux/config/wireplumber/wireplumber.conf.d/51-audio.conf" "$WIREPLUMBER_CONFIG_DEST"
 systemctl --user try-restart wireplumber.service || true
-
-# Symlink VSCodium settings
-mkdir -p -- "$(dirname "$VSCODIUM_CONFIG_DEST")"
-ln -sfv \
-	"$DOTFILES_DIR/vscodium/settings.json" \
-	"$VSCODIUM_CONFIG_DEST"
 
 # Symlink udev hwdb rules
 sudo mkdir -p -- "$(dirname "$UDEV_CONFIG_DEST")"
