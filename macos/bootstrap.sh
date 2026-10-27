@@ -9,18 +9,18 @@ shared_setup "$DOTFILES_DIR"
 
 # Apply system preferences and set dock
 read -rp "Apply macOS defaults now? (y/n): " confirm
-	if [[ "$confirm" =~ ^[Yy]$ ]]; then
-		bash "$DOTFILES_DIR/macos/defaults.sh"
-	fi
+if [[ "$confirm" =~ ^[Yy]$ ]]; then
+	bash "$DOTFILES_DIR/macos/defaults.sh"
+fi
 
 # Switch to using brew-installed bash as default shell
 BREW_BASH="$(brew --prefix)/bin/bash"
 if ! grep -Fqx "$BREW_BASH" /etc/shells; then
-    echo "$BREW_BASH" | sudo tee -a /etc/shells
+	echo "$BREW_BASH" | sudo tee -a /etc/shells
 fi
 
 if [[ "$SHELL" != "$BREW_BASH" ]]; then
-    chsh -s "$BREW_BASH"
+	chsh -s "$BREW_BASH"
 fi
 
 echo "Run 'source ~/.bash_profile' or open a new terminal to reload your shell."

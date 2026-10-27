@@ -12,7 +12,7 @@ _B_BOLD='\[\e[1m\]'
 _B_ITALIC='\[\e[3m\]'
 
 __bash_username() {
-	if (( EUID == 0 )); then
+	if ((EUID == 0)); then
 		printf '%s' "${_B_RED}${USER:-root}${_B_RESET}"
 	else
 		printf '%s' "${_B_BLUE}${USER:-$(id -un)}${_B_RESET}"
@@ -50,7 +50,7 @@ __bash_directory() {
 		fi
 	fi
 
-	if (( ${#dir} > 45 )); then
+	if ((${#dir} > 45)); then
 		dir="…${dir: -42}"
 	fi
 
@@ -82,9 +82,9 @@ __bash_git() {
 		fi
 	done < <(git status --porcelain=v1 --untracked-files=normal 2>/dev/null)
 
-	(( staged ))   && git_status+='✚'
-	(( unstaged )) && git_status+='!'
-	(( untracked )) && git_status+='?'
+	((staged)) && git_status+='✚'
+	((unstaged)) && git_status+='!'
+	((untracked)) && git_status+='?'
 
 	upstream="$(git rev-parse --abbrev-ref --symbolic-full-name '@{upstream}' 2>/dev/null)"
 
@@ -93,11 +93,11 @@ __bash_git() {
 			git rev-list --left-right --count "${upstream}...HEAD" 2>/dev/null
 		)
 
-		if (( ${ahead:-0} > 0 && ${behind:-0} > 0 )); then
+		if ((${ahead:-0} > 0 && ${behind:-0} > 0)); then
 			git_status+='⇕'
 		else
-			(( ${ahead:-0} > 0 )) && git_status+='⇡'
-			(( ${behind:-0} > 0 )) && git_status+='⇣'
+			((${ahead:-0} > 0)) && git_status+='⇡'
+			((${behind:-0} > 0)) && git_status+='⇣'
 		fi
 	fi
 
@@ -171,56 +171,105 @@ __bash_runtime() {
 		[[ -f "$f" ]] || continue
 
 		case "$f" in
-			Cargo.toml|rust-project.json)
-				icon='󱘗'; name='Rust' ;;
-			go.mod)
-				icon=''; name='Go' ;;
-			package.json)
-				icon=''; name='Node.js' ;;
-			bun.lock|bun.lockb)
-				icon=''; name='Bun' ;;
-			deno.json|deno.jsonc)
-				icon=''; name='Deno' ;;
-			pyproject.toml|requirements.txt|setup.py|Pipfile)
-				icon=''; name='Python' ;;
-			Gemfile)
-				icon=''; name='Ruby' ;;
-			composer.json)
-				icon=''; name='PHP' ;;
-			pom.xml|build.gradle|build.gradle.kts|settings.gradle|settings.gradle.kts)
-				icon=''; name='Java' ;;
-			*.sln|*.csproj)
-				icon=''; name='.NET' ;;
-			mix.exs|*.ex|*.exs)
-				icon=''; name='Elixir' ;;
-			pubspec.yaml)
-				icon=''; name='Dart' ;;
-			Package.swift)
-				icon=''; name='Swift' ;;
-			CMakeLists.txt|Makefile)
-				icon=''; name='C/CMake' ;;
-			flake.nix|shell.nix)
-				icon=''; name='Nix' ;;
-			terraform.tf)
-				icon=''; name='Terraform' ;;
-			Chart.yaml)
-				icon=''; name='Helm' ;;
-			Dockerfile)
-				icon=''; name='Docker' ;;
-			*.cabal|*.hs)
-				icon=''; name='Haskell' ;;
-			*.lua)
-				icon=''; name='Lua' ;;
-			*.zig)
-				icon=''; name='Zig' ;;
-			*.nim)
-				icon=''; name='Nim' ;;
-			*.dart)
-				icon=''; name='Dart' ;;
-			*.ipynb)
-				icon=''; name='Notebook' ;;
-			*)
-				continue ;;
+		Cargo.toml | rust-project.json)
+			icon='󱘗'
+			name='Rust'
+			;;
+		go.mod)
+			icon=''
+			name='Go'
+			;;
+		package.json)
+			icon=''
+			name='Node.js'
+			;;
+		bun.lock | bun.lockb)
+			icon=''
+			name='Bun'
+			;;
+		deno.json | deno.jsonc)
+			icon=''
+			name='Deno'
+			;;
+		pyproject.toml | requirements.txt | setup.py | Pipfile)
+			icon=''
+			name='Python'
+			;;
+		Gemfile)
+			icon=''
+			name='Ruby'
+			;;
+		composer.json)
+			icon=''
+			name='PHP'
+			;;
+		pom.xml | build.gradle | build.gradle.kts | settings.gradle | settings.gradle.kts)
+			icon=''
+			name='Java'
+			;;
+		*.sln | *.csproj)
+			icon=''
+			name='.NET'
+			;;
+		mix.exs | *.ex | *.exs)
+			icon=''
+			name='Elixir'
+			;;
+		pubspec.yaml)
+			icon=''
+			name='Dart'
+			;;
+		Package.swift)
+			icon=''
+			name='Swift'
+			;;
+		CMakeLists.txt | Makefile)
+			icon=''
+			name='C/CMake'
+			;;
+		flake.nix | shell.nix)
+			icon=''
+			name='Nix'
+			;;
+		terraform.tf)
+			icon=''
+			name='Terraform'
+			;;
+		Chart.yaml)
+			icon=''
+			name='Helm'
+			;;
+		Dockerfile)
+			icon=''
+			name='Docker'
+			;;
+		*.cabal | *.hs)
+			icon=''
+			name='Haskell'
+			;;
+		*.lua)
+			icon=''
+			name='Lua'
+			;;
+		*.zig)
+			icon=''
+			name='Zig'
+			;;
+		*.nim)
+			icon=''
+			name='Nim'
+			;;
+		*.dart)
+			icon=''
+			name='Dart'
+			;;
+		*.ipynb)
+			icon=''
+			name='Notebook'
+			;;
+		*)
+			continue
+			;;
 		esac
 
 		printf ' %s %s' "$icon" "$name"
@@ -229,41 +278,42 @@ __bash_runtime() {
 
 	[[ -n "${DIRENV_DIR:-}" ]] && printf '  direnv'
 	[[ -n "${IN_NIX_SHELL:-}" ]] && printf '  nix-shell'
-	[[ -n "${SHLVL:-}" ]] && (( SHLVL > 1 )) &&
+	[[ -n "${SHLVL:-}" ]] && ((SHLVL > 1)) &&
 		printf ' 󰹍 %s' "$SHLVL"
 }
 
 __bash_os() {
 	case "$(uname -s 2>/dev/null)" in
-		Linux)
-			if [[ -r /etc/os-release ]]; then
-				. /etc/os-release
-				case "${ID:-linux}" in
-					arch|endeavouros|cachyos) printf '' ;;
-					debian)                   printf '' ;;
-					ubuntu)                   printf '' ;;
-					fedora)                   printf '' ;;
-					alpine)                   printf '' ;;
-					nixos)                    printf '' ;;
-					manjaro)                  printf '' ;;
-					opensuse*|opensuse-tumbleweed) printf '' ;;
-					kali)                     printf '' ;;
-					linuxmint)                printf '' ;;
-					*)
-						case "${ID_LIKE:-}" in
-							*debian*) printf '' ;;
-							*rhel*|*fedora*) printf '' ;;
-							*) printf '' ;;
-						esac ;;
+	Linux)
+		if [[ -r /etc/os-release ]]; then
+			. /etc/os-release
+			case "${ID:-linux}" in
+			arch | endeavouros | cachyos) printf '' ;;
+			debian) printf '' ;;
+			ubuntu) printf '' ;;
+			fedora) printf '' ;;
+			alpine) printf '' ;;
+			nixos) printf '' ;;
+			manjaro) printf '' ;;
+			opensuse* | opensuse-tumbleweed) printf '' ;;
+			kali) printf '' ;;
+			linuxmint) printf '' ;;
+			*)
+				case "${ID_LIKE:-}" in
+				*debian*) printf '' ;;
+				*rhel* | *fedora*) printf '' ;;
+				*) printf '' ;;
 				esac
-			else
-				printf ''
-			fi
-			;;
-		Darwin)  printf '' ;;
-		FreeBSD) printf '' ;;
-		OpenBSD) printf '' ;;
-		*)       printf '' ;;
+				;;
+			esac
+		else
+			printf ''
+		fi
+		;;
+	Darwin) printf '' ;;
+	FreeBSD) printf '' ;;
+	OpenBSD) printf '' ;;
+	*) printf '' ;;
 	esac
 }
 
@@ -272,7 +322,7 @@ __bash_prompt() {
 	local status_color="$_B_RESET"
 	local os
 
-	(( last_status != 0 )) && status_color="$_B_RED"
+	((last_status != 0)) && status_color="$_B_RED"
 
 	PS1="$(__bash_username) "
 	PS1+="$(__bash_hostname) "
