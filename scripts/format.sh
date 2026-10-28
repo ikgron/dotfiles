@@ -6,7 +6,7 @@ if ! command -v prettier >/dev/null 2>&1 || ! command -v shfmt >/dev/null 2>&1; 
 	exit 1
 fi
 
-cd "$(git rev-parse --show-toplevel)"
+cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd
 
 # Format supported files with Prettier.
 prettier . --write --ignore-unknown
