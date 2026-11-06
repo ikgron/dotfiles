@@ -49,6 +49,10 @@ alias path='tr ":" "\n" <<< "$PATH"'
 alias ff='cls && printf "\n\n" && fastfetch'
 alias fff='cls && fastfetch -c ~/.config/fastfetch/launch.jsonc'
 
+cht() {
+	curl -fsS "https://cht.sh/$*"
+}
+
 # OS specific aliases
 if [[ "$OSTYPE" == darwin* ]]; then
 	# Get macOS Software Updates and update Homebrew

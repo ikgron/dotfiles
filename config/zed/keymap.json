@@ -3,6 +3,6 @@
 		"context": "Editor && !in_snippet && !showing_completions",
 		"bindings": {
 			"alt-tab": "editor::MoveToEndOfLargerSyntaxNode",
-		},
-	},
+		}
+	}
 ]
