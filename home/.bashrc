@@ -56,3 +56,6 @@ if [[ -z "$FASTFETCH_RAN" ]] && command -v fastfetch &>/dev/null; then
 	export FASTFETCH_RAN=1
 	fastfetch -c ~/.config/fastfetch/launch.jsonc
 fi
+
+# Zoxide
+eval "$(zoxide init bash)"

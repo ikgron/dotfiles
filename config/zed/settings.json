@@ -12,8 +12,8 @@
 		"light": "One Dark",
 		"dark": "One Dark Pro"
 	},
-	"ui_font_size": 18,
-	"buffer_font_size": 18,
+	"ui_font_size": 17,
+	"buffer_font_size": 17,
 	"buffer_font_family": "FiraCode Nerd Font Mono",
 	"icon_theme": "Material Icon Theme",
 	// Editor
