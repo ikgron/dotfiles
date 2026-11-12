@@ -20,7 +20,6 @@
 	"format_on_save": "on",
 	"colorize_brackets": true,
 	"soft_wrap": "editor_width",
-	"hard_tabs": true,
 	"autosave": {
 		"after_delay": {
 			"milliseconds": 1000

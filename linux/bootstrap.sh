@@ -21,8 +21,8 @@ systemctl --user try-restart wireplumber.service || true
 # Symlink udev hwdb rules
 sudo mkdir -p -- "$(dirname "$UDEV_CONFIG_DEST")"
 sudo ln -sfv \
-	"$DOTFILES_DIR/linux/system/udev/hwdb.d/99-keyboard.hwdb" \
-	"$UDEV_CONFIG_DEST"
+    "$DOTFILES_DIR/linux/system/udev/hwdb.d/99-keyboard.hwdb" \
+    "$UDEV_CONFIG_DEST"
 
 # Reload udev hwdb
 sudo systemd-hwdb update
@@ -31,9 +31,9 @@ sudo udevadm trigger --subsystem-match=input
 
 # Change shell to bash (CachyOS defaults to fish)
 if [[ "$CURRENT_SHELL" != "$BASH_PATH" ]]; then
-	chsh -s "$BASH_PATH"
-	read -rp "Reboot now? (y/n): " confirm
-	if [[ "$confirm" =~ ^[Yy]$ ]]; then
-		sudo reboot
-	fi
+    chsh -s "$BASH_PATH"
+    read -rp "Reboot now? (y/n): " confirm
+    if [[ "$confirm" =~ ^[Yy]$ ]]; then
+        sudo reboot
+    fi
 fi

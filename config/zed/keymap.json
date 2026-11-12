@@ -1,8 +1,8 @@
 [
-	{
-		"context": "Editor && !in_snippet && !showing_completions",
-		"bindings": {
-			"alt-tab": "editor::MoveToEndOfLargerSyntaxNode",
-		}
-	}
+  {
+    "context": "Editor && !in_snippet && !showing_completions",
+    "bindings": {
+      "alt-tab": "editor::MoveToEndOfLargerSyntaxNode"
+    }
+  }
 ]

@@ -1,6 +1,6 @@
 # Set default editor and visual editor
 export EDITOR=vim
-export VISUAL="zed --wait"
+export VISUAL="nano"
 
 # Increase Bash history size. Allow 32³ entries; default is 500.
 export HISTSIZE='32768'
