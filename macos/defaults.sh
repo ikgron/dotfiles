@@ -35,6 +35,9 @@ defaults write com.apple.finder AppleShowAllFiles -bool true
 # Open TextEdit as plain text instead of rich text (requires terminal to have full disk access)
 defaults write com.apple.TextEdit RichText -int 0
 
+# Show full path in Finder
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
+
 # Dock
 if command -v dockutil &>/dev/null; then
     dockutil --no-restart --remove all
